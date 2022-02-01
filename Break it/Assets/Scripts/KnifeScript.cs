@@ -25,6 +25,7 @@ public class KnifeScript : MonoBehaviour
         {
             rb.AddForce(throwForce, ForceMode2D.Impulse);
             rb.gravityScale = 1;
+            // TODO if it's not active
         }
     }
 
@@ -49,6 +50,9 @@ public class KnifeScript : MonoBehaviour
         else if (col.collider.tag == "Knife")
         {
             rb.velocity = new Vector2(rb.velocity.x, -2);
+            // TODO collision with knife
         }
     }
+    
+    // TODO game winning
 }
