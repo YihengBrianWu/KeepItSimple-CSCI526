@@ -46,11 +46,12 @@ public class KnifeScript : MonoBehaviour
 
             knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.18f);
             knifeCollider.size = new Vector2(knifeCollider.size.x, 0.5f);
+            
+            GameController.Instance.OnSuccessfulKnifeHit();
         }
         else if (col.collider.tag == "Knife")
         {
             rb.velocity = new Vector2(rb.velocity.x, -2);
-            // TODO collision with knife
         }
     }
     
