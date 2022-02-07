@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KnifeScript : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class KnifeScript : MonoBehaviour
         else if (col.collider.tag == "Knife")
         {
             rb.velocity = new Vector2(rb.velocity.x, -2);
+            //change to ending menu
+            SceneManager.LoadScene(2);
         }
     }
     

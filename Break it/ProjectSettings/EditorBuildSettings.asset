@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SimpleSence.unity
     guid: 68fe2f8e31b970340ae0dc969fa0571d
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 20544ba653a674b4fbb451ea9889b148
   m_configObjects: {}
