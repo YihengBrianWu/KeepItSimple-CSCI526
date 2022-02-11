@@ -26,7 +26,7 @@ public class KnifeScript : MonoBehaviour
         {
             rb.AddForce(throwForce, ForceMode2D.Impulse);
             rb.gravityScale = 1;
-            // TODO if it's not active
+            GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
         }
     }
 
@@ -48,13 +48,14 @@ public class KnifeScript : MonoBehaviour
             knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.18f);
             knifeCollider.size = new Vector2(knifeCollider.size.x, 0.5f);
             
+            GameController.Instance.hitOnLogInc();
             GameController.Instance.OnSuccessfulKnifeHit();
         }
         else if (col.collider.tag == "Knife")
         {
             rb.velocity = new Vector2(rb.velocity.x, -2);
-            //change to ending menu
-            SceneManager.LoadScene(2);
+            GameController.Instance.hitOnKnifeInc();
+            GameController.Instance.OnSuccessfulKnifeHit();
         }
     }
     
