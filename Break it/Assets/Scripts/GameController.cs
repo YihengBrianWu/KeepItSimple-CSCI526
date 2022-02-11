@@ -97,6 +97,27 @@ public class GameController : MonoBehaviour
         
     }
 
+    public void OnFailKnifeHit()
+    {
+        hitOnKnifeInc();
+        if (hitOnKnife > (knifeAmount - knifeHitLogToWin))
+        {
+            // 埋点 统计有多少飞刀剩余 after lose
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"Level", difficulty},
+                {"KnifeRemaining", knifeCount}
+            };
+            Analytics.CustomEvent("Knife Remain After Lose", parameters);
+            SceneManager.LoadScene(2);
+            return;
+        }
+        if (knifeCount > 0)
+        {
+            SpawnKnife();
+        }
+    }
+
     private void SpawnKnife()
     {
         knifeCount--;
