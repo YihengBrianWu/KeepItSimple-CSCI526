@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(GameUI))]
 public class GameController : MonoBehaviour
@@ -68,12 +66,26 @@ public class GameController : MonoBehaviour
         if (hitOnLog >= knifeHitLogToWin)
         {
             win = true;
+            // 埋点 统计有多少飞刀剩余 after win
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"Level", difficulty},
+                {"KnifeRemaining", knifeCount}
+            };
+            Analytics.CustomEvent("Knife Remain After Win", parameters);
             SceneManager.LoadScene(2);
             return;
         }
 
         if (hitOnKnife > (knifeAmount - knifeHitLogToWin))
         {
+            // 埋点 统计有多少飞刀剩余 after lose
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"Level", difficulty},
+                {"KnifeRemaining", knifeCount}
+            };
+            Analytics.CustomEvent("Knife Remain After Lose", parameters);
             SceneManager.LoadScene(2);
             return;
         }

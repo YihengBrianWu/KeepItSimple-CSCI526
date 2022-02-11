@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6470567200234172843}
   - component: {fileID: 6470567200234172836}
   - component: {fileID: 6470567200234172837}
+  - component: {fileID: 1501004742164853687}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Knife
@@ -145,3 +146,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: {x: 0, y: 40}
+--- !u!231 &1501004742164853687
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470567200234172838}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 6470567200234172843}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 0.005
+  m_DampingRatio: 0
+  m_Frequency: 1
