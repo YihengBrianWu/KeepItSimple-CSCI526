@@ -10,6 +10,10 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
     
+    // 游戏难度
+    [Header("Difficulty")] 
+    public int difficulty;
+    
     // 数量
     [Header("Knife Amount")] 
     [SerializeField] 
