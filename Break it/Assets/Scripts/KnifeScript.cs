@@ -19,10 +19,21 @@ public class KnifeScript : MonoBehaviour
     // 是否还在界面内
     private bool isInView = true;
 
+    private SpriteRenderer sprite;
+    private bool isBlack = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
+
+        if (UnityEngine.Random.Range(0,2) == 1)
+        {
+            sprite = GetComponent<SpriteRenderer>();
+            sprite.color = new Color (0, 0, 0, 1); 
+            isBlack = true;
+        }
+
     }
 
     private void Update()
@@ -48,7 +59,7 @@ public class KnifeScript : MonoBehaviour
             GameController.Instance.OnFailKnifeHit();
         }
     }
-
+ private ContactPoint2D[] contacts = new ContactPoint2D[10];
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!isActive)
@@ -60,15 +71,25 @@ public class KnifeScript : MonoBehaviour
 
         if (col.collider.CompareTag("Log"))
         {
-            rb.velocity = new Vector2(0, 0);
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            this.transform.SetParent(col.collider.transform);
-
-            knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.18f);
-            knifeCollider.size = new Vector2(knifeCollider.size.x, 0.5f);
             
-            GameController.Instance.hitOnLogInc();
-            GameController.Instance.OnSuccessfulKnifeHit();
+            print( col.collider.transform.rotation.z);
+            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.5)||(col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.5)) || (!isBlack && col.collider.transform.rotation.z>-0.5 && col.collider.transform.rotation.z<0.5))
+            {
+                rb.velocity = new Vector2(0, 0);
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                this.transform.SetParent(col.collider.transform);
+
+                knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.4f);
+                knifeCollider.size = new Vector2(knifeCollider.size.x, 1.2f);
+                
+                GameController.Instance.hitOnLogInc();
+                GameController.Instance.OnSuccessfulKnifeHit();
+            }
+            else{
+                rb.velocity = new Vector2(rb.velocity.x, -2);
+                GameController.Instance.hitOnKnifeInc();
+                GameController.Instance.OnSuccessfulKnifeHit();
+            }
         }
         else if (col.collider.CompareTag("Knife"))
         {
