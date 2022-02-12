@@ -155,11 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 250
-    Duration: 1
-  - Speed: 250
-    Duration: 1
-  - Speed: 250
+  - Speed: 200
     Duration: 1
 --- !u!235 &326844242
 WheelJoint2D:
@@ -252,10 +248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 1
-  knifeCount: 8
-  knifeHitLogToWin: 6
+  knifeCount: 20
+  knifeHitLogToWin: 10
   knifeSpawnPosition: {x: 0, y: -4}
-  knifeObject: {fileID: 6470567200234172838, guid: 6c588463154dd4785a61910d4b63ec66, type: 3}
+  knifeObject: {fileID: 8702680265610312539, guid: f9caf9ea4d1af3144b8eb53c4f42b336, type: 3}
   win: 0
 --- !u!4 &587008483
 Transform:
@@ -364,6 +360,7 @@ GameObject:
   - component: {fileID: 941839616}
   - component: {fileID: 941839615}
   - component: {fileID: 941839614}
+  - component: {fileID: 941839618}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -452,6 +449,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &941839618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941839613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0012405127635469283547ce622c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &961391701
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +516,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.28
+  m_Radius: 0.3
 --- !u!212 &961391704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -548,7 +557,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: 1bed7f086540f42c59ddde4434836b80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b8d80d77c49ab5439830766955e3b3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -568,7 +577,7 @@ Transform:
   m_GameObject: {fileID: 961391701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 326844244}
   m_RootOrder: 0
@@ -698,7 +707,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
