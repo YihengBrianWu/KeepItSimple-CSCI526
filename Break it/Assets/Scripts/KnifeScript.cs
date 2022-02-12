@@ -73,7 +73,7 @@ public class KnifeScript : MonoBehaviour
         {
             
             print( col.collider.transform.rotation.z);
-            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.5)||(col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.5)) || (!isBlack && col.collider.transform.rotation.z>-0.5 && col.collider.transform.rotation.z<0.5))
+            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72)) || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72))
             {
                 rb.velocity = new Vector2(0, 0);
                 rb.bodyType = RigidbodyType2D.Kinematic;

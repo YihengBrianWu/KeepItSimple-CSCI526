@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 200
-    Duration: 1
+  - Speed: 50
+    Duration: 1000
 --- !u!235 &326844242
 WheelJoint2D:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   knifeCount: 20
   knifeHitLogToWin: 10
   knifeSpawnPosition: {x: 0, y: -4}
-  knifeObject: {fileID: 8702680265610312539, guid: f9caf9ea4d1af3144b8eb53c4f42b336, type: 3}
+  knifeObject: {fileID: 3143876709204292405, guid: 5168ef7de2112674e9a4497ce590aa69, type: 3}
   win: 0
 --- !u!4 &587008483
 Transform:
@@ -516,7 +516,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.45
 --- !u!212 &961391704
 SpriteRenderer:
   m_ObjectHideFlags: 0
