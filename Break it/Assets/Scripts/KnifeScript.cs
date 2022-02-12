@@ -58,7 +58,7 @@ public class KnifeScript : MonoBehaviour
 
         isActive = false;
 
-        if (col.collider.tag == "Log")
+        if (col.collider.CompareTag("Log"))
         {
             rb.velocity = new Vector2(0, 0);
             rb.bodyType = RigidbodyType2D.Kinematic;
@@ -70,11 +70,11 @@ public class KnifeScript : MonoBehaviour
             GameController.Instance.hitOnLogInc();
             GameController.Instance.OnSuccessfulKnifeHit();
         }
-        else if (col.collider.tag == "Knife")
+        else if (col.collider.CompareTag("Knife"))
         {
             rb.velocity = new Vector2(rb.velocity.x, -2);
-            GameController.Instance.hitOnKnifeInc();
-            GameController.Instance.OnSuccessfulKnifeHit();
+
+            StartCoroutine("WaitNotInView");
         }
     }
     
@@ -110,6 +110,15 @@ public class KnifeScript : MonoBehaviour
         {
             return false;
         }
+    }
+    
+    IEnumerator WaitNotInView() {
+        
+        yield return new WaitUntil(() => isInView == false);
+        yield return new WaitForSecondsRealtime(1);
+        GameController.Instance.hitOnKnifeInc();
+        GameController.Instance.OnSuccessfulKnifeHit();
+        
     }
 
 }
