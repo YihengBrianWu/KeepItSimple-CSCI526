@@ -34,14 +34,17 @@ public class GameUI : MonoBehaviour
 
     [Header("KnifeIconObj")] [SerializeField] 
     private GameObject KnifeIconObj;
-
+    private HitAnim hitAnim;
     public void showLevelUp()
     {
+        hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
         LogObj.SetActive(false);
         LevelUpPanel.SetActive(true);
         ScoreObj1.SetActive(false);
         ScoreObj2.SetActive(false);
         KnifeIconObj.SetActive(false);
+
+        hitAnim.LevelUpShake();
     }
 
     // 生成图像

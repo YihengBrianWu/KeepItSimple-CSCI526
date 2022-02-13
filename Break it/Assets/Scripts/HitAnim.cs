@@ -14,4 +14,8 @@ public class HitAnim : MonoBehaviour
     public void MissShake(){
         camAnim.SetTrigger("miss");
     }
+
+    public void LevelUpShake(){
+        camAnim.SetTrigger("levelUp");
+    }
 }

@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         GameUI = GetComponent<GameUI>();
+
         knifeAmount = knifeCount;
     }
 
@@ -66,7 +67,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator WaitThreeS()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void OnSuccessfulKnifeHit()
