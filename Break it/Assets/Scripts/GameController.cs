@@ -50,17 +50,23 @@ public class GameController : MonoBehaviour
     {
         switch(difficulty)
         {
-            case 0:
+            case -1:
             currentScene = 1;
             break;
-            case 1:
+            case -2:
             currentScene = 2;
             break;
-            case 2:
+            case -3:
             currentScene = 3;
             break;
-            case 3:
+            case 1:
             currentScene = 4;
+            break;
+            case 2:
+            currentScene = 5;
+            break;
+            case 3:
+            currentScene = 6;
             break;
         }
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
@@ -114,7 +120,7 @@ public class GameController : MonoBehaviour
                 {"KnifeRemaining", knifeCount}
             };
             Analytics.CustomEvent("Knife Remain After Lose", parameters);
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(7);
             return;
         }
         
@@ -127,7 +133,6 @@ public class GameController : MonoBehaviour
 
     public void OnFailKnifeHit()
     {
-        hitOnKnifeInc();
         if (hitOnKnife > (knifeAmount - knifeHitLogToWin))
         {
             // 埋点 统计有多少飞刀剩余 after lose
@@ -137,7 +142,7 @@ public class GameController : MonoBehaviour
                 {"KnifeRemaining", knifeCount}
             };
             Analytics.CustomEvent("Knife Remain After Lose", parameters);
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(7);
             return;
         }
         if (knifeCount > 0)

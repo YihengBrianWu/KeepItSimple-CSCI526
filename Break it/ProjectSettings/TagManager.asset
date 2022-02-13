@@ -8,6 +8,7 @@ TagManager:
   - Knife
   - TargetHit
   - LevelControl
+  - MovingObstacle
   layers:
   - Default
   - TransparentFX

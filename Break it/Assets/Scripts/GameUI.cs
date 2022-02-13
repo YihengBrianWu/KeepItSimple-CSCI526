@@ -34,6 +34,11 @@ public class GameUI : MonoBehaviour
 
     [Header("KnifeIconObj")] [SerializeField] 
     private GameObject KnifeIconObj;
+
+    [Header("Obstacle")] [SerializeField] 
+    private GameObject ObstacleObj;
+
+    
     private HitAnim hitAnim;
     public void showLevelUp()
     {
@@ -43,6 +48,7 @@ public class GameUI : MonoBehaviour
         ScoreObj1.SetActive(false);
         ScoreObj2.SetActive(false);
         KnifeIconObj.SetActive(false);
+        ObstacleObj.SetActive(false);
 
         hitAnim.LevelUpShake();
     }

@@ -33,7 +33,7 @@ public class KnifeScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
 
-        if (gameController.difficulty != 1 && UnityEngine.Random.Range(0,2) == 1)
+        if (Mathf.Abs(gameController.difficulty) != 1 && UnityEngine.Random.Range(0,2) == 1)
         {
             sprite = GetComponent<SpriteRenderer>();
             sprite.color = new Color (0, 0, 0, 1); 
@@ -80,7 +80,7 @@ public class KnifeScript : MonoBehaviour
             
             print( col.collider.transform.rotation.z);
             if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72))
-                 || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || gameController.difficulty == 1)
+                 || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || Mathf.Abs(gameController.difficulty) == 1)
             {
                 
                 //play visual effects
@@ -102,11 +102,10 @@ public class KnifeScript : MonoBehaviour
                 hitAnim.MissShake();
 
                 rb.velocity = new Vector2(rb.velocity.x, -2);
-                GameController.Instance.hitOnKnifeInc();
-                GameController.Instance.OnSuccessfulKnifeHit();
+                StartCoroutine("WaitNotInView");
             }
         }
-        else if (col.collider.CompareTag("Knife"))
+        else if (col.collider.CompareTag("Knife") || col.collider.CompareTag("MovingObstacle"))
         {
             hitAnim.MissShake();
 
@@ -114,7 +113,16 @@ public class KnifeScript : MonoBehaviour
             StartCoroutine("WaitNotInView");
         }
     }
+
+    IEnumerator WaitNotInView() {
     
+        yield return new WaitUntil(() => isInView == false);
+        yield return new WaitForSecondsRealtime(1);
+        GameController.Instance.hitOnKnifeInc();
+        GameController.Instance.OnFailKnifeHit();
+        
+    }
+
     // 让knife面对鼠标位置
     public void FaceMouse()
     {
@@ -147,15 +155,6 @@ public class KnifeScript : MonoBehaviour
         {
             return false;
         }
-    }
-    
-    IEnumerator WaitNotInView() {
-        
-        yield return new WaitUntil(() => isInView == false);
-        yield return new WaitForSecondsRealtime(1);
-        GameController.Instance.hitOnKnifeInc();
-        GameController.Instance.OnSuccessfulKnifeHit();
-        
     }
 
 }
