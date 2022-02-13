@@ -15,8 +15,10 @@ public class EndMenu : MonoBehaviour
             {"Level", GameController.Instance.difficulty}
         };
         Analytics.CustomEvent("ClickRestart", parameters);
-        const int firstLevel = 1;
-        SceneManager.LoadScene(firstLevel);
+        // const int firstLevel = 1;
+        // SceneManager.LoadScene(firstLevel);
+        // load the level that the play just failed to reduce frustration
+        SceneManager.LoadScene(GameController.Instance.currentScene);
     }
 
     public void exit()

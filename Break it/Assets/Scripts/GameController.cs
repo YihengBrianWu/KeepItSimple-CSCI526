@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     
     // 游戏难度
     [Header("Difficulty")] 
-    public int difficulty = 1;
+    public int difficulty;
     
     // 数量
     [Header("Knife Amount")] 
@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
 
     private int knifeAmount;
     public bool win = false;
+    public int currentScene = 0;
 
     private void Awake()
     {
@@ -47,6 +48,21 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        switch(difficulty)
+        {
+            case 0:
+            currentScene = 1;
+            break;
+            case 1:
+            currentScene = 2;
+            break;
+            case 2:
+            currentScene = 3;
+            break;
+            case 3:
+            currentScene = 4;
+            break;
+        }
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
         SpawnKnife();
     }
@@ -67,7 +83,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator WaitThreeS()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void OnSuccessfulKnifeHit()
@@ -98,7 +114,7 @@ public class GameController : MonoBehaviour
                 {"KnifeRemaining", knifeCount}
             };
             Analytics.CustomEvent("Knife Remain After Lose", parameters);
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(5);
             return;
         }
         
@@ -121,7 +137,7 @@ public class GameController : MonoBehaviour
                 {"KnifeRemaining", knifeCount}
             };
             Analytics.CustomEvent("Knife Remain After Lose", parameters);
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(5);
             return;
         }
         if (knifeCount > 0)
