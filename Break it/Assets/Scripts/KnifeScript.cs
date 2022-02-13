@@ -90,8 +90,8 @@ public class KnifeScript : MonoBehaviour
                 rb.bodyType = RigidbodyType2D.Kinematic;
                 this.transform.SetParent(col.collider.transform);
 
-                knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.12f);
-                knifeCollider.size = new Vector2(knifeCollider.size.x, 0.6f);
+                knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.2f);
+                knifeCollider.size = new Vector2(knifeCollider.size.x, 0.45f);
                 
                 GameController.Instance.hitOnLogInc();
                 GameController.Instance.OnSuccessfulKnifeHit();
