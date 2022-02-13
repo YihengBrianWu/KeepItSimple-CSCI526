@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//animator obj
+
 public class KnifeScript : MonoBehaviour
 {
+    private HitAnim hitAnim;
     [SerializeField]
     private float throwForce;
 
@@ -24,6 +27,8 @@ public class KnifeScript : MonoBehaviour
 
     private void Awake()
     {
+        hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
+
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
 
@@ -59,7 +64,7 @@ public class KnifeScript : MonoBehaviour
             GameController.Instance.OnFailKnifeHit();
         }
     }
- private ContactPoint2D[] contacts = new ContactPoint2D[10];
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!isActive)
@@ -75,17 +80,25 @@ public class KnifeScript : MonoBehaviour
             print( col.collider.transform.rotation.z);
             if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72)) || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72))
             {
+                
+                //play visual effects
+                GetComponent<ParticleSystem>().Play();
+                hitAnim.HitShake();
+
+                ScoreCount.HitCount ++;
                 rb.velocity = new Vector2(0, 0);
                 rb.bodyType = RigidbodyType2D.Kinematic;
                 this.transform.SetParent(col.collider.transform);
 
-                knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.4f);
-                knifeCollider.size = new Vector2(knifeCollider.size.x, 1.2f);
+                knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.12f);
+                knifeCollider.size = new Vector2(knifeCollider.size.x, 0.6f);
                 
                 GameController.Instance.hitOnLogInc();
                 GameController.Instance.OnSuccessfulKnifeHit();
             }
             else{
+                hitAnim.MissShake();
+
                 rb.velocity = new Vector2(rb.velocity.x, -2);
                 GameController.Instance.hitOnKnifeInc();
                 GameController.Instance.OnSuccessfulKnifeHit();
@@ -93,8 +106,9 @@ public class KnifeScript : MonoBehaviour
         }
         else if (col.collider.CompareTag("Knife"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, -2);
+            hitAnim.MissShake();
 
+            rb.velocity = new Vector2(rb.velocity.x, -2);
             StartCoroutine("WaitNotInView");
         }
     }
