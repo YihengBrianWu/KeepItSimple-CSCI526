@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //animator obj
 
@@ -24,15 +23,17 @@ public class KnifeScript : MonoBehaviour
 
     private SpriteRenderer sprite;
     private bool isBlack = false;
+    private GameController gameController;
 
     private void Awake()
     {
+        gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
         hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
 
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
 
-        if (UnityEngine.Random.Range(0,2) == 1)
+        if (gameController.difficulty != 1 && UnityEngine.Random.Range(0,2) == 1)
         {
             sprite = GetComponent<SpriteRenderer>();
             sprite.color = new Color (0, 0, 0, 1); 
@@ -78,7 +79,8 @@ public class KnifeScript : MonoBehaviour
         {
             
             print( col.collider.transform.rotation.z);
-            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72)) || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72))
+            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72))
+                 || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || gameController.difficulty == 1)
             {
                 
                 //play visual effects

@@ -18,6 +18,32 @@ public class GameUI : MonoBehaviour
     [SerializeField] 
     private Color usedKnifeIconColor;
     
+    // Level up panel
+    [Header("LevelPanel")] [SerializeField] 
+    private GameObject LevelUpPanel;
+
+    // Log 
+    [Header("LogObj")] [SerializeField] 
+    private GameObject LogObj;
+
+    [Header("ScoreObj1")] [SerializeField] 
+    private GameObject ScoreObj1;
+
+    [Header("ScoreObj2")] [SerializeField] 
+    private GameObject ScoreObj2;
+
+    [Header("KnifeIconObj")] [SerializeField] 
+    private GameObject KnifeIconObj;
+
+    public void showLevelUp()
+    {
+        LogObj.SetActive(false);
+        LevelUpPanel.SetActive(true);
+        ScoreObj1.SetActive(false);
+        ScoreObj2.SetActive(false);
+        KnifeIconObj.SetActive(false);
+    }
+
     // 生成图像
     public void SetInitialDisplayedKnifeCount(int count)
     {

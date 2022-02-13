@@ -25,20 +25,6 @@ public class LogRotation : MonoBehaviour
 
     private void Awake()
     {
-        // logObj = GameObject.Find("Log");
-
-        // Texture2D texture = new Texture2D(128, 128);
-        // logObj.GetComponent<SpriteRenderer>().material.mainTexture = texture;
-        // for (int y = 0; y < texture.height; y++)
-        // {
-        //     for (int x = 0; x < texture.width; x++)
-        //     {
-
-        //         texture.SetPixel(x, y, Color.black);
-        //     }
-        // }
-        // texture.Apply();
-    
         wheelJoint = GetComponent<WheelJoint2D>();
         motor = new JointMotor2D();
         StartCoroutine("PlayRotationPattern");

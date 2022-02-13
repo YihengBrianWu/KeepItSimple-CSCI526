@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/UI.unity
     guid: 1a1d77c43e2834f49a3e51c6fc6d4005
   - enabled: 1
-    path: Assets/Scenes/SimpleSence.unity
+    path: Assets/Scenes/level1.unity
+    guid: 11b7664bb0dc7ef4ca66324a8570667f
+  - enabled: 1
+    path: Assets/Scenes/level2.unity
     guid: 68fe2f8e31b970340ae0dc969fa0571d
   - enabled: 1
     path: Assets/Scenes/Ending.unity
