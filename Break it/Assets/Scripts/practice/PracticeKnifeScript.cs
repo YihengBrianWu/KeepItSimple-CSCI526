@@ -19,6 +19,21 @@ public class PracticeKnifeScript : MonoBehaviour
     // 是否还在界面内
     private bool isInView = true;
 
+    // last frame velocity
+    private Vector2 lastVelocity;
+
+    // private Vector2 arrowDir;
+    // private Vector2 bowScript;
+    
+    
+    // private void Start()
+    // {
+    //     arrowDir = bowScript.;
+    //     arrowDir = 0;
+    //     rb.velocity = arrowDir.normalized * lastVelocity;
+    // }
+
+    
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +42,8 @@ public class PracticeKnifeScript : MonoBehaviour
 
     private void Update()
     {
+
+        lastVelocity = rb.velocity;
         
         if (isActive && !stopFaceMouse)
         {
@@ -53,9 +70,23 @@ public class PracticeKnifeScript : MonoBehaviour
 
         if (col.collider.CompareTag("Wall"))
         {
-            Vector2 inDirection = rb.velocity;
-            Vector2 inNormal = col.contacts[0].normal;
-            Vector2 newVelocity = Vector2.Reflect(inDirection, inNormal);
+            // Vector2 inDirection = rb.velocity;
+            // Vector2 inNormal = col.contacts[0].normal;
+            // Vector2 newVelocity = Vector2.Reflect(inDirection, inNormal);
+
+            var speed = lastVelocity.magnitude;
+            var direction = Vector2.Reflect(lastVelocity.normalized, col.contacts[0].normal);
+            rb.velocity = direction * Mathf.Max(speed, 0f);
+            
+            Vector2 newDir = new Vector3(transform.position.x, transform.position.y, 0);
+            float newDirValue = Mathf.Atan2(newDir.y - direction.y, newDir.x - direction.x);
+            float newDirValueDeg = -(270 / Mathf.PI) * newDirValue;
+            transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
+            // Vector3 newDir = new Vector3(transform.position.x, transform.position.y, 0);
+            // float newDirValue = Mathf.Atan2(newDir.y - currDir.y, newDir.x - currDir.x);
+            // float newDirValueDeg = (180 / Mathf.PI) * newDirValue;
+            // transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
+
             
             // Vector2D inDirection = GetComponent<RigidBody2D>().velocity;
             // Vector2D inNormal = collision.contacts[0].normal;
