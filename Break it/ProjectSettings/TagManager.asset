@@ -9,6 +9,7 @@ TagManager:
   - TargetHit
   - LevelControl
   - MovingObstacle
+  - Wall
   layers:
   - Default
   - TransparentFX
