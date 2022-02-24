@@ -80,7 +80,7 @@ public class PracticeKnifeScript : MonoBehaviour
             
             Vector2 newDir = new Vector3(transform.position.x, transform.position.y, 0);
             float newDirValue = Mathf.Atan2(newDir.y - direction.y, newDir.x - direction.x);
-            float newDirValueDeg = -(270 / Mathf.PI) * newDirValue;
+            float newDirValueDeg = -(300 / Mathf.PI) * newDirValue;
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
             // Vector3 newDir = new Vector3(transform.position.x, transform.position.y, 0);
             // float newDirValue = Mathf.Atan2(newDir.y - currDir.y, newDir.x - currDir.x);
