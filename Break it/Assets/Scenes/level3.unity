@@ -339,15 +339,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a791e2aa6e9854882f9be4be307671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotalCircle: 4
   NeedKnife: 0
   circlePrefab: {fileID: 3267387781918987694, guid: fe45b628f65d4be4fbfe87e5a2babfa1, type: 3}
   knifePrefab: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
   RewardLevels:
   - circleAngle:
     - 30
-    - 120
-    - 210
-    - 300
+    - 50
+    - 230
+    - 200
     kinfeAngle: []
 --- !u!1 &300971486
 GameObject:

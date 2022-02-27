@@ -834,7 +834,7 @@ MonoBehaviour:
   knifePrefab: {fileID: 8702680265610312539, guid: f9caf9ea4d1af3144b8eb53c4f42b336, type: 3}
   RewardLevels:
   - circleAngle:
-    - 0
+    - 50
     - 180
     kinfeAngle:
     - 90

@@ -28,7 +28,11 @@ public class RewardCircle : MonoBehaviour
             RewardCount.CircleCount ++;
 
             int levelParam = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>().difficulty;
-            PlayerPrefs.SetInt("level"+levelParam, RewardCount.CircleCount);
+            int tempLevel = PlayerPrefs.GetInt("level"+levelParam, 0);
+            PlayerPrefs.SetInt("level"+levelParam, tempLevel + 1);
+            
+            int tempTotal = PlayerPrefs.GetInt("total", 0);
+            PlayerPrefs.SetInt("total", tempTotal + 1);
 
             circleParticle.Play();
             Destroy(gameObject, 2f);

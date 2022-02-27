@@ -10,7 +10,7 @@ public class RewardCount : MonoBehaviour
 
     void Start()
     {
-        CircleCount = 0;    
+        CircleCount = PlayerPrefs.GetInt("total", 0);    
     }
 
     void Update()

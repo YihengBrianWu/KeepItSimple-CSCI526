@@ -52,10 +52,11 @@ public class KnifeScript : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && isActive)
         {
+            if (!stopFaceMouse)
+                GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
             stopFaceMouse = true;
             rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
             rb.gravityScale = 1;
-            GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
         }
     
         // isActive保证这个if只进入一次
