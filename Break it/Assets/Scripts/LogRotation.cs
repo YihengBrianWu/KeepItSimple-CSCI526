@@ -36,7 +36,6 @@ public class LogRotation : MonoBehaviour
         while (true)
         {
             yield return new WaitForFixedUpdate();
-
             motor.motorSpeed = rotationPattern[rotationIndex].Speed;
             motor.maxMotorTorque = 10000;
             wheelJoint.motor = motor;
