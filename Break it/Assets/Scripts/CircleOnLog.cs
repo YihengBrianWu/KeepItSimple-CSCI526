@@ -26,12 +26,6 @@ public class CircleOnLog : MonoBehaviour
 
     private void SpawnCircle()
     {
-        // levelHash = new Hashtable();
-        // for (int i = 1; i < 10; i ++)
-        // {
-        //     levelHash.Add("level"+i, i);
-        // }
-        // int levelInt = levelHash["level"+levelParam];
 
         int tempCount = TotalCircle - PlayerPrefs.GetInt("level"+levelParam, 0);
         foreach (float circleA in RewardLevels[0].circleAngle)

@@ -50,23 +50,14 @@ public class GameController : MonoBehaviour
     {
         switch(difficulty)
         {
-            case -1:
-            currentScene = 1;
-            break;
-            case -2:
+            case 1:
             currentScene = 2;
             break;
-            case -3:
+            case 2:
             currentScene = 3;
             break;
-            case 1:
-            currentScene = 4;
-            break;
-            case 2:
-            currentScene = 5;
-            break;
             case 3:
-            currentScene = 6;
+            currentScene = 4;
             break;
         }
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);

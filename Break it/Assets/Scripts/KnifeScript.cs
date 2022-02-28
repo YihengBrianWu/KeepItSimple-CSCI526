@@ -25,6 +25,11 @@ public class KnifeScript : MonoBehaviour
     private bool isBlack = false;
     private GameController gameController;
 
+    private Vector2 lastVelocity;
+
+    private bool lockRotation = false;
+    private float newDirValueDeg;
+
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
@@ -44,6 +49,7 @@ public class KnifeScript : MonoBehaviour
 
     private void Update()
     {
+        lastVelocity = rb.velocity;
         isInView = IsInView(transform.position);
         // 只有在准备过程中才会facemouse，一旦发射，则禁用功能
         if (isActive && !stopFaceMouse)
@@ -65,6 +71,11 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
             GameController.Instance.OnFailKnifeHit();
         }
+
+        if (lockRotation)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -74,16 +85,16 @@ public class KnifeScript : MonoBehaviour
             return;
         }
 
-        isActive = false;
 
         if (col.collider.CompareTag("Log"))
         {
             
+            isActive = false;
             print( col.collider.transform.rotation.z);
             if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72))
                  || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || Mathf.Abs(gameController.difficulty) == 1)
             {
-                
+                lockRotation = false;
                 //play visual effects
                 GetComponent<ParticleSystem>().Play();
                 hitAnim.HitShake();
@@ -109,14 +120,36 @@ public class KnifeScript : MonoBehaviour
         else if (col.collider.CompareTag("Knife") || col.collider.CompareTag("MovingObstacle"))
         {
             hitAnim.MissShake();
+            isActive = false;
 
             rb.velocity = new Vector2(rb.velocity.x, -2);
             StartCoroutine("WaitNotInView");
         }
+        else if (col.collider.CompareTag("Wall"))
+        {
+            var speed = lastVelocity.magnitude;
+            var direction = Vector2.Reflect(lastVelocity.normalized, col.contacts[0].normal);
+            rb.velocity = direction * Mathf.Max(speed, 0f);
+            
+            Vector2 newDir = new Vector3(transform.position.x, transform.position.y, 0);
+            float newDirValue = Mathf.Atan2(newDir.y - direction.y, newDir.x - direction.x);
+            newDirValueDeg = -(300 / Mathf.PI) * newDirValue;
+            transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
+            lockRotation = true;
+            
+            StartCoroutine("WaitReflect");
+
+        }
     }
 
+    IEnumerator WaitReflect() {
+        
+        yield return new WaitForSecondsRealtime(0.8f);
+        if (isActive)
+            isActive = false;
+    }
     IEnumerator WaitNotInView() {
-    
+        
         yield return new WaitUntil(() => isInView == false);
         yield return new WaitForSecondsRealtime(1);
         GameController.Instance.hitOnKnifeInc();
