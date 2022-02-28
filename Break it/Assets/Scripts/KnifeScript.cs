@@ -38,7 +38,7 @@ public class KnifeScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
 
-        if (Mathf.Abs(gameController.difficulty) != 1 && UnityEngine.Random.Range(0,2) == 1)
+        if (gameController.difficulty != 1 && gameController.difficulty != 0 && UnityEngine.Random.Range(0,2) == 1)
         {
             sprite = GetComponent<SpriteRenderer>();
             sprite.color = new Color (0, 0, 0, 1); 
@@ -92,7 +92,7 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
             print( col.collider.transform.rotation.z);
             if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72))
-                 || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || Mathf.Abs(gameController.difficulty) == 1)
+                 || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || gameController.difficulty == 1 || gameController.difficulty == 0)
             {
                 lockRotation = false;
                 //play visual effects
@@ -125,7 +125,7 @@ public class KnifeScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -2);
             StartCoroutine("WaitNotInView");
         }
-        else if (col.collider.CompareTag("Wall"))
+        else if (col.collider.CompareTag("Wall") || (col.collider.CompareTag("WhiteWall") && !isBlack) || (col.collider.CompareTag("BlackWall") && isBlack))
         {
             var speed = lastVelocity.magnitude;
             var direction = Vector2.Reflect(lastVelocity.normalized, col.contacts[0].normal);
@@ -138,7 +138,14 @@ public class KnifeScript : MonoBehaviour
             lockRotation = true;
             
             StartCoroutine("WaitReflect");
+        }
+        else
+        {
+            hitAnim.MissShake();
+            isActive = false;
 
+            rb.velocity = new Vector2(rb.velocity.x, -2);
+            StartCoroutine("WaitNotInView");
         }
     }
 

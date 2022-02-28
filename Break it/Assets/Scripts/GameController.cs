@@ -48,18 +48,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        switch(difficulty)
-        {
-            case 1:
-            currentScene = 2;
-            break;
-            case 2:
-            currentScene = 3;
-            break;
-            case 3:
-            currentScene = 4;
-            break;
-        }
+        currentScene = difficulty + 1;
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
         SpawnKnife();
     }
@@ -133,7 +122,7 @@ public class GameController : MonoBehaviour
                 {"KnifeRemaining", knifeCount}
             };
             Analytics.CustomEvent("Knife Remain After Lose", parameters);
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(9);
             return;
         }
         if (knifeCount > 0)

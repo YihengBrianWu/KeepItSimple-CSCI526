@@ -10,6 +10,8 @@ TagManager:
   - LevelControl
   - MovingObstacle
   - Wall
+  - BlackWall
+  - WhiteWall
   layers:
   - Default
   - TransparentFX
