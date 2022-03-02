@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - BlackWall
   - WhiteWall
+  - Event
   layers:
   - Default
   - TransparentFX
