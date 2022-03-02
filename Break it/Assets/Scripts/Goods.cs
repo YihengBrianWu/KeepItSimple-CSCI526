@@ -14,6 +14,6 @@ public class Goods : MonoBehaviour
     void Update()
     {
         priceText.text = ShopManager.GetComponent<ShopManagerScript>().shopItems[2, ItemID].ToString() + " Coins";
-        //quantity.text = ShopManager.GetComponent<ShopManagerScript>().shopItems[3, ItemID].ToString();
+        quantity.text = ShopManager.GetComponent<ShopManagerScript>().shopItems[3, ItemID].ToString();
     }
 }

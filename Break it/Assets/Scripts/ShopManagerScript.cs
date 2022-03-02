@@ -15,8 +15,7 @@ public class ShopManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(RewardCount.CircleCount.ToString());
-        CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
+        CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total");
 
         //ID
         shopItems[1, 1] = 1;
@@ -25,7 +24,7 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[2, 1] = 10;
 
         //Quantity
-        shopItems[3, 1] = 0;
+        shopItems[3, 1] = PlayerPrefs.GetInt("item1",0);
     }
 
     // Update is called once per frame
@@ -33,12 +32,13 @@ public class ShopManagerScript : MonoBehaviour
     {   
         GameObject buttonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         int id = buttonRef.GetComponent<Goods>().ItemID;
-        int coin = PlayerPrefs.GetInt("total", 0);
+        int coin = PlayerPrefs.GetInt("total");
         int price = shopItems[2, id];
         if (coin >= price && shopItems[3, id] == 0) {
             PlayerPrefs.SetInt("total", coin-price);
             shopItems[3, id] = 1;
-            CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
+            CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total");
+            PlayerPrefs.SetInt("item"+id.ToString(), 1);
             buttonRef.GetComponent<Goods>().quantity.text = "1";
         }
     }
