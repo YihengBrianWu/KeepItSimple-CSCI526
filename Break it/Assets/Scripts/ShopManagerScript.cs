@@ -8,14 +8,14 @@ public class ShopManagerScript : MonoBehaviour
 {
 
     public int[,] shopItems = new int[4,2];
-    public int coins;
     public Text CoinsTXT;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        CoinsTXT.text = "Coins: " + coins.ToString();
+        Debug.Log(RewardCount.CircleCount.ToString());
+        CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
 
         //ID
         shopItems[1, 1] = 1;
@@ -32,11 +32,12 @@ public class ShopManagerScript : MonoBehaviour
     {   
         GameObject buttonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         int id = buttonRef.GetComponent<Goods>().ItemID;
+        int coin = PlayerPrefs.GetInt("total", 0);
         int price = shopItems[2, id];
-        if (coins >= price && shopItems[3, id] == 0) {
-            coins -= price;
+        if (coin >= price && shopItems[3, id] == 0) {
+            PlayerPrefs.SetInt("total", coin-price);
             shopItems[3, id] = 1;
-            CoinsTXT.text = "Coins: " + coins.ToString();
+            CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
             buttonRef.GetComponent<Goods>().quantity.text = "1";
         }
     }
