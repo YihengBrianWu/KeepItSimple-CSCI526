@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ShopManagerScript : MonoBehaviour
 {
@@ -40,5 +41,9 @@ public class ShopManagerScript : MonoBehaviour
             CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
             buttonRef.GetComponent<Goods>().quantity.text = "1";
         }
+    }
+
+    public void Back() {
+        SceneManager.LoadScene(GameController.Instance.currentScene);
     }
 }
