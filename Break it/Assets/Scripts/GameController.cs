@@ -37,6 +37,11 @@ public class GameController : MonoBehaviour
     private int knifeAmount;
     public bool win = false;
     public int currentScene = 0;
+    
+    // analytics 用
+    public int knifeCollisionHappens = 0;
+    public int knifeObstacleHappens = 0;
+    public int knifeHitWrongSection = 0;
 
     private void Awake()
     {
@@ -53,18 +58,18 @@ public class GameController : MonoBehaviour
         SpawnKnife();
     }
     
-    // 统计有多少射到log上有多少射到knife上
+    // 统计有多少射到log上
     private int hitOnLog = 0;
-    private int hitOnKnife = 0;
+    private int failHit = 0;
 
     public void hitOnLogInc()
     {
         hitOnLog++;
     }
 
-    public void hitOnKnifeInc()
+    public void failitInc()
     {
-        hitOnKnife++;
+        failHit++;
     }
 
     IEnumerator WaitThreeS()
@@ -74,16 +79,27 @@ public class GameController : MonoBehaviour
     }
     public void OnSuccessfulKnifeHit()
     {
+        
+        // Debug.Log("knifeCollisionHappens: " + knifeCollisionHappens);
+        // Debug.Log("knifeObstacleHappens: " + knifeObstacleHappens);
+        // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
+        // Debug.Log("failHit: " + failHit);
+        
         if (hitOnLog >= knifeHitLogToWin)
         {
             win = true;
-            // 埋点 统计有多少飞刀剩余 after win
+            // 埋点 after win 之后的统计数据
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"Level", difficulty},
-                {"KnifeRemaining", knifeCount}
+                {"KnifeRemaining", knifeCount},
+                {"State", "win"},
+                {"Knife Used", knifeAmount - knifeCount},
+                {"Knife Collision", knifeCollisionHappens},
+                {"Obstacle Collision", knifeObstacleHappens},
+                {"Wrong Section", knifeHitWrongSection}
             };
-            Analytics.CustomEvent("Knife Remain After Win", parameters);
+            Analytics.CustomEvent("Stats After Win", parameters);
 
             GameUI.showLevelUp();
             StartCoroutine("WaitThreeS");
@@ -91,15 +107,23 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        if (hitOnKnife > (knifeAmount - knifeHitLogToWin))
+        if (failHit > (knifeAmount - knifeHitLogToWin))
         {
-            // 埋点 统计有多少飞刀剩余 after lose
+            // Debug.Log("knifeCollisionHappens" + knifeCollisionHappens);
+            // Debug.Log("knifeObstacleHappens" + knifeObstacleHappens);
+            // Debug.Log("knifeHitWrongSection" + knifeHitWrongSection);
+            // 埋点 after lose 之后的统计数据
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"Level", difficulty},
-                {"KnifeRemaining", knifeCount}
+                {"KnifeRemaining", knifeCount},
+                {"State", "lose"},
+                {"Knife Used", knifeAmount - knifeCount},
+                {"Knife Collision", knifeCollisionHappens},
+                {"Obstacle Collision", knifeObstacleHappens},
+                {"Wrong Section", knifeHitWrongSection}
             };
-            Analytics.CustomEvent("Knife Remain After Lose", parameters);
+            Analytics.CustomEvent("Stats After Lose", parameters);
             SceneManager.LoadScene(7);
             return;
         }
@@ -113,15 +137,24 @@ public class GameController : MonoBehaviour
 
     public void OnFailKnifeHit()
     {
-        if (hitOnKnife > (knifeAmount - knifeHitLogToWin))
+        // Debug.Log("knifeCollisionHappens: " + knifeCollisionHappens);
+        // Debug.Log("knifeObstacleHappens: " + knifeObstacleHappens);
+        // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
+        // Debug.Log("failHit: " + failHit);
+        if (failHit > (knifeAmount - knifeHitLogToWin))
         {
-            // 埋点 统计有多少飞刀剩余 after lose
+            // 埋点 after lose 之后的统计数据
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"Level", difficulty},
-                {"KnifeRemaining", knifeCount}
+                {"KnifeRemaining", knifeCount},
+                {"State", "lose"},
+                {"Knife Used", knifeAmount - knifeCount},
+                {"Knife Collision", knifeCollisionHappens},
+                {"Obstacle Collision", knifeObstacleHappens},
+                {"Wrong Section", knifeHitWrongSection}
             };
-            Analytics.CustomEvent("Knife Remain After Lose", parameters);
+            Analytics.CustomEvent("Stats After Lose", parameters);
             SceneManager.LoadScene(9);
             return;
         }

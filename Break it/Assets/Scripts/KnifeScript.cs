@@ -69,6 +69,7 @@ public class KnifeScript : MonoBehaviour
         if (!isInView && isActive)
         {
             isActive = false;
+            GameController.Instance.failitInc();
             GameController.Instance.OnFailKnifeHit();
         }
 
@@ -110,15 +111,27 @@ public class KnifeScript : MonoBehaviour
                 GameController.Instance.hitOnLogInc();
                 GameController.Instance.OnSuccessfulKnifeHit();
             }
-            else{
+            else
+            {
+                GameController.Instance.knifeHitWrongSection++;
                 hitAnim.MissShake();
 
                 rb.velocity = new Vector2(rb.velocity.x, -2);
                 StartCoroutine("WaitNotInView");
             }
         }
-        else if (col.collider.CompareTag("Knife") || col.collider.CompareTag("MovingObstacle"))
+        else if (col.collider.CompareTag("Knife"))
         {
+            GameController.Instance.knifeCollisionHappens++;
+            hitAnim.MissShake();
+            isActive = false;
+
+            rb.velocity = new Vector2(rb.velocity.x, -2);
+            StartCoroutine("WaitNotInView");
+        }
+        else if (col.collider.CompareTag("MovingObstacle"))
+        {
+            GameController.Instance.knifeObstacleHappens++;
             hitAnim.MissShake();
             isActive = false;
 
@@ -159,7 +172,7 @@ public class KnifeScript : MonoBehaviour
         
         yield return new WaitUntil(() => isInView == false);
         yield return new WaitForSecondsRealtime(1);
-        GameController.Instance.hitOnKnifeInc();
+        GameController.Instance.failitInc();
         GameController.Instance.OnFailKnifeHit();
         
     }
