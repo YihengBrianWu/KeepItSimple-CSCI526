@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
@@ -99,7 +100,9 @@ public class GameController : MonoBehaviour
                 {"Obstacle Collision", knifeObstacleHappens},
                 {"Wrong Section", knifeHitWrongSection}
             };
-            Analytics.CustomEvent("Stats After Win", parameters);
+            AnalyticsResult result = Analytics.CustomEvent("Stats After Win", parameters);
+            Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
+            Debug.Log(result);
 
             GameUI.showLevelUp();
             StartCoroutine("WaitThreeS");
@@ -123,7 +126,9 @@ public class GameController : MonoBehaviour
                 {"Obstacle Collision", knifeObstacleHappens},
                 {"Wrong Section", knifeHitWrongSection}
             };
-            Analytics.CustomEvent("Stats After Lose", parameters);
+            AnalyticsResult result = Analytics.CustomEvent("Stats After Lose", parameters);
+            Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
+            Debug.Log(result);
             SceneManager.LoadScene(7);
             return;
         }
@@ -154,7 +159,9 @@ public class GameController : MonoBehaviour
                 {"Obstacle Collision", knifeObstacleHappens},
                 {"Wrong Section", knifeHitWrongSection}
             };
-            Analytics.CustomEvent("Stats After Lose", parameters);
+            AnalyticsResult result = Analytics.CustomEvent("Stats After Lose", parameters);
+            Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
+            Debug.Log(result);
             SceneManager.LoadScene(9);
             return;
         }
