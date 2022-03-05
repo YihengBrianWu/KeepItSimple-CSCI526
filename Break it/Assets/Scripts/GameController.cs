@@ -101,6 +101,7 @@ public class GameController : MonoBehaviour
                 {"Wrong Section", knifeHitWrongSection}
             };
             AnalyticsResult result = Analytics.CustomEvent("Stats After Win", parameters);
+            Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
 
@@ -127,6 +128,7 @@ public class GameController : MonoBehaviour
                 {"Wrong Section", knifeHitWrongSection}
             };
             AnalyticsResult result = Analytics.CustomEvent("Stats After Lose", parameters);
+            Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
             SceneManager.LoadScene(7);
@@ -160,6 +162,7 @@ public class GameController : MonoBehaviour
                 {"Wrong Section", knifeHitWrongSection}
             };
             AnalyticsResult result = Analytics.CustomEvent("Stats After Lose", parameters);
+            Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
             SceneManager.LoadScene(9);

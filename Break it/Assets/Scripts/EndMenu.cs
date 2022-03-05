@@ -15,6 +15,7 @@ public class EndMenu : MonoBehaviour
             {"Level", GameController.Instance.difficulty}
         };
         AnalyticsResult result = Analytics.CustomEvent("Click Restart", parameters);
+        Analytics.FlushEvents();
         Debug.Log(result);
         // const int firstLevel = 1;
         // SceneManager.LoadScene(firstLevel);
@@ -30,6 +31,7 @@ public class EndMenu : MonoBehaviour
             {"Level", GameController.Instance.difficulty}
         };
         AnalyticsResult result = Analytics.CustomEvent("Click Quit", parameters);
+        Analytics.FlushEvents();
         Debug.Log(result);
         Debug.Log("The game is quited");
         Application.Quit();
