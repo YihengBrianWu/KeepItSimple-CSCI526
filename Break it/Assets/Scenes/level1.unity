@@ -239,7 +239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2084, y: -799}
+  m_AnchoredPosition: {x: 1331.7, y: -672}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27694131
@@ -905,6 +905,9 @@ MonoBehaviour:
   knifeObject: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
   win: 0
   currentScene: 0
+  knifeCollisionHappens: 0
+  knifeObstacleHappens: 0
+  knifeHitWrongSection: 0
 --- !u!4 &1388421606
 Transform:
   m_ObjectHideFlags: 0

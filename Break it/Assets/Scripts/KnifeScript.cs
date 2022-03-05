@@ -86,16 +86,16 @@ public class KnifeScript : MonoBehaviour
             return;
         }
 
+        lockRotation = false;    
 
         if (col.collider.CompareTag("Log"))
         {
             
             isActive = false;
             print( col.collider.transform.rotation.z);
-            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.72)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.72))
-                 || (!isBlack && col.collider.transform.rotation.z>-0.72 && col.collider.transform.rotation.z<0.72) || gameController.difficulty == 1 || gameController.difficulty == 0)
+            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.70)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.7))
+                 || (!isBlack && col.collider.transform.rotation.z>-0.7 && col.collider.transform.rotation.z<0.7) || gameController.difficulty == 1 || gameController.difficulty == 0)
             {
-                lockRotation = false;
                 //play visual effects
                 GetComponent<ParticleSystem>().Play();
                 hitAnim.HitShake();
@@ -146,7 +146,15 @@ public class KnifeScript : MonoBehaviour
             
             Vector2 newDir = new Vector3(transform.position.x, transform.position.y, 0);
             float newDirValue = Mathf.Atan2(newDir.y - direction.y, newDir.x - direction.x);
-            newDirValueDeg = -(300 / Mathf.PI) * newDirValue;
+            print(newDirValue);
+            if (newDirValue < -0.8)
+            {
+                newDirValueDeg = -(350 / Mathf.PI) * newDirValue;
+            }
+            else
+            {
+                newDirValueDeg = -(300 / Mathf.PI) * newDirValue;
+            }
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
             lockRotation = true;
             

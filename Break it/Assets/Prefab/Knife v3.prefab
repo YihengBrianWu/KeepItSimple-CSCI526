@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3143876709204292405, guid: 5168ef7de2112674e9a4497ce590aa69, type: 3}
       propertyPath: m_Name
-      value: Knife v2
+      value: Knife v3
       objectReference: {fileID: 0}
     - target: {fileID: 3143876709204292410, guid: 5168ef7de2112674e9a4497ce590aa69, type: 3}
       propertyPath: m_RootOrder
@@ -314,7 +314,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2

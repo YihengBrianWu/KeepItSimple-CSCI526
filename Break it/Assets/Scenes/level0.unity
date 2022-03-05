@@ -564,6 +564,9 @@ MonoBehaviour:
   knifeObject: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
   win: 0
   currentScene: 0
+  knifeCollisionHappens: 0
+  knifeObstacleHappens: 0
+  knifeHitWrongSection: 0
 --- !u!4 &644449127
 Transform:
   m_ObjectHideFlags: 0
@@ -625,19 +628,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
+  - Speed: 130
+    Duration: 2
+  - Speed: -200
+    Duration: 2
+  - Speed: 100
+    Duration: 3
+  - Speed: -230
+    Duration: 2
   - Speed: 100
     Duration: 2
   - Speed: -170
-    Duration: 2
-  - Speed: 70
     Duration: 3
-  - Speed: -200
-    Duration: 2
-  - Speed: 70
-    Duration: 2
-  - Speed: -140
-    Duration: 3
-  - Speed: 150
+  - Speed: 180
     Duration: 2
 --- !u!235 &843476201
 WheelJoint2D:
