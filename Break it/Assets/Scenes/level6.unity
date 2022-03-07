@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationPattern:
   - Speed: 120
-    Duration: 2
+    Duration: 3
   - Speed: -190
     Duration: 2
   - Speed: 90

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField]
+    private bool canPrint = false;
     void Update()
     {
-        print( transform.rotation.z);
+        if (canPrint)
+            print( transform.rotation.eulerAngles.z);
     }
 }

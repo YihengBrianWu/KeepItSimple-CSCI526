@@ -29,6 +29,8 @@ public class KnifeScript : MonoBehaviour
 
     private bool lockRotation = false;
     private float newDirValueDeg;
+    private bool isTiltedLeft = false;
+    private bool reflected = false;
 
     private void Awake()
     {
@@ -90,11 +92,28 @@ public class KnifeScript : MonoBehaviour
 
         if (col.collider.CompareTag("Log"))
         {
-            
+   
             isActive = false;
-            print( col.collider.transform.rotation.z);
-            if ((isBlack && (col.collider.transform.rotation.z<1 &&col.collider.transform.rotation.z>0.70)||(isBlack && col.collider.transform.rotation.z>-1 &&col.collider.transform.rotation.z<-0.7))
-                 || (!isBlack && col.collider.transform.rotation.z>-0.7 && col.collider.transform.rotation.z<0.7) || gameController.difficulty == 1 || gameController.difficulty == 0)
+
+            float tempZ = col.collider.transform.rotation.eulerAngles.z; 
+            // print(tempZ);
+            // print("isBlack " + isBlack);
+            // print("reflected " + reflected);
+            // print("isTiltedLeft " + isTiltedLeft);
+
+            if (!reflected && !isBlack && ((tempZ>270 && tempZ<360) || (tempZ>0 && tempZ<90)))
+            {
+                print("worked");
+            }
+            if ((!reflected && (isBlack && tempZ<270 &&tempZ>90))
+                 || (!reflected && !isBlack && ((tempZ>270 && tempZ<360) || (tempZ>0 && tempZ<90)))
+                 || gameController.difficulty == 1 
+                 || gameController.difficulty == 0
+                 || (!isTiltedLeft && reflected && (isBlack && tempZ<310 &&tempZ>135))
+                 || (isTiltedLeft && reflected && (isBlack && tempZ>35 &&tempZ<210))
+                 || (!isTiltedLeft && reflected&& !isBlack && ((tempZ<135 && tempZ>0) || (tempZ>330 && tempZ<360)))
+                 || (isTiltedLeft && reflected&& !isBlack && ((tempZ>220 && tempZ<360) || (tempZ<40 && tempZ>0)))
+                 )
             {
                 //play visual effects
                 GetComponent<ParticleSystem>().Play();
@@ -140,16 +159,18 @@ public class KnifeScript : MonoBehaviour
         }
         else if (col.collider.CompareTag("Wall") || (col.collider.CompareTag("WhiteWall") && !isBlack) || (col.collider.CompareTag("BlackWall") && isBlack))
         {
+            reflected = true;
             var speed = lastVelocity.magnitude;
             var direction = Vector2.Reflect(lastVelocity.normalized, col.contacts[0].normal);
             rb.velocity = direction * Mathf.Max(speed, 0f);
             
             Vector2 newDir = new Vector3(transform.position.x, transform.position.y, 0);
             float newDirValue = Mathf.Atan2(newDir.y - direction.y, newDir.x - direction.x);
-            print(newDirValue);
             if (newDirValue < -0.8)
             {
                 newDirValueDeg = -(350 / Mathf.PI) * newDirValue;
+                
+                isTiltedLeft = true;
             }
             else
             {
