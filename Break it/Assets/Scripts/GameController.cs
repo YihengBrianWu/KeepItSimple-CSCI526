@@ -27,9 +27,16 @@ public class GameController : MonoBehaviour
     [Header("Knife Spawning")] 
     [SerializeField]
     private Vector2 knifeSpawnPosition;
+
+    [SerializeField]
+    private bool isInfinity = false;
     
     // knife的prefab对象
     [SerializeField] 
+    private GameObject normalKnife;
+    [SerializeField] 
+    private GameObject smallKnife;
+
     private GameObject knifeObject;
 
     // gameUI对象
@@ -48,6 +55,7 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         GameUI = GetComponent<GameUI>();
+        knifeObject = normalKnife;
 
         knifeAmount = knifeCount;
     }
@@ -56,6 +64,10 @@ public class GameController : MonoBehaviour
     {
         currentScene = difficulty + 1;
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
+        if(PlayerPrefs.GetInt("item1",0) == 1)
+        {
+             knifeObject = smallKnife;
+        }
         SpawnKnife();
     }
     
@@ -131,7 +143,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(9);
             return;
         }
         
@@ -172,6 +184,11 @@ public class GameController : MonoBehaviour
         {
             SpawnKnife();
         }
+    }
+
+    public void ChangeSmallKnife()
+    {
+
     }
 
     private void SpawnKnife()
