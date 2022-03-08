@@ -32,6 +32,13 @@ public class KnifeScript : MonoBehaviour
     private bool isTiltedLeft = false;
     private bool reflected = false;
 
+    //sound
+    public AudioSource music;
+    public AudioClip hitLog;
+    public AudioClip hitKnife;
+    public AudioClip throwSound;
+    public AudioClip rebound;
+
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
@@ -47,6 +54,12 @@ public class KnifeScript : MonoBehaviour
             isBlack = true;
         }
 
+        music = gameObject.AddComponent<AudioSource>();
+        music.playOnAwake = false;
+        hitLog = Resources.Load<AudioClip>("sound/hitLog");
+        hitKnife = Resources.Load<AudioClip>("sound/hitKnife");
+        throwSound = Resources.Load<AudioClip>("sound/throw");
+        rebound = Resources.Load<AudioClip>("sound/rebound");
     }
 
     private void Update()
@@ -65,6 +78,9 @@ public class KnifeScript : MonoBehaviour
             stopFaceMouse = true;
             rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
             rb.gravityScale = 1;
+
+            music.clip = throwSound;
+            music.Play();
         }
     
         // isActive保证这个if只进入一次
@@ -138,6 +154,9 @@ public class KnifeScript : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -2);
                 StartCoroutine("WaitNotInView");
             }
+
+            music.clip = hitLog;
+            music.Play();
         }
         else if (col.collider.CompareTag("Knife"))
         {
@@ -147,6 +166,9 @@ public class KnifeScript : MonoBehaviour
 
             rb.velocity = new Vector2(rb.velocity.x, -2);
             StartCoroutine("WaitNotInView");
+
+            music.clip = hitKnife;
+            music.Play();
         }
         else if (col.collider.CompareTag("MovingObstacle"))
         {
@@ -156,6 +178,9 @@ public class KnifeScript : MonoBehaviour
 
             rb.velocity = new Vector2(rb.velocity.x, -2);
             StartCoroutine("WaitNotInView");
+
+            music.clip = hitKnife;
+            music.Play();
         }
         else if (col.collider.CompareTag("Wall") || (col.collider.CompareTag("WhiteWall") && !isBlack) || (col.collider.CompareTag("BlackWall") && isBlack))
         {
@@ -180,6 +205,9 @@ public class KnifeScript : MonoBehaviour
             lockRotation = true;
             
             StartCoroutine("WaitReflect");
+
+            music.clip = rebound;
+            music.Play();
         }
         else
         {

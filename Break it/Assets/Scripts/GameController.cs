@@ -51,6 +51,10 @@ public class GameController : MonoBehaviour
     public int knifeObstacleHappens = 0;
     public int knifeHitWrongSection = 0;
 
+    //sound
+    public AudioSource music;
+    public AudioClip levelUp;
+
     private void Awake()
     {
         Instance = this;
@@ -58,6 +62,10 @@ public class GameController : MonoBehaviour
         knifeObject = normalKnife;
 
         knifeAmount = knifeCount;
+
+        music = gameObject.AddComponent<AudioSource>();
+        music.playOnAwake = false;
+        levelUp = Resources.Load<AudioClip>("sound/levelUp");
     }
 
     private void Start()
@@ -119,6 +127,9 @@ public class GameController : MonoBehaviour
 
             GameUI.showLevelUp();
             StartCoroutine("WaitThreeS");
+
+            music.clip = levelUp;
+            music.Play();
 
             return;
         }
