@@ -8,27 +8,32 @@ using UnityEngine.SceneManagement;
 public class ShopManagerScript : MonoBehaviour
 {
 
-    public int[,] shopItems = new int[4,2];
+    public int[,] shopItems = new int[4,3];
 
 
     void Start()
     {
         //ID
         shopItems[1, 1] = 1;
+        shopItems[1, 2] = 2;
 
         //price
         shopItems[2, 1] = 10;
+        shopItems[2, 2] = 15;
 
         //Quantity
         shopItems[3, 1] = PlayerPrefs.GetInt("item1",0);
+        shopItems[3, 2] = PlayerPrefs.GetInt("item2",0);
+
+
     }
 
     public void Buy()
     {   
         GameObject buttonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         int id = buttonRef.GetComponent<Goods>().ItemID;
-        print(id);
         int coin = PlayerPrefs.GetInt("total");
+        //int coin = 99;
         int price = shopItems[2, id];
         if (coin >= price && shopItems[3, id] == 0) {
             PlayerPrefs.SetInt("total", coin-price);
