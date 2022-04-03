@@ -76,6 +76,7 @@ public class KnifeScript : MonoBehaviour
             if (!stopFaceMouse)
                 GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
             stopFaceMouse = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
             rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
             rb.gravityScale = 1;
 
@@ -100,6 +101,11 @@ public class KnifeScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!isActive)
+        {
+            return;
+        }
+
+        if (rb.bodyType == RigidbodyType2D.Static)
         {
             return;
         }
@@ -152,7 +158,10 @@ public class KnifeScript : MonoBehaviour
                 hitAnim.MissShake();
 
                 rb.velocity = new Vector2(rb.velocity.x, -2);
-                StartCoroutine("WaitNotInView");
+                isActive = false;
+                GameController.Instance.failitInc();
+                GameController.Instance.OnFailKnifeHit();
+                
             }
 
             music.clip = hitLog;
@@ -165,7 +174,8 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
 
             rb.velocity = new Vector2(rb.velocity.x, -2);
-            StartCoroutine("WaitNotInView");
+            GameController.Instance.failitInc();
+            GameController.Instance.OnFailKnifeHit();
 
             music.clip = hitKnife;
             music.Play();
@@ -177,7 +187,8 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
 
             rb.velocity = new Vector2(rb.velocity.x, -2);
-            StartCoroutine("WaitNotInView");
+            GameController.Instance.failitInc();
+            GameController.Instance.OnFailKnifeHit();
 
             music.clip = hitKnife;
             music.Play();
@@ -215,7 +226,8 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
 
             rb.velocity = new Vector2(rb.velocity.x, -2);
-            StartCoroutine("WaitNotInView");
+            GameController.Instance.failitInc();
+            GameController.Instance.OnFailKnifeHit();
         }
     }
 
