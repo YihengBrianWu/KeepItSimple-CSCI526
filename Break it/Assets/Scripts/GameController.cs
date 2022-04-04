@@ -140,6 +140,11 @@ public class GameController : MonoBehaviour
             // Debug.Log("knifeObstacleHappens" + knifeObstacleHappens);
             // Debug.Log("knifeHitWrongSection" + knifeHitWrongSection);
             // 埋点 after lose 之后的统计数据
+        if (isInfinity)
+        {
+            SceneManager.LoadScene(10);
+            return;
+        }
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"Level", difficulty},
@@ -154,7 +159,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(10);
             return;
         }
         
@@ -179,6 +184,11 @@ public class GameController : MonoBehaviour
         }
         if (failHit > (knifeAmount - knifeHitLogToWin))
         {
+            if (isInfinity)
+            {
+                SceneManager.LoadScene(10);
+                return;
+            }
             // 埋点 after lose 之后的统计数据
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -194,7 +204,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(10);
             return;
         }
         if (knifeCount > 0)

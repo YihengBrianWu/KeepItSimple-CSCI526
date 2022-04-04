@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc9c728be9ad4e6ba58081e51e93c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 1
+  difficulty: 0
   knifeCount: 1000
   knifeHitLogToWin: 100
   knifeSpawnPosition: {x: 0, y: -4}
