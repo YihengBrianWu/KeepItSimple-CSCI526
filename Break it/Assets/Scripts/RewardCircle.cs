@@ -10,10 +10,18 @@ public class RewardCircle : MonoBehaviour
     private BoxCollider2D circleCollider;
     private SpriteRenderer sp;
 
+    //sound
+    public AudioSource music;
+    public AudioClip getReward;
+
     void Start()
     {
         circleCollider = GetComponent<BoxCollider2D>();
-        sp = GetComponent<SpriteRenderer>();    
+        sp = GetComponent<SpriteRenderer>();
+
+        music = gameObject.AddComponent<AudioSource>();
+        music.playOnAwake = false;
+        getReward = Resources.Load<AudioClip>("sound/getReward");    
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -36,6 +44,9 @@ public class RewardCircle : MonoBehaviour
 
             circleParticle.Play();
             Destroy(gameObject, 2f);
+
+            music.clip = getReward;
+            music.Play();
         }
     }
 
