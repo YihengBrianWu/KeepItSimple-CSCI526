@@ -978,7 +978,7 @@ MonoBehaviour:
   ScoreObj1: {fileID: 1871194860}
   ScoreObj2: {fileID: 27505975}
   KnifeIconObj: {fileID: 1790425921}
-  ObstacleObj: {fileID: 0}
+  ObstacleObj: {fileID: 586731404}
 --- !u!114 &1388421605
 MonoBehaviour:
   m_ObjectHideFlags: 0
