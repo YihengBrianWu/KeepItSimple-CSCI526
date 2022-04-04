@@ -7,6 +7,6 @@ public class ClickInfinityMode : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(12);
     }
 }

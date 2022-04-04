@@ -174,7 +174,7 @@ public class GameController : MonoBehaviour
 
         if (isInfinity)
         {
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(10);
             return;
         }
         if (failHit > (knifeAmount - knifeHitLogToWin))
