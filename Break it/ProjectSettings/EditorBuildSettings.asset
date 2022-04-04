@@ -12,29 +12,29 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelMenu.unity
     guid: 3113cb7879dee6746a2925331f0f04c5
   - enabled: 1
-    path: Assets/Scenes/level0.unity
-    guid: 85e9dfedf9a840b4281a44c2153e72e8
+    path: Assets/Scenes/demo0.unity
+    guid: 355b7fe779ad6f14186552dd8caedea3
   - enabled: 1
-    path: Assets/Scenes/level1.unity
-    guid: 11b7664bb0dc7ef4ca66324a8570667f
+    path: Assets/Scenes/demo1.unity
+    guid: 9b89d2dcec7b3ae46beb83e79f9ead7b
   - enabled: 1
-    path: Assets/Scenes/level2.unity
-    guid: 68fe2f8e31b970340ae0dc969fa0571d
+    path: Assets/Scenes/demo2.unity
+    guid: 222d5c1434c93c64fb6e07055c0e2422
   - enabled: 1
-    path: Assets/Scenes/level3.unity
-    guid: 84c59dfd95aa8f54e8ddc717489f8f22
+    path: Assets/Scenes/demo3.unity
+    guid: 37b442cf55ac614479b9d57247c6545f
   - enabled: 1
-    path: Assets/Scenes/level4.unity
-    guid: 1f950584751659449b8ecc6da71b5522
+    path: Assets/Scenes/demo4.unity
+    guid: 932d9ab07f76da649b696383684871e0
   - enabled: 1
-    path: Assets/Scenes/level5.unity
-    guid: 5043acfc9928ae04d87b895fc69180e6
+    path: Assets/Scenes/demo5.unity
+    guid: baf9e1f2ad6577f46afea0952ec8aaf3
   - enabled: 1
-    path: Assets/Scenes/level6.unity
-    guid: d45a8022e059e88499cf37d048a25b46
+    path: Assets/Scenes/demo6.unity
+    guid: e637d81b8713cb140ac9eb24fc71749e
   - enabled: 1
-    path: Assets/Scenes/level7.unity
-    guid: c93ab8037f23fc5479e59c8bf8ec67f3
+    path: Assets/Scenes/demo7.unity
+    guid: f110431c18f52f64391e3a0e952dbaf3
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 20544ba653a674b4fbb451ea9889b148
