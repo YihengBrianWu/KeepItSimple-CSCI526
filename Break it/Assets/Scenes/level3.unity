@@ -529,7 +529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: / 10
+  m_Text: / 8
 --- !u!222 &318816589
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -622,6 +622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 743849649}
+  highestText: {fileID: 0}
+  isInfinity: 0
 --- !u!114 &743849649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,8 +1621,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 3
-  knifeCount: 15
-  knifeHitLogToWin: 10
+  knifeCount: 13
+  knifeHitLogToWin: 8
   knifeSpawnPosition: {x: 0, y: -4}
   isInfinity: 0
   normalKnife: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
