@@ -70,7 +70,14 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        currentScene = difficulty + 1;
+        if (isInfinity)
+        {
+            currentScene = 1;
+        }
+        else
+        {
+            currentScene = difficulty + 2;
+        }
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
         if(PlayerPrefs.GetInt("item1",0) == 1)
         {

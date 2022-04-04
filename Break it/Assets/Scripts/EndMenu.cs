@@ -37,4 +37,9 @@ public class EndMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void backToLevelManual()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 }
