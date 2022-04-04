@@ -533,20 +533,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 120
+  - Speed: 80
     Duration: 3
-  - Speed: -190
-    Duration: 2
+  - Speed: -110
+    Duration: 3
+  - Speed: 80
+    Duration: 3
+  - Speed: -120
+    Duration: 3
   - Speed: 90
     Duration: 3
-  - Speed: -220
-    Duration: 2
-  - Speed: 90
-    Duration: 2
-  - Speed: -170
+  - Speed: -100
     Duration: 3
-  - Speed: 180
-    Duration: 2
+  - Speed: 100
+    Duration: 3
 --- !u!235 &815311848
 WheelJoint2D:
   m_ObjectHideFlags: 0
@@ -932,7 +932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089928841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.007, y: 39.8, z: 0}
+  m_LocalPosition: {x: -0.025, y: 37.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1908927397}
@@ -2021,7 +2021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908927396}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.015, y: 0.35433334, z: 0}
+  m_LocalPosition: {x: 1.852, y: 0.408, z: 0}
   m_LocalScale: {x: 0.5000002, y: 0.100000046, z: 1}
   m_Children:
   - {fileID: 1089928842}

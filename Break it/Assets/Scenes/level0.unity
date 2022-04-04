@@ -632,20 +632,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
+  - Speed: 80
+    Duration: 3
+  - Speed: -150
+    Duration: 3
+  - Speed: 50
+    Duration: 3
+  - Speed: -180
+    Duration: 3
+  - Speed: 50
+    Duration: 3
+  - Speed: -120
+    Duration: 3
   - Speed: 130
-    Duration: 2
-  - Speed: -200
-    Duration: 2
-  - Speed: 100
     Duration: 3
-  - Speed: -230
-    Duration: 2
-  - Speed: 100
-    Duration: 2
-  - Speed: -170
-    Duration: 3
-  - Speed: 180
-    Duration: 2
 --- !u!235 &843476201
 WheelJoint2D:
   m_ObjectHideFlags: 0

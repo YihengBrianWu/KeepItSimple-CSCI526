@@ -122,11 +122,6 @@ public class KnifeScript : MonoBehaviour
             // print("isBlack " + isBlack);
             // print("reflected " + reflected);
             // print("isTiltedLeft " + isTiltedLeft);
-
-            if (!reflected && !isBlack && ((tempZ>270 && tempZ<360) || (tempZ>0 && tempZ<90)))
-            {
-                print("worked");
-            }
             if ((!reflected && (isBlack && tempZ<270 &&tempZ>90))
                  || (!reflected && !isBlack && ((tempZ>270 && tempZ<360) || (tempZ>0 && tempZ<90)))
                  || gameController.difficulty == 1 

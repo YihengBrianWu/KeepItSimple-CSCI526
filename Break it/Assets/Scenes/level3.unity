@@ -743,7 +743,7 @@ MonoBehaviour:
   - {fileID: 300971486}
   - {fileID: 782203509}
   NeedStop: 0
-  speed: 4
+  speed: 3
 --- !u!212 &784533683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1693,19 +1693,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 150
+  - Speed: 100
     Duration: 3
-  - Speed: -220
-    Duration: 2
-  - Speed: 130
+  - Speed: -150
     Duration: 3
-  - Speed: -250
+  - Speed: 80
     Duration: 3
-  - Speed: 120
-    Duration: 2
-  - Speed: -190
+  - Speed: -170
     Duration: 3
-  - Speed: 200
+  - Speed: 60
+    Duration: 3
+  - Speed: -100
+    Duration: 3
+  - Speed: 100
     Duration: 3
 --- !u!235 &1719578497
 WheelJoint2D:

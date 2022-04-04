@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17401122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9650029, y: 0.09999943, z: 0}
+  m_LocalPosition: {x: -1.85, y: 0.2, z: 0}
   m_LocalScale: {x: 0.5000004, y: 0.33333343, z: 1}
   m_Children: []
   m_Father: {fileID: 76839929}
@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52985237}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.0150025, y: 0.35433334, z: 0}
+  m_LocalPosition: {x: 1.869, y: 0.617, z: 0}
   m_LocalScale: {x: 0.5000003, y: 0.10000006, z: 1}
   m_Children: []
   m_Father: {fileID: 76839929}
@@ -543,7 +543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212832148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.965003, y: 1.1403334, z: 0}
+  m_LocalPosition: {x: -1.85, y: 0.9, z: 0}
   m_LocalScale: {x: 0.5000004, y: 0.33333343, z: 1}
   m_Children: []
   m_Father: {fileID: 76839929}
@@ -819,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402550390}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.965003, y: 0.8543331, z: 0}
+  m_LocalPosition: {x: -1.854, y: 0.463, z: 0}
   m_LocalScale: {x: 0.50000024, y: 0.10000005, z: 1}
   m_Children: []
   m_Father: {fileID: 76839929}
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   - circleAngle:
     - 0
     - 120
-    - 240
+    - 140
     kinfeAngle: []
 --- !u!58 &636728528
 CircleCollider2D:
@@ -1505,7 +1505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108109374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.005003, y: 0.09999935, z: 0}
+  m_LocalPosition: {x: 1.85, y: 0.2, z: 0}
   m_LocalScale: {x: 0.5000004, y: 0.33333343, z: 1}
   m_Children: []
   m_Father: {fileID: 76839929}
@@ -2007,7 +2007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815317183}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0050027, y: 1.1403337, z: 0}
+  m_LocalPosition: {x: 1.85, y: 0.9, z: 0}
   m_LocalScale: {x: 0.5000004, y: 0.33333343, z: 1}
   m_Children: []
   m_Father: {fileID: 76839929}
@@ -2126,20 +2126,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 120
+  - Speed: 80
     Duration: 3
-  - Speed: -190
-    Duration: 2
-  - Speed: 120
+  - Speed: -100
     Duration: 3
-  - Speed: -220
-    Duration: 2
+  - Speed: 80
+    Duration: 3
+  - Speed: -120
+    Duration: 3
   - Speed: 90
-    Duration: 2
-  - Speed: -160
     Duration: 3
-  - Speed: 170
-    Duration: 2
+  - Speed: -100
+    Duration: 3
+  - Speed: 100
+    Duration: 3
 --- !u!235 &2052739394
 WheelJoint2D:
   m_ObjectHideFlags: 0

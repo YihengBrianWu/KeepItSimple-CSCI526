@@ -171,6 +171,12 @@ public class GameController : MonoBehaviour
         // Debug.Log("knifeObstacleHappens: " + knifeObstacleHappens);
         // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
         // Debug.Log("failHit: " + failHit);
+
+        if (isInfinity)
+        {
+            SceneManager.LoadScene(9);
+            return;
+        }
         if (failHit > (knifeAmount - knifeHitLogToWin))
         {
             // 埋点 after lose 之后的统计数据
@@ -195,11 +201,6 @@ public class GameController : MonoBehaviour
         {
             SpawnKnife();
         }
-    }
-
-    public void ChangeSmallKnife()
-    {
-
     }
 
     private void SpawnKnife()
