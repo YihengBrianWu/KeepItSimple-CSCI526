@@ -10,15 +10,20 @@ public class LevelManagerScript : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < levels.Length; i++)
-        {
-            levels[i].interactable = false;
 
+        int levelReached = PlayerPrefs.GetInt("levelReached", 0);
+        for (int i = 0; i < levels.Length; i++)
+        {
+            if(i > levelReached)
+            {
+                levels[i].interactable = false;
+            }
         }
     }
-    public void Select(string levelName)
+    public void Select(int levelName)
     {
-
+        const int numberOfPreScene = 2;
+        SceneManager.LoadScene(levelName + numberOfPreScene);
     }
 
 }
