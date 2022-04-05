@@ -103,7 +103,9 @@ public class GameController : MonoBehaviour
     IEnumerator WaitThreeS()
     {
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
+        SceneManager.LoadScene(currentScene + 1);
     }
     public void OnSuccessfulKnifeHit()
     {
