@@ -1533,9 +1533,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 950982553}
-        m_TargetAssemblyTypeName: ClickInfinityMode, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 299041812}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: infinity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
