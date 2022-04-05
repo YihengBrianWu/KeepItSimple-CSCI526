@@ -55,6 +55,10 @@ public class GameController : MonoBehaviour
     public AudioSource music;
     public AudioClip levelUp;
 
+
+    //pause menu
+    public GameObject pauseMenu;
+
     private void Awake()
     {
         Instance = this;
@@ -70,6 +74,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         if (isInfinity)
         {
             currentScene = 1;
@@ -228,6 +233,22 @@ public class GameController : MonoBehaviour
         Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
     }
     
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
     
+    public void GotEnd()
+    {
+        const int endScene = 10;
+        SceneManager.LoadScene(endScene);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
     
 }
