@@ -13,6 +13,7 @@ TagManager:
   - BlackWall
   - WhiteWall
   - Event
+  - nextKnife
   layers:
   - Default
   - TransparentFX

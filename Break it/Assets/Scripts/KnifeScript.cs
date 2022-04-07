@@ -24,6 +24,7 @@ public class KnifeScript : MonoBehaviour
     private SpriteRenderer sprite;
     private bool isBlack = false;
     private GameController gameController;
+    public static int predict;
 
     private Vector2 lastVelocity;
 
@@ -47,11 +48,32 @@ public class KnifeScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
 
-        if (gameController.difficulty != 1 && gameController.difficulty != 0 && UnityEngine.Random.Range(0,2) == 1)
+        int ran = UnityEngine.Random.Range(0, 2);
+        
+        if (gameController.difficulty != 1 && gameController.difficulty != 0 && predict == 1)
         {
             sprite = GetComponent<SpriteRenderer>();
-            sprite.color = new Color (0, 0, 0, 1); 
+            sprite.color = new Color(0, 0, 0, 1);
             isBlack = true;
+        }
+        if (gameController.difficulty != 1 && gameController.difficulty != 0 && predict == 2)
+        {
+            sprite = GetComponent<SpriteRenderer>();
+            sprite.color = new Color(1, 1, 1, 1);
+            isBlack = false;
+        }
+        
+        if (gameController.difficulty != 1 && gameController.difficulty != 0 && ran == 1)
+        {
+            SpriteRenderer nextKnife = GameObject.FindGameObjectWithTag("nextKnife").GetComponent<SpriteRenderer>();
+            nextKnife.color = new Color(0, 0, 0, 1);
+            predict = 1;
+        }
+        if (gameController.difficulty != 1 && gameController.difficulty != 0 && ran == 0)
+        {
+            SpriteRenderer nextKnife = GameObject.FindGameObjectWithTag("nextKnife").GetComponent<SpriteRenderer>();
+            nextKnife.color = new Color(1, 1, 1, 1);
+            predict = 2;
         }
 
         music = gameObject.AddComponent<AudioSource>();
