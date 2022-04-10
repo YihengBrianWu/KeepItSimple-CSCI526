@@ -22,7 +22,7 @@ public class KnifeScript : MonoBehaviour
     private bool isInView = true;
 
     private SpriteRenderer sprite;
-    private bool isBlack = false;
+    public bool isBlack = false;
     private GameController gameController;
     public static int predict;
 
@@ -39,6 +39,9 @@ public class KnifeScript : MonoBehaviour
     public AudioClip hitKnife;
     public AudioClip throwSound;
     public AudioClip rebound;
+    
+    // 多线程检测确保spawnknife
+    private bool isDestroy = false;
 
     private void Awake()
     {
@@ -104,6 +107,8 @@ public class KnifeScript : MonoBehaviour
 
             music.clip = throwSound;
             music.Play();
+
+            StartCoroutine(WaitForPointFive());
         }
     
         // isActive保证这个if只进入一次
@@ -117,6 +122,11 @@ public class KnifeScript : MonoBehaviour
         if (lockRotation)
         {
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
+        }
+
+        if (!isInView && !isActive)
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -186,16 +196,34 @@ public class KnifeScript : MonoBehaviour
         }
         else if (col.collider.CompareTag("Knife"))
         {
-            GameController.Instance.knifeCollisionHappens++;
-            hitAnim.MissShake();
-            isActive = false;
 
-            rb.velocity = new Vector2(rb.velocity.x, -2);
-            GameController.Instance.failitInc();
-            GameController.Instance.OnFailKnifeHit();
-
+            Debug.Log(col.collider.GetComponent<KnifeScript>().isBlack);
+            // different colors
+            if (isBlack && !col.collider.GetComponent<KnifeScript>().isBlack ||
+                !isBlack && col.collider.GetComponent<KnifeScript>().isBlack)
+            {
+                ScoreCount.HitCount++;
+                GameController.Instance.blackWhiteCollision++;
+                Debug.Log("black and white hit");
+                GameController.Instance.hitOnLogInc();
+                GameController.Instance.OnSuccessfulKnifeHit();
+                Destroy(col.collider.gameObject);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                GameController.Instance.knifeCollisionHappens++;
+                hitAnim.MissShake();
+                isActive = false;
+                
+                rb.velocity = new Vector2(rb.velocity.x, -2);
+                GameController.Instance.failitInc();
+                GameController.Instance.OnFailKnifeHit();
+            }
+            
             music.clip = hitKnife;
             music.Play();
+
         }
         else if (col.collider.CompareTag("MovingObstacle"))
         {
@@ -295,6 +323,22 @@ public class KnifeScript : MonoBehaviour
         {
             return false;
         }
+    }
+
+    IEnumerator WaitForPointFive()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        yield return new WaitForSecondsRealtime(0.15f);
+        GameController.Instance.SpawnKnife();
+        //After we have waited 0.5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+
+    IEnumerator SpawnKnifeBeforeDestroy()
+    {
+        yield return new WaitUntil(() => isDestroy == true);
+        GameController.Instance.SpawnKnife();
     }
 
 }

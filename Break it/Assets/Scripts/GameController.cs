@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
     public int knifeCollisionHappens = 0;
     public int knifeObstacleHappens = 0;
     public int knifeHitWrongSection = 0;
+    public int blackWhiteCollision = 0;
 
     //sound
     public AudioSource music;
@@ -132,7 +133,8 @@ public class GameController : MonoBehaviour
                 {"Knife Used", knifeAmount - knifeCount},
                 {"Knife Collision", knifeCollisionHappens},
                 {"Obstacle Collision", knifeObstacleHappens},
-                {"Wrong Section", knifeHitWrongSection}
+                {"Wrong Section", knifeHitWrongSection},
+                {"Black and white knives collision", blackWhiteCollision}
             };
             AnalyticsResult result = Analytics.CustomEvent("Stats After Win", parameters);
             Analytics.FlushEvents();
@@ -167,7 +169,8 @@ public class GameController : MonoBehaviour
                 {"Knife Used", knifeAmount - knifeCount},
                 {"Knife Collision", knifeCollisionHappens},
                 {"Obstacle Collision", knifeObstacleHappens},
-                {"Wrong Section", knifeHitWrongSection}
+                {"Wrong Section", knifeHitWrongSection},
+                {"Black and white knives collision", blackWhiteCollision}
             };
             AnalyticsResult result = Analytics.CustomEvent("Stats After Lose", parameters);
             Analytics.FlushEvents();
@@ -177,10 +180,10 @@ public class GameController : MonoBehaviour
             return;
         }
         
-        if (knifeCount > 0)
-        {
-            SpawnKnife();
-        }
+        // if (knifeCount > 0)
+        // {
+        //     SpawnKnife();
+        // }
         
     }
 
@@ -212,7 +215,8 @@ public class GameController : MonoBehaviour
                 {"Knife Used", knifeAmount - knifeCount},
                 {"Knife Collision", knifeCollisionHappens},
                 {"Obstacle Collision", knifeObstacleHappens},
-                {"Wrong Section", knifeHitWrongSection}
+                {"Wrong Section", knifeHitWrongSection},
+                {"Black and white knives collision", blackWhiteCollision}
             };
             AnalyticsResult result = Analytics.CustomEvent("Stats After Lose", parameters);
             Analytics.FlushEvents();
@@ -221,16 +225,23 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(10);
             return;
         }
-        if (knifeCount > 0)
-        {
-            SpawnKnife();
-        }
+        // if (knifeCount > 0)
+        // {
+        //     SpawnKnife();
+        // }
     }
 
-    private void SpawnKnife()
+    public void SpawnKnife()
     {
-        knifeCount--;
-        Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
+        if (knifeCount > 0) 
+        {
+            knifeCount--;
+            Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
+        }
+        else 
+        {
+            return;
+        }
     }
     
     public void PauseGame()
