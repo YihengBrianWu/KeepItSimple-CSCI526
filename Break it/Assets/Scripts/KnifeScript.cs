@@ -11,7 +11,7 @@ public class KnifeScript : MonoBehaviour
     [SerializeField]
     private float throwForce;
 
-    private bool isActive = true;
+    public bool isActive = true;
 
     private Rigidbody2D rb;
     private BoxCollider2D knifeCollider;
@@ -40,9 +40,9 @@ public class KnifeScript : MonoBehaviour
     public AudioClip throwSound;
     public AudioClip rebound;
     public AudioClip eliminate;
-    
-    // 多线程检测确保spawnknife
-    private bool isDestroy = false;
+
+    private bool firstTime = true;
+    public bool onTheLog = false;
 
     private void Awake()
     {
@@ -98,8 +98,9 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
-        if (Input.GetMouseButtonDown(0) && isActive)
+        if (Input.GetMouseButtonDown(0) && isActive && firstTime)
         {
+            firstTime = false;
             if (!stopFaceMouse)
                 GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
             stopFaceMouse = true;
@@ -119,16 +120,12 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
             GameController.Instance.failitInc();
             GameController.Instance.OnFailKnifeHit();
+            Destroy(this.gameObject);
         }
 
         if (lockRotation)
         {
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
-        }
-
-        if (!isInView && !isActive)
-        {
-            Destroy(this.gameObject);
         }
     }
 
@@ -166,6 +163,7 @@ public class KnifeScript : MonoBehaviour
                  || (isTiltedLeft && reflected&& !isBlack && ((tempZ>220 && tempZ<360) || (tempZ<40 && tempZ>0)))
                  )
             {
+                onTheLog = true;
                 //play visual effects
                 GetComponent<ParticleSystem>().Play();
                 hitAnim.HitShake();
@@ -201,8 +199,8 @@ public class KnifeScript : MonoBehaviour
 
             Debug.Log(col.collider.GetComponent<KnifeScript>().isBlack);
             // different colors
-            if (isBlack && !col.collider.GetComponent<KnifeScript>().isBlack ||
-                !isBlack && col.collider.GetComponent<KnifeScript>().isBlack)
+            if (isBlack && !col.collider.GetComponent<KnifeScript>().isBlack && col.collider.GetComponent<KnifeScript>().onTheLog ||
+                !isBlack && col.collider.GetComponent<KnifeScript>().isBlack && col.collider.GetComponent<KnifeScript>().onTheLog)
             {
                 ScoreCount.HitCount++;
                 GameController.Instance.blackWhiteCollision++;
@@ -335,14 +333,8 @@ public class KnifeScript : MonoBehaviour
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSecondsRealtime(0.15f);
         GameController.Instance.SpawnKnife();
-        //After we have waited 0.5 seconds print the time again.
+        //After we have waited 0.15 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
-
-    IEnumerator SpawnKnifeBeforeDestroy()
-    {
-        yield return new WaitUntil(() => isDestroy == true);
-        GameController.Instance.SpawnKnife();
     }
 
 }

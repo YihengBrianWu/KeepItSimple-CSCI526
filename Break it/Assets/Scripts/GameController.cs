@@ -61,8 +61,11 @@ public class GameController : MonoBehaviour
     public AudioClip levelUp;
 
 
-    //pause menu
+    // pause menu
     public GameObject pauseMenu;
+    
+    // 追踪新生成的knife
+    public GameObject newKnife;
 
     private void Awake()
     {
@@ -248,7 +251,7 @@ public class GameController : MonoBehaviour
         if (knifeCount > 0) 
         {
             knifeCount--;
-            Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
+            newKnife = Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
         }
         else 
         {
