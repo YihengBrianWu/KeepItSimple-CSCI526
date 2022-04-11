@@ -1118,11 +1118,14 @@ MonoBehaviour:
   isInfinity: 0
   normalKnife: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
   smallKnife: {fileID: 6961728693766223302, guid: 5b95cc49c11c20c4fb4dc69087f636b0, type: 3}
+  shortKnife: {fileID: 7947875779940986355, guid: 8a28163d627ff82409697bdce324b9c5, type: 3}
+  smallAndShortKnife: {fileID: 6058388177383931525, guid: e344eb7da8ac88649b4bed18dc912fbc, type: 3}
   win: 0
   currentScene: 0
   knifeCollisionHappens: 0
   knifeObstacleHappens: 0
   knifeHitWrongSection: 0
+  blackWhiteCollision: 0
   music: {fileID: 0}
   levelUp: {fileID: 0}
   pauseMenu: {fileID: 1444686507}
@@ -1633,7 +1636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60.00003, y: -60}
+  m_AnchoredPosition: {x: -60, y: -60}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1579329176
@@ -1705,7 +1708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.58190876, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

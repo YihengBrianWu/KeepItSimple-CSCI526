@@ -36,6 +36,10 @@ public class GameController : MonoBehaviour
     private GameObject normalKnife;
     [SerializeField] 
     private GameObject smallKnife;
+    [SerializeField] 
+    private GameObject shortKnife;
+    [SerializeField] 
+    private GameObject smallAndShortKnife;
 
     private GameObject knifeObject;
 
@@ -78,16 +82,24 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         if (isInfinity)
         {
-            currentScene = 1;
+            currentScene = 12;
         }
         else
         {
             currentScene = difficulty + 2;
         }
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
-        if(PlayerPrefs.GetInt("item1",0) == 1)
+        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
         {
              knifeObject = smallKnife;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+        {
+             knifeObject = shortKnife;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+        {
+             knifeObject = smallAndShortKnife;
         }
         SpawnKnife();
     }

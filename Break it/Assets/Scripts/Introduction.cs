@@ -29,16 +29,17 @@ public class Introduction : MonoBehaviour
 
     public void Delete()
     {
-        KnivesText = GameObject.Find("Canvas/KnivesIntro").GetComponent<Text>();
-        KnivesText.text = "";
-        ScoreText = GameObject.Find("Canvas/ScoreIntro").GetComponent<Text>();
-        ScoreText.text = "";
-        PauseText = GameObject.Find("Canvas/PauseIntro").GetComponent<Text>();
-        PauseText.text = "";
-        ShootText = GameObject.Find("Canvas/ShootIntro").GetComponent<Text>();
-        ShootText.text = "";
-        PanText = GameObject.Find("Canvas/PanIntro").GetComponent<Text>();
-        PanText.text = "";
+        // KnivesText = GameObject.Find("Canvas/KnivesIntro").GetComponent<Text>();
+        // KnivesText.text = "";
+        // ScoreText = GameObject.Find("Canvas/ScoreIntro").GetComponent<Text>();
+        // ScoreText.text = "";
+        // PauseText = GameObject.Find("Canvas/PauseIntro").GetComponent<Text>();
+        // PauseText.text = "";
+        // ShootText = GameObject.Find("Canvas/ShootIntro").GetComponent<Text>();
+        // ShootText.text = "";
+        // PanText = GameObject.Find("Canvas/PanIntro").GetComponent<Text>();
+        // PanText.text = "";
+        GameObject.Find("Canvas/IntroSum").SetActive(false);
         btn.SetActive(false);
     }
 }

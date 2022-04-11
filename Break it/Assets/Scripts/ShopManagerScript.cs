@@ -43,6 +43,11 @@ public class ShopManagerScript : MonoBehaviour
             shopItems[3, id] = 1;
             PlayerPrefs.SetInt("item"+id.ToString(), 1);
             buttonRef.GetComponent<Goods>().quantity.text = "1";
+            PlayerPrefs.SetInt("itemSelected", id);
+        }
+        else if ( shopItems[3, id] != 0)
+        {
+            PlayerPrefs.SetInt("itemSelected", id);
         }
     }
 
