@@ -120,12 +120,16 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
             GameController.Instance.failitInc();
             GameController.Instance.OnFailKnifeHit();
-            Destroy(this.gameObject);
         }
 
         if (lockRotation)
         {
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
+        }
+
+        if (!isInView && !isActive)
+        {
+            Destroy(this.gameObject);
         }
     }
 
