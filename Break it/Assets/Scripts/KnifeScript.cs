@@ -39,6 +39,7 @@ public class KnifeScript : MonoBehaviour
     public AudioClip hitKnife;
     public AudioClip throwSound;
     public AudioClip rebound;
+    public AudioClip eliminate;
     
     // 多线程检测确保spawnknife
     private bool isDestroy = false;
@@ -85,6 +86,7 @@ public class KnifeScript : MonoBehaviour
         hitKnife = Resources.Load<AudioClip>("sound/hitKnife");
         throwSound = Resources.Load<AudioClip>("sound/throw");
         rebound = Resources.Load<AudioClip>("sound/rebound");
+        eliminate = Resources.Load<AudioClip>("sound/eliminate");
     }
 
     private void Update()
@@ -209,6 +211,9 @@ public class KnifeScript : MonoBehaviour
                 GameController.Instance.OnSuccessfulKnifeHit();
                 Destroy(col.collider.gameObject);
                 Destroy(this.gameObject);
+
+                music.clip = eliminate;
+                music.Play();
             }
             else
             {
@@ -219,11 +224,10 @@ public class KnifeScript : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -2);
                 GameController.Instance.failitInc();
                 GameController.Instance.OnFailKnifeHit();
-            }
-            
-            music.clip = hitKnife;
-            music.Play();
 
+                music.clip = hitKnife;
+                music.Play();
+            }
         }
         else if (col.collider.CompareTag("MovingObstacle"))
         {
