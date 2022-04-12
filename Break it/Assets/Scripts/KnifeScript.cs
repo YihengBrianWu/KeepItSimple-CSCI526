@@ -91,6 +91,10 @@ public class KnifeScript : MonoBehaviour
 
     private void Update()
     {
+        if (GameController.isPaused)
+        {
+            return;
+        }
         lastVelocity = rb.velocity;
         isInView = IsInView(transform.position);
         // 只有在准备过程中才会facemouse，一旦发射，则禁用功能
@@ -98,8 +102,9 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
-        if (Input.GetMouseButtonDown(0) && isActive && firstTime)
+        if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 879)
         {
+
             firstTime = false;
             if (!stopFaceMouse)
                 GameController.Instance.GameUI.DecrementDisplayedKnifeCount();

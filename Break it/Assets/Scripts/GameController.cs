@@ -63,12 +63,14 @@ public class GameController : MonoBehaviour
 
     // pause menu
     public GameObject pauseMenu;
+    public static bool isPaused = false;
     
     // 追踪新生成的knife
     public GameObject newKnife;
 
     private void Awake()
     {
+        isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
         knifeObject = normalKnife;
@@ -261,6 +263,7 @@ public class GameController : MonoBehaviour
     
     public void PauseGame()
     {
+        isPaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
@@ -273,6 +276,7 @@ public class GameController : MonoBehaviour
 
     public void Resume()
     {
+        isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
