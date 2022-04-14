@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class ShopManagerScript : MonoBehaviour
 {
 
-    public int[,] shopItems = new int[4,4];
+    public int[,] shopItems = new int[4,5];
 
 
     void Start()
@@ -17,17 +17,19 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[1, 1] = 1;
         shopItems[1, 2] = 2;
         shopItems[1, 3] = 3;
+        shopItems[1, 4] = 4;
 
         //price
         shopItems[2, 1] = 10;
         shopItems[2, 2] = 13;
         shopItems[2, 3] = 15;
+        shopItems[2, 4] = 5;
 
         //Quantity
         shopItems[3, 1] = PlayerPrefs.GetInt("item1",0);
         shopItems[3, 2] = PlayerPrefs.GetInt("item2",0);
         shopItems[3, 3] = PlayerPrefs.GetInt("item3",0);
-
+        shopItems[3, 4] = PlayerPrefs.GetInt("item4",0);
 
     }
 
@@ -43,11 +45,25 @@ public class ShopManagerScript : MonoBehaviour
             shopItems[3, id] = 1;
             PlayerPrefs.SetInt("item"+id.ToString(), 1);
             buttonRef.GetComponent<Goods>().quantity.text = "1";
-            PlayerPrefs.SetInt("itemSelected", id);
+            if(id <= 3 && id > 0)
+            {
+                PlayerPrefs.SetInt("itemSelected", id);
+            }
+            else if (id == 4)
+            {
+                PlayerPrefs.SetInt("extraKnife", id);
+            }
         }
-        else if ( shopItems[3, id] != 0)
+        else if (shopItems[3, id] != 0)
         {
-            PlayerPrefs.SetInt("itemSelected", id);
+            if (id <= 3 && id > 0)
+            {
+                PlayerPrefs.SetInt("itemSelected", id);
+            }
+            else if (id == 4)
+            {
+                PlayerPrefs.SetInt("extraKnife", id);
+            }
         }
     }
 

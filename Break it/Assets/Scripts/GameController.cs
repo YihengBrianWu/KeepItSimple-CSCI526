@@ -74,6 +74,12 @@ public class GameController : MonoBehaviour
         Instance = this;
         GameUI = GetComponent<GameUI>();
         knifeObject = normalKnife;
+        //PlayerPrefs.SetInt("item4", 0);
+        if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
+        {
+            knifeCount += 2;
+            knifeAmount = knifeCount;
+        }
 
         knifeAmount = knifeCount;
 
@@ -107,6 +113,13 @@ public class GameController : MonoBehaviour
              knifeObject = smallAndShortKnife;
         }
         SpawnKnife();
+        //PlayerPrefs.SetInt("item4", 0);
+        //if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
+        //{
+        //    Debug.Log("dada");
+        //    knifeCount += 2;
+        //    knifeAmount = knifeCount;
+        //}
     }
     
     // 统计有多少射到log上
