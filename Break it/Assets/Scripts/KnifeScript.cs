@@ -17,7 +17,7 @@ public class KnifeScript : MonoBehaviour
     private BoxCollider2D knifeCollider;
 
     // 在发射之后禁止facemouse功能
-    private bool stopFaceMouse = false;
+    private bool stopFaceMouse;
     // 是否还在界面内
     private bool isInView = true;
 
@@ -51,6 +51,8 @@ public class KnifeScript : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         knifeCollider = GetComponent<BoxCollider2D>();
+
+        stopFaceMouse = !GameController.Instance.faceMouse;
 
         int ran = UnityEngine.Random.Range(0, 2);
         
@@ -177,7 +179,7 @@ public class KnifeScript : MonoBehaviour
                 GetComponent<ParticleSystem>().Play();
                 hitAnim.HitShake();
 
-                ScoreCount.HitCount ++;
+                ScoreCount.HitCount++;
                 rb.velocity = new Vector2(0, 0);
                 rb.bodyType = RigidbodyType2D.Kinematic;
                 this.transform.SetParent(col.collider.transform);

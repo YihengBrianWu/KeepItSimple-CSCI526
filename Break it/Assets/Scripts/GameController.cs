@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(GameUI))]
 public class GameController : MonoBehaviour
@@ -40,6 +41,11 @@ public class GameController : MonoBehaviour
     private GameObject shortKnife;
     [SerializeField] 
     private GameObject smallAndShortKnife;
+    
+    // 是否需要开启facemouse功能
+    [Header("Face mouse")] 
+    [SerializeField]
+    public bool faceMouse = true;
 
     private GameObject knifeObject;
 
@@ -86,6 +92,23 @@ public class GameController : MonoBehaviour
         music = gameObject.AddComponent<AudioSource>();
         music.playOnAwake = false;
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("b"))
+        {
+            if (PlayerPrefs.GetInt("total", 0) < 5)
+            {
+                Debug.Log("don't have enough points.");
+                // TODO 提醒玩家分数不够
+            }
+            else
+            {
+                DestroyRandomThree();
+            }
+        }
+        
     }
 
     private void Start()
@@ -226,6 +249,8 @@ public class GameController : MonoBehaviour
 
         if (isInfinity)
         {
+            int rewardGet = ScoreCount.HitCount / 5;
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total", 0) + rewardGet);
             SceneManager.LoadScene(10);
             return;
         }
@@ -273,7 +298,62 @@ public class GameController : MonoBehaviour
             return;
         }
     }
-    
+
+    public void DestroyRandomThree()
+    {
+        // 用来存放knife的list
+        List<GameObject> children = new List<GameObject>();
+        // 首先找到Log gameObject
+        GameObject log = GameObject.Find("Log");
+        // 得到他的children transform列表
+        Transform[] list = log.GetComponentsInChildren<Transform>();
+        // 遍历每一个child
+        foreach (Transform child in list)
+        {   
+            // 如果是knife的话就加入list
+            if (child.CompareTag("Knife"))
+            {
+                // Debug.Log(child.gameObject);
+                children.Add(child.gameObject);
+            }
+        }
+
+        // 如果没有刀的话则什么也不干，提醒玩家没有刀，也不扣分
+        if (children.Count == 0)
+        {
+            // TODO 弹窗提醒玩家没有刀
+        }
+        // 如果小于等于三把刀，全部摧毁
+        else if (children.Count <= 3)
+        {
+            foreach (GameObject child in children)
+            {
+                Destroy(child);
+            }
+            // 扣分
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+        }
+        // 如果大于三把，则随机选择
+        else
+        {
+            // 随机生成不重复的三个下标，destroy
+            List<int> usedValues = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int val = Random.Range(0, children.Count - 1);
+                while (usedValues.Contains(val))
+                {
+                    val = Random.Range(0, children.Count - 1);
+                }
+                Destroy(children[val]);
+                usedValues.Add(val);
+            }
+            // 扣分
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+        }
+
+    }
+
     public void PauseGame()
     {
         isPaused = true;
