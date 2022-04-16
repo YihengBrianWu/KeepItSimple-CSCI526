@@ -204,6 +204,11 @@ public class GameController : MonoBehaviour
         music.clip = levelUp;
         music.Play();
     }
+    IEnumerator WaitFail()
+    {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene(10);
+    }
     public void OnSuccessfulKnifeHit()
     {
         
@@ -250,7 +255,7 @@ public class GameController : MonoBehaviour
             // 埋点 after lose 之后的统计数据
         if (isInfinity)
         {
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -268,7 +273,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
         
@@ -290,14 +295,14 @@ public class GameController : MonoBehaviour
         {
             int rewardGet = ScoreCount.HitCount / 5;
             PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total", 0) + rewardGet);
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
         if (failHit > (knifeAmount - knifeHitLogToWin))
         {
             if (isInfinity)
             {
-                SceneManager.LoadScene(10);
+                StartCoroutine("WaitFail");
                 return;
             }
             // 埋点 after lose 之后的统计数据
@@ -316,7 +321,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
         // if (knifeCount > 0)

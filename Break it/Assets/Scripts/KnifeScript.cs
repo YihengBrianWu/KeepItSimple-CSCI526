@@ -40,7 +40,7 @@ public class KnifeScript : MonoBehaviour
 
     private bool firstTime = true;
     public bool onTheLog = false;
-    private Collider2D tempCol;
+    private GameObject tempKnife;
 
     private void Awake()
     {
@@ -115,9 +115,8 @@ public class KnifeScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        tempCol = col;
         if (!isActive)
         {
             return;
@@ -208,6 +207,7 @@ public class KnifeScript : MonoBehaviour
                 GameController.Instance.hitOnLogInc();
                 GameController.Instance.OnSuccessfulKnifeHit();
 
+                tempKnife = col.collider.gameObject;
                 StartCoroutine("waitEliminate");
 
                 music.clip = eliminate;
@@ -286,7 +286,7 @@ public class KnifeScript : MonoBehaviour
     }
     IEnumerator waitEliminate() {
         yield return new WaitForSecondsRealtime(0.3f);
-        Destroy(tempCol.collider.gameObject);
+        Destroy(tempKnife);
         Destroy(this.gameObject);
     }
     IEnumerator WaitNotInView() {
