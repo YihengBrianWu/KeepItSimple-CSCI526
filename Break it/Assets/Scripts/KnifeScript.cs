@@ -104,7 +104,7 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
-        if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 879)
+        if (Input.GetMouseButtonDown(0) && isActive && firstTime ) //Input.mousePosition[0] < 879)
         {
 
             firstTime = false;

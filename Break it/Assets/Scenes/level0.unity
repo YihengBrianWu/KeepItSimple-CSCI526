@@ -874,6 +874,7 @@ MonoBehaviour:
   smallKnife: {fileID: 6961728693766223302, guid: 5b95cc49c11c20c4fb4dc69087f636b0, type: 3}
   shortKnife: {fileID: 7947875779940986355, guid: 8a28163d627ff82409697bdce324b9c5, type: 3}
   smallAndShortKnife: {fileID: 6058388177383931525, guid: e344eb7da8ac88649b4bed18dc912fbc, type: 3}
+  faceMouse: 1
   win: 0
   currentScene: 0
   knifeCollisionHappens: 0
@@ -2720,9 +2721,9 @@ RectTransform:
   m_Father: {fileID: 1760556133}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1515, y: 581.99}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 1465, y: 581.99}
   m_SizeDelta: {x: 311.08, y: 88.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761783800
