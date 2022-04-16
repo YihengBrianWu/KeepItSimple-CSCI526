@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour
     
     [SerializeField] 
     private int knifeHitLogToWin;
+
+    [SerializeField] 
+    private UnityEngine.Object logBreak;
     
     // 位置
     [Header("Knife Spawning")] 
@@ -41,6 +44,15 @@ public class GameController : MonoBehaviour
     private GameObject shortKnife;
     [SerializeField] 
     private GameObject smallAndShortKnife;
+
+    [SerializeField] 
+    private GameObject normalKnifeB;
+    [SerializeField] 
+    private GameObject smallKnifeB;
+    [SerializeField] 
+    private GameObject shortKnifeB;
+    [SerializeField] 
+    private GameObject smallAndShortKnifeB;
     
     // 是否需要开启facemouse功能
     [Header("Face mouse")] 
@@ -73,6 +85,12 @@ public class GameController : MonoBehaviour
     
     // 追踪新生成的knife
     public GameObject newKnife;
+    public bool isShort = false;
+    public int predict = 0;
+    public bool isBlack;
+
+    public GameObject nextKnife;
+    public GameObject nextKnifeB;
 
     private void Awake()
     {
@@ -129,11 +147,13 @@ public class GameController : MonoBehaviour
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
         {
-             knifeObject = shortKnife;
+            isShort =true;
+            knifeObject = shortKnife;
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
         {
-             knifeObject = smallAndShortKnife;
+            knifeObject = smallAndShortKnife;
+            isShort =true;
         }
         SpawnKnife();
         //PlayerPrefs.SetInt("item4", 0);
@@ -166,6 +186,24 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
         SceneManager.LoadScene(currentScene + 1);
     }
+    
+    public void destoryLog()
+    {
+        GameObject ogLog = GameObject.FindGameObjectWithTag("Log");
+        GameObject logPieces = (GameObject)Instantiate(logBreak);
+        logPieces.transform.position = ogLog.transform.position;
+        ogLog.SetActive(false);
+    }
+
+    IEnumerator WaitBreak()
+    {
+        yield return new WaitForSeconds(1.0f);
+        GameUI.showLevelUp();
+        StartCoroutine("WaitThreeS");
+
+        music.clip = levelUp;
+        music.Play();
+    }
     public void OnSuccessfulKnifeHit()
     {
         
@@ -194,11 +232,12 @@ public class GameController : MonoBehaviour
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
 
-            GameUI.showLevelUp();
-            StartCoroutine("WaitThreeS");
-
-            music.clip = levelUp;
-            music.Play();
+            GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
+            knifeToShot.SetActive(false);
+            destoryLog();
+            StartCoroutine("WaitBreak");
+            GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
+            knifeToShot2.SetActive(false);
 
             return;
         }
@@ -286,10 +325,72 @@ public class GameController : MonoBehaviour
         // }
     }
 
-    public void SpawnKnife()
+    public void ConvertBlack()
     {
+        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
+        {
+             knifeObject = smallKnifeB;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+        {
+            knifeObject = shortKnifeB;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+        {
+            knifeObject = smallAndShortKnifeB;
+        }
+        else{
+            knifeObject = normalKnifeB;
+        }
+    }
+        public void ConvertWhite()
+    {
+        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
+        {
+             knifeObject = smallKnife;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+        {
+            knifeObject = shortKnife;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+        {
+            knifeObject = smallAndShortKnife;
+        }
+        else{
+            knifeObject = normalKnife;
+        }
+    }
+    public void SpawnKnife()
+    {           
         if (knifeCount > 0) 
         {
+            int ran = UnityEngine.Random.Range(0, 2);
+
+            if (difficulty == 2 && predict == 1)
+            {
+                ConvertBlack();
+                isBlack = true;
+            }
+            if (difficulty == 2 && predict == 0)
+            {
+                ConvertWhite();
+                isBlack = false;
+            }
+
+            if (difficulty == 2 && ran == 1)
+            {
+                nextKnife.SetActive(false);
+                nextKnifeB.SetActive(true);
+                predict = 1;
+            }
+            if (difficulty == 2 && ran == 0)
+            {
+                nextKnife.SetActive(true);
+                nextKnifeB.SetActive(false);
+                predict = 0;
+            }
+
             knifeCount--;
             newKnife = Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
         }
@@ -353,6 +454,7 @@ public class GameController : MonoBehaviour
         }
 
     }
+
 
     public void PauseGame()
     {

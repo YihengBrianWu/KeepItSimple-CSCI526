@@ -49,8 +49,10 @@ public class GameUI : MonoBehaviour
         ScoreObj2.SetActive(false);
         KnifeIconObj.SetActive(false);
         ObstacleObj.SetActive(false);
-        GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
-        knifeToShot.SetActive(false);
+        // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
+        // knifeToShot.SetActive(false);
+        GameObject brokenLog = GameObject.FindGameObjectWithTag("BrokenLog");
+        brokenLog.SetActive(false);
 
         hitAnim.LevelUpShake();
     }
