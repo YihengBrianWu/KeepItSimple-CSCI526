@@ -27,7 +27,7 @@ public class CircleOnLog : MonoBehaviour
     private void SpawnCircle()
     {
 
-        int tempCount = TotalCircle - PlayerPrefs.GetInt("level"+levelParam, 0);
+        int tempCount = TotalCircle; //- PlayerPrefs.GetInt("level"+levelParam, 0);
         foreach (float circleA in RewardLevels[0].circleAngle)
         {
             if (tempCount == 0)
