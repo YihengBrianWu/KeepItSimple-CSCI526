@@ -108,6 +108,21 @@ public class GameController : MonoBehaviour
                 DestroyRandomThree();
             }
         }
+
+        if (Input.GetKeyDown("d"))
+        {
+            if (PlayerPrefs.GetInt("total", 0) < 5)
+            {
+                {
+                    Debug.Log("don't have enough points.");
+                    // TODO 提醒玩家分数不够
+                }
+            }
+            else
+            {
+                DestroyRandomObstacle();
+            }
+        }
         
     }
 
@@ -348,6 +363,36 @@ public class GameController : MonoBehaviour
                 Destroy(children[val]);
                 usedValues.Add(val);
             }
+            // 扣分
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+        }
+
+    }
+
+    public void DestroyRandomObstacle()
+    {
+        // 用来存放obstacle的list
+        GameObject[] obstacles;
+        // 通过tag来获取 所有obstacles
+        obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
+        // 如果没有的话则什么也不干，提醒没有分数，不扣分
+        if (obstacles.Length == 0)
+        {
+            // TODO 弹窗提醒玩家没有刀
+        }
+        // 如果只有一个则消除这一个
+        else if (obstacles.Length == 1)
+        {
+            Destroy(obstacles[0]);
+            // 扣分
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+        }
+        // 随机选择
+        else
+        {
+            // 随机选择下标
+            int val = Random.Range(0, obstacles.Length - 1);
+            Destroy(obstacles[val]);
             // 扣分
             PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
         }
