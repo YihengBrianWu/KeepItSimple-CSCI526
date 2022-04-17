@@ -36,7 +36,7 @@ public class CircleOnLog : MonoBehaviour
             tempCir.transform.SetParent(transform);
 
             SetRotation(transform, tempCir.transform, circleA, 0.25f, 0f);
-            tempCir.transform.localScale= new Vector3(0.3f, 0.3f, 1f);
+            tempCir.transform.localScale= new Vector3(0.32f, 0.35f, 1f);
             tempCount--;
         }
     }

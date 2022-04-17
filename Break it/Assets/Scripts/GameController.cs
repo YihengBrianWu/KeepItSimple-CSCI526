@@ -86,11 +86,13 @@ public class GameController : MonoBehaviour
     // 追踪新生成的knife
     public GameObject newKnife;
     public bool isShort = false;
-    public int predict = 0;
+    public int predict = 3;
     public bool isBlack;
 
     public GameObject nextKnife;
     public GameObject nextKnifeB;
+    [SerializeField]
+    private bool isExampleLevel = false;
 
     private void Awake()
     {
@@ -98,6 +100,10 @@ public class GameController : MonoBehaviour
         Instance = this;
         GameUI = GetComponent<GameUI>();
         knifeObject = normalKnife;
+        if(isExampleLevel)
+        {
+            knifeObject = normalKnifeB;
+        }
         //PlayerPrefs.SetInt("item4", 0);
         if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
         {
@@ -143,17 +149,29 @@ public class GameController : MonoBehaviour
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
         if(PlayerPrefs.GetInt("itemSelected",0) == 1)
         {
-             knifeObject = smallKnife;
+            knifeObject = smallKnife;
+            if(isExampleLevel)
+            {
+                knifeObject = smallKnifeB;
+            }
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
         {
             isShort =true;
             knifeObject = shortKnife;
+            if(isExampleLevel)
+            {
+                knifeObject = shortKnifeB;
+            }
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
         {
             knifeObject = smallAndShortKnife;
             isShort =true;
+            if(isExampleLevel)
+            {
+                knifeObject = smallAndShortKnifeB;
+            }
         }
         SpawnKnife();
         //PlayerPrefs.SetInt("item4", 0);
@@ -396,6 +414,13 @@ public class GameController : MonoBehaviour
                 predict = 0;
             }
 
+            if (isExampleLevel)
+            {
+                isBlack = true;
+                predict = 0;
+                isExampleLevel = false;  
+            }
+
             knifeCount--;
             newKnife = Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
         }
@@ -407,6 +432,7 @@ public class GameController : MonoBehaviour
 
     public void DestroyRandomThree()
     {
+        // 音效
         // 用来存放knife的list
         List<GameObject> children = new List<GameObject>();
         // 首先找到Log gameObject
@@ -434,7 +460,7 @@ public class GameController : MonoBehaviour
         {
             foreach (GameObject child in children)
             {
-                Destroy(child);
+                child.GetComponent<KnifeScript>().selfDestory();
             }
             // 扣分
             PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
@@ -451,7 +477,7 @@ public class GameController : MonoBehaviour
                 {
                     val = Random.Range(0, children.Count - 1);
                 }
-                Destroy(children[val]);
+                children[val].GetComponent<KnifeScript>().selfDestory();
                 usedValues.Add(val);
             }
             // 扣分
