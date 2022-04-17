@@ -93,6 +93,10 @@ public class GameController : MonoBehaviour
     public GameObject nextKnifeB;
     [SerializeField]
     private bool isExampleLevel = false;
+    [SerializeField]
+    private GameObject TipTwo;
+    [SerializeField]
+    private bool needToShowTipTwo = false;
 
     private void Awake()
     {
@@ -100,7 +104,7 @@ public class GameController : MonoBehaviour
         Instance = this;
         GameUI = GetComponent<GameUI>();
         knifeObject = normalKnife;
-        if(isExampleLevel)
+        if(isExampleLevel && difficulty == 2)
         {
             knifeObject = normalKnifeB;
         }
@@ -150,7 +154,7 @@ public class GameController : MonoBehaviour
         if(PlayerPrefs.GetInt("itemSelected",0) == 1)
         {
             knifeObject = smallKnife;
-            if(isExampleLevel)
+            if(isExampleLevel && difficulty == 2)
             {
                 knifeObject = smallKnifeB;
             }
@@ -159,7 +163,7 @@ public class GameController : MonoBehaviour
         {
             isShort =true;
             knifeObject = shortKnife;
-            if(isExampleLevel)
+            if(isExampleLevel && difficulty == 2)
             {
                 knifeObject = shortKnifeB;
             }
@@ -168,7 +172,7 @@ public class GameController : MonoBehaviour
         {
             knifeObject = smallAndShortKnife;
             isShort =true;
-            if(isExampleLevel)
+            if(isExampleLevel && difficulty == 2)
             {
                 knifeObject = smallAndShortKnifeB;
             }
@@ -229,7 +233,11 @@ public class GameController : MonoBehaviour
     }
     public void OnSuccessfulKnifeHit()
     {
-        
+        if (needToShowTipTwo)
+        {
+            TipTwo.SetActive(true);
+            needToShowTipTwo = false;
+        }
         // Debug.Log("knifeCollisionHappens: " + knifeCollisionHappens);
         // Debug.Log("knifeObstacleHappens: " + knifeObstacleHappens);
         // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
@@ -414,7 +422,7 @@ public class GameController : MonoBehaviour
                 predict = 0;
             }
 
-            if (isExampleLevel)
+            if (isExampleLevel && difficulty == 2)
             {
                 isBlack = true;
                 predict = 0;
@@ -432,6 +440,11 @@ public class GameController : MonoBehaviour
 
     public void DestroyRandomThree()
     {
+        if(PlayerPrefs.GetInt("total") < 5 && !isExampleLevel)
+        {
+            return;
+        }
+
         // 音效
         // 用来存放knife的list
         List<GameObject> children = new List<GameObject>();
@@ -463,7 +476,11 @@ public class GameController : MonoBehaviour
                 child.GetComponent<KnifeScript>().selfDestory();
             }
             // 扣分
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            if (!isExampleLevel)
+            {
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            }
+            
         }
         // 如果大于三把，则随机选择
         else
@@ -481,7 +498,15 @@ public class GameController : MonoBehaviour
                 usedValues.Add(val);
             }
             // 扣分
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            if (!isExampleLevel)
+            {
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            }
+        }
+
+        if (isExampleLevel)
+        {
+          TipTwo.SetActive(true);
         }
 
     }

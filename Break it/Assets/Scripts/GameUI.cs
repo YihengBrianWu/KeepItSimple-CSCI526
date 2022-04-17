@@ -45,6 +45,8 @@ public class GameUI : MonoBehaviour
     private GameObject nextText;
     [SerializeField] 
     private bool isBnW = false;
+    [SerializeField] 
+    private GameObject ToHide;
 
     
     private HitAnim hitAnim;
@@ -65,6 +67,7 @@ public class GameUI : MonoBehaviour
         }
         // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
         // knifeToShot.SetActive(false);
+        ToHide.SetActive(false);
         GameObject brokenLog = GameObject.FindGameObjectWithTag("BrokenLog");
         brokenLog.SetActive(false);
 

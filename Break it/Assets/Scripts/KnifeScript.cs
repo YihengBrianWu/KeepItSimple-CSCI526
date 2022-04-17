@@ -64,8 +64,8 @@ public class KnifeScript : MonoBehaviour
         if (isExample)
         {
             stopFaceMouse = true;
-            rb.velocity = new Vector2(0, 0);
             rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.velocity = new Vector2(0, 0);
             GameObject logObj = GameObject.FindGameObjectWithTag("Log");
             this.transform.SetParent(logObj.transform);
         }
@@ -97,7 +97,7 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
-        if (Input.GetMouseButtonDown(0) && isActive && firstTime ) //Input.mousePosition[0] < 879)
+        if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 2000)
         {
             firstTime = false;
             // if (!stopFaceMouse)
@@ -166,7 +166,7 @@ public class KnifeScript : MonoBehaviour
             isActive = false;
 
             float tempZ = col.collider.transform.rotation.eulerAngles.z; 
-            print(tempZ);
+            //print(tempZ);
             // if ((!reflected && (isBlack && tempZ<270 &&tempZ>90))
             //      || (!reflected && !isBlack && ((tempZ>270 && tempZ<360) || (tempZ>0 && tempZ<90)))
             //      || gameController.difficulty == 1 
@@ -219,7 +219,6 @@ public class KnifeScript : MonoBehaviour
                 this.GetComponent<BoxCollider2D>().enabled = false;
                 GameController.Instance.failitInc();
                 GameController.Instance.OnFailKnifeHit();
-
                 music.clip = rebound;
                 music.Play();
                 
@@ -229,7 +228,7 @@ public class KnifeScript : MonoBehaviour
         else if (col.collider.CompareTag("Knife"))
         {
 
-            Debug.Log(col.collider.GetComponent<KnifeScript>().isBlack);
+            //Debug.Log(col.collider.GetComponent<KnifeScript>().isBlack);
             // different colors
             if (isBlack && !col.collider.GetComponent<KnifeScript>().isBlack && col.collider.GetComponent<KnifeScript>().onTheLog ||
                 !isBlack && col.collider.GetComponent<KnifeScript>().isBlack && col.collider.GetComponent<KnifeScript>().onTheLog)
@@ -237,6 +236,10 @@ public class KnifeScript : MonoBehaviour
                 isActive = false;
                 // hitAnim.MissShake();
                 ScoreCount.HitCount++;
+                rb.velocity = new Vector2(0, 0);
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                this.transform.SetParent(col.collider.transform);
+
                 GameController.Instance.blackWhiteCollision++;
                 Debug.Log("black and white hit");
                 GameController.Instance.hitOnLogInc();
@@ -250,7 +253,7 @@ public class KnifeScript : MonoBehaviour
                 tempKnife.GetComponent<BoxCollider2D>().enabled = false;  
                 this.GetComponent<BoxCollider2D>().enabled = false;                
                 StartCoroutine("waitEliminate");
-
+                print("bounce of different knife");////////////////////////////////////
                 music.clip = eliminate;
                 music.Play();
             }
@@ -315,7 +318,7 @@ public class KnifeScript : MonoBehaviour
         else
         {
             //should not enter
-            
+            //print("should not enter");////////////////////////////////////
             hitAnim.MissShake();
             isActive = false;
 
@@ -326,7 +329,7 @@ public class KnifeScript : MonoBehaviour
     }
 
     public void selfDestory()
-    {
+    {   
         m1 = this.GetComponent<SpriteRenderer>().material;
         this.GetComponent<Rigidbody2D>().gravityScale = 0.3f;
         this.GetComponent<BoxCollider2D>().enabled = false;  
