@@ -14,16 +14,16 @@ public class BreakLog : MonoBehaviour
         switch(direction)
         {
             case 1:
-            rb2d.AddForce(this.transform.up * 40, ForceMode2D.Impulse);
+            rb2d.AddForce(this.transform.up * 2000, ForceMode2D.Force);
             break;
             case 2:
-            rb2d.AddForce(this.transform.up * 40, ForceMode2D.Impulse);
+            rb2d.AddForce(-this.transform.up * 2000, ForceMode2D.Force);
             break;
             case 3:
-            rb2d.AddForce(-this.transform.right * 90, ForceMode2D.Impulse);
+            rb2d.AddForce(-this.transform.right * 5000, ForceMode2D.Force);
             break;
             case 4:
-            rb2d.AddForce(this.transform.right * 90, ForceMode2D.Impulse);
+            rb2d.AddForce(this.transform.right * 5000, ForceMode2D.Force);
             break;
         }
         // rb2d.AddTorque(torque);
