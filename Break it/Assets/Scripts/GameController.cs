@@ -122,49 +122,53 @@ public class GameController : MonoBehaviour
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
     }
 
-    private void Update()
+    private bool obstacleDestoryUsed = false;
+    public void DestroyRandomObstacle()
     {
-        if (Input.GetKeyDown("b"))
+
+        if(obstacleDestoryUsed)
         {
-            if (PlayerPrefs.GetInt("total", 0) < 5)
-            {
-                Debug.Log("don't have enough points.");
-                // TODO 提醒玩家分数不够
-            }
-            else
-            {
-                DestroyRandomThree();
-            }
+            return;
         }
 
-        if (Input.GetKeyDown("d"))
+        obstacleDestoryUsed = true;
+        // 用来存放obstacle的list
+        GameObject[] obstacles;
+        // 通过tag来获取 所有obstacles
+        obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
+
+        if (obstacles.Length == 1)
         {
-            if (PlayerPrefs.GetInt("total", 0) < 5)
+            obstacles[0].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
+            // 扣分
+            if (!isExampleLevel)
             {
-                {
-                    Debug.Log("don't have enough points.");
-                    // TODO 提醒玩家分数不够
-                }
-            }
-            else
-            {
-                DestroyRandomObstacle();
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 10);
             }
         }
-        
+        // 随机选择
+        else
+        {
+            // 随机选择下标
+            int val = Random.Range(0, obstacles.Length - 1);
+            obstacles[val].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
+            // 扣分
+            if (!isExampleLevel)
+            {
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 10);
+            }
+        }
+        if (isExampleLevel)
+        {
+          TipTwo.SetActive(true);
+        }
+
     }
 
     private void Start()
     {
         Time.timeScale = 1;
-        if (isInfinity)
-        {
-            currentScene = 12;
-        }
-        else
-        {
-            currentScene = difficulty + 2;
-        }
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
         if(PlayerPrefs.GetInt("itemSelected",0) == 1)
         {
@@ -219,7 +223,6 @@ public class GameController : MonoBehaviour
     IEnumerator WaitThreeS()
     {
         yield return new WaitForSeconds(1.0f);
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
         SceneManager.LoadScene(currentScene + 1);
     }
@@ -544,6 +547,11 @@ public class GameController : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(currentScene);
     }
     
 }

@@ -16,6 +16,7 @@ public class ObstaclesDestory : MonoBehaviour
     {
         if(startDissolve)
         {
+            print(fade);
             fade -= Time.deltaTime;
             if (fade <= 0f)
             {
@@ -26,14 +27,15 @@ public class ObstaclesDestory : MonoBehaviour
         }
     }
 
-    public void selfDestory()
+    public void selfDestoryObstacles()
     {   
-        this.GetComponent<BoxCollider2D>().enabled = false;  
+
         startDissolve = true;
-        StartCoroutine("waitEliminate");
+        this.GetComponent<BoxCollider2D>().enabled = false;  
+        StartCoroutine("waitEliminateObstacle");
     }
 
-    IEnumerator waitEliminate() {
+    IEnumerator waitEliminateObstacle() {
         yield return new WaitForSecondsRealtime(1.2f);
         Destroy(this.gameObject);
     }

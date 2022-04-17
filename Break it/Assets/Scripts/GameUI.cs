@@ -38,6 +38,8 @@ public class GameUI : MonoBehaviour
     [Header("Obstacle")] [SerializeField] 
     private GameObject ObstacleObj;
     [SerializeField] 
+    private bool ExistObstacles = false;
+    [SerializeField] 
     private GameObject nextKnife;
     [SerializeField] 
     private GameObject nextKnifeB;
@@ -58,7 +60,10 @@ public class GameUI : MonoBehaviour
         ScoreObj1.SetActive(false);
         ScoreObj2.SetActive(false);
         KnifeIconObj.SetActive(false);
-        ObstacleObj.SetActive(false);
+        if (ExistObstacles)
+        {
+            ObstacleObj.SetActive(false);
+        }
         if (isBnW)
         {
             nextText.SetActive(false);
