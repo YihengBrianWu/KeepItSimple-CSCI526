@@ -136,6 +136,21 @@ public class GameController : MonoBehaviour
                 DestroyRandomThree();
             }
         }
+
+        if (Input.GetKeyDown("d"))
+        {
+            if (PlayerPrefs.GetInt("total", 0) < 5)
+            {
+                {
+                    Debug.Log("don't have enough points.");
+                    // TODO 提醒玩家分数不够
+                }
+            }
+            else
+            {
+                DestroyRandomObstacle();
+            }
+        }
         
     }
 
@@ -510,7 +525,6 @@ public class GameController : MonoBehaviour
         }
 
     }
-
 
     public void PauseGame()
     {
