@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour
     
     [SerializeField] 
     private int knifeHitLogToWin;
+
+    [SerializeField] 
+    private UnityEngine.Object logBreak;
     
     // 位置
     [Header("Knife Spawning")] 
@@ -41,6 +44,15 @@ public class GameController : MonoBehaviour
     private GameObject shortKnife;
     [SerializeField] 
     private GameObject smallAndShortKnife;
+
+    [SerializeField] 
+    private GameObject normalKnifeB;
+    [SerializeField] 
+    private GameObject smallKnifeB;
+    [SerializeField] 
+    private GameObject shortKnifeB;
+    [SerializeField] 
+    private GameObject smallAndShortKnifeB;
     
     // 是否需要开启facemouse功能
     [Header("Face mouse")] 
@@ -73,6 +85,18 @@ public class GameController : MonoBehaviour
     
     // 追踪新生成的knife
     public GameObject newKnife;
+    public bool isShort = false;
+    public int predict = 3;
+    public bool isBlack;
+
+    public GameObject nextKnife;
+    public GameObject nextKnifeB;
+    [SerializeField]
+    private bool isExampleLevel = false;
+    [SerializeField]
+    private GameObject TipTwo;
+    [SerializeField]
+    private bool needToShowTipTwo = false;
 
     private void Awake()
     {
@@ -80,6 +104,10 @@ public class GameController : MonoBehaviour
         Instance = this;
         GameUI = GetComponent<GameUI>();
         knifeObject = normalKnife;
+        if(isExampleLevel && difficulty == 2)
+        {
+            knifeObject = normalKnifeB;
+        }
         //PlayerPrefs.SetInt("item4", 0);
         if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
         {
@@ -140,15 +168,29 @@ public class GameController : MonoBehaviour
         GameUI.SetInitialDisplayedKnifeCount(knifeCount);
         if(PlayerPrefs.GetInt("itemSelected",0) == 1)
         {
-             knifeObject = smallKnife;
+            knifeObject = smallKnife;
+            if(isExampleLevel && difficulty == 2)
+            {
+                knifeObject = smallKnifeB;
+            }
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
         {
-             knifeObject = shortKnife;
+            isShort =true;
+            knifeObject = shortKnife;
+            if(isExampleLevel && difficulty == 2)
+            {
+                knifeObject = shortKnifeB;
+            }
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
         {
-             knifeObject = smallAndShortKnife;
+            knifeObject = smallAndShortKnife;
+            isShort =true;
+            if(isExampleLevel && difficulty == 2)
+            {
+                knifeObject = smallAndShortKnifeB;
+            }
         }
         SpawnKnife();
         //PlayerPrefs.SetInt("item4", 0);
@@ -181,9 +223,36 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
         SceneManager.LoadScene(currentScene + 1);
     }
+    
+    public void destoryLog()
+    {
+        GameObject ogLog = GameObject.FindGameObjectWithTag("Log");
+        GameObject logPieces = (GameObject)Instantiate(logBreak);
+        logPieces.transform.position = ogLog.transform.position;
+        ogLog.SetActive(false);
+    }
+
+    IEnumerator WaitBreak()
+    {
+        yield return new WaitForSeconds(1.0f);
+        GameUI.showLevelUp();
+        StartCoroutine("WaitThreeS");
+
+        music.clip = levelUp;
+        music.Play();
+    }
+    IEnumerator WaitFail()
+    {
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene(10);
+    }
     public void OnSuccessfulKnifeHit()
     {
-        
+        if (needToShowTipTwo)
+        {
+            TipTwo.SetActive(true);
+            needToShowTipTwo = false;
+        }
         // Debug.Log("knifeCollisionHappens: " + knifeCollisionHappens);
         // Debug.Log("knifeObstacleHappens: " + knifeObstacleHappens);
         // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
@@ -209,11 +278,12 @@ public class GameController : MonoBehaviour
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
 
-            GameUI.showLevelUp();
-            StartCoroutine("WaitThreeS");
-
-            music.clip = levelUp;
-            music.Play();
+            GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
+            knifeToShot.SetActive(false);
+            destoryLog();
+            StartCoroutine("WaitBreak");
+            GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
+            knifeToShot2.SetActive(false);
 
             return;
         }
@@ -226,7 +296,7 @@ public class GameController : MonoBehaviour
             // 埋点 after lose 之后的统计数据
         if (isInfinity)
         {
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -244,7 +314,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
         
@@ -266,14 +336,14 @@ public class GameController : MonoBehaviour
         {
             int rewardGet = ScoreCount.HitCount / 5;
             PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total", 0) + rewardGet);
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
         if (failHit > (knifeAmount - knifeHitLogToWin))
         {
             if (isInfinity)
             {
-                SceneManager.LoadScene(10);
+                StartCoroutine("WaitFail");
                 return;
             }
             // 埋点 after lose 之后的统计数据
@@ -292,7 +362,7 @@ public class GameController : MonoBehaviour
             Analytics.FlushEvents();
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
-            SceneManager.LoadScene(10);
+            StartCoroutine("WaitFail");
             return;
         }
         // if (knifeCount > 0)
@@ -301,10 +371,79 @@ public class GameController : MonoBehaviour
         // }
     }
 
-    public void SpawnKnife()
+    public void ConvertBlack()
     {
+        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
+        {
+             knifeObject = smallKnifeB;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+        {
+            knifeObject = shortKnifeB;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+        {
+            knifeObject = smallAndShortKnifeB;
+        }
+        else{
+            knifeObject = normalKnifeB;
+        }
+    }
+        public void ConvertWhite()
+    {
+        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
+        {
+             knifeObject = smallKnife;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+        {
+            knifeObject = shortKnife;
+        }
+        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+        {
+            knifeObject = smallAndShortKnife;
+        }
+        else{
+            knifeObject = normalKnife;
+        }
+    }
+    public void SpawnKnife()
+    {           
         if (knifeCount > 0) 
         {
+            int ran = UnityEngine.Random.Range(0, 2);
+
+            if (difficulty == 2 && predict == 1)
+            {
+                ConvertBlack();
+                isBlack = true;
+            }
+            if (difficulty == 2 && predict == 0)
+            {
+                ConvertWhite();
+                isBlack = false;
+            }
+
+            if (difficulty == 2 && ran == 1)
+            {
+                nextKnife.SetActive(false);
+                nextKnifeB.SetActive(true);
+                predict = 1;
+            }
+            if (difficulty == 2 && ran == 0)
+            {
+                nextKnife.SetActive(true);
+                nextKnifeB.SetActive(false);
+                predict = 0;
+            }
+
+            if (isExampleLevel && difficulty == 2)
+            {
+                isBlack = true;
+                predict = 0;
+                isExampleLevel = false;  
+            }
+
             knifeCount--;
             newKnife = Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
         }
@@ -316,6 +455,12 @@ public class GameController : MonoBehaviour
 
     public void DestroyRandomThree()
     {
+        if(PlayerPrefs.GetInt("total") < 5 && !isExampleLevel)
+        {
+            return;
+        }
+
+        // 音效
         // 用来存放knife的list
         List<GameObject> children = new List<GameObject>();
         // 首先找到Log gameObject
@@ -343,10 +488,14 @@ public class GameController : MonoBehaviour
         {
             foreach (GameObject child in children)
             {
-                Destroy(child);
+                child.GetComponent<KnifeScript>().selfDestory();
             }
             // 扣分
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            if (!isExampleLevel)
+            {
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            }
+            
         }
         // 如果大于三把，则随机选择
         else
@@ -360,41 +509,19 @@ public class GameController : MonoBehaviour
                 {
                     val = Random.Range(0, children.Count - 1);
                 }
-                Destroy(children[val]);
+                children[val].GetComponent<KnifeScript>().selfDestory();
                 usedValues.Add(val);
             }
             // 扣分
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            if (!isExampleLevel)
+            {
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+            }
         }
 
-    }
-
-    public void DestroyRandomObstacle()
-    {
-        // 用来存放obstacle的list
-        GameObject[] obstacles;
-        // 通过tag来获取 所有obstacles
-        obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
-        // 如果没有的话则什么也不干，提醒没有分数，不扣分
-        if (obstacles.Length == 0)
+        if (isExampleLevel)
         {
-            // TODO 弹窗提醒玩家没有刀
-        }
-        // 如果只有一个则消除这一个
-        else if (obstacles.Length == 1)
-        {
-            Destroy(obstacles[0]);
-            // 扣分
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
-        }
-        // 随机选择
-        else
-        {
-            // 随机选择下标
-            int val = Random.Range(0, obstacles.Length - 1);
-            Destroy(obstacles[val]);
-            // 扣分
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
+          TipTwo.SetActive(true);
         }
 
     }

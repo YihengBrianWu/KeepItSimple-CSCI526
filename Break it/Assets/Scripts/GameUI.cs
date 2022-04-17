@@ -37,6 +37,16 @@ public class GameUI : MonoBehaviour
 
     [Header("Obstacle")] [SerializeField] 
     private GameObject ObstacleObj;
+    [SerializeField] 
+    private GameObject nextKnife;
+    [SerializeField] 
+    private GameObject nextKnifeB;
+    [SerializeField] 
+    private GameObject nextText;
+    [SerializeField] 
+    private bool isBnW = false;
+    [SerializeField] 
+    private GameObject ToHide;
 
     
     private HitAnim hitAnim;
@@ -49,8 +59,17 @@ public class GameUI : MonoBehaviour
         ScoreObj2.SetActive(false);
         KnifeIconObj.SetActive(false);
         ObstacleObj.SetActive(false);
-        GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
-        knifeToShot.SetActive(false);
+        if (isBnW)
+        {
+            nextText.SetActive(false);
+            nextKnifeB.SetActive(false);
+            nextKnife.SetActive(false);
+        }
+        // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
+        // knifeToShot.SetActive(false);
+        ToHide.SetActive(false);
+        GameObject brokenLog = GameObject.FindGameObjectWithTag("BrokenLog");
+        brokenLog.SetActive(false);
 
         hitAnim.LevelUpShake();
     }

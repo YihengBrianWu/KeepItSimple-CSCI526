@@ -8,13 +8,14 @@ public class RewardCount : MonoBehaviour
     public static int CircleCount;
     public Text score;
 
-    void Start()
-    {
-        CircleCount = PlayerPrefs.GetInt("total", 0);    
-    }
+    // void Start()
+    // {
+    //     CircleCount = PlayerPrefs.GetInt("total", 0);    
+    // }
 
     void Update()
     {
+        CircleCount = PlayerPrefs.GetInt("total", 0);
         score.text = CircleCount.ToString();
     }
 }

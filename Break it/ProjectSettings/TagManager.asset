@@ -14,6 +14,9 @@ TagManager:
   - WhiteWall
   - Event
   - nextKnife
+  - BrokenLog
+  - nextKnifeB
+  - TipTwo
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - BG
   - 
   - 
   - 
