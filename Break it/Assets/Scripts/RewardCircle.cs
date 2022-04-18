@@ -19,8 +19,7 @@ public class RewardCircle : MonoBehaviour
         circleCollider = GetComponent<BoxCollider2D>();
         sp = GetComponent<SpriteRenderer>();
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         getReward = Resources.Load<AudioClip>("sound/getReward");    
     }
 

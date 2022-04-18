@@ -77,6 +77,9 @@ public class GameController : MonoBehaviour
     //sound
     public AudioSource music;
     public AudioClip levelUp;
+    public AudioClip breakLog;
+    public AudioClip addKnives;
+    public AudioClip vanish;
 
 
     // pause menu
@@ -110,17 +113,21 @@ public class GameController : MonoBehaviour
             knifeObject = normalKnifeB;
         }
         //PlayerPrefs.SetInt("item4", 0);
+
         // if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
         // {
         //     knifeCount += 2;
         //     knifeAmount = knifeCount;
         // }
 
+
         knifeAmount = knifeCount;
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
+        breakLog = Resources.Load<AudioClip>("sound/BreakLog");
+        addKnives = Resources.Load<AudioClip>("sound/addKnives");
+        vanish = Resources.Load<AudioClip>("sound/vanish");
     }
 
     private bool obstacleDestoryUsed = false;
@@ -228,6 +235,8 @@ public class GameController : MonoBehaviour
           TipTwo.SetActive(true);
         }
 
+        music.clip = vanish;
+        music.Play();
     }
 
     private void Start()
@@ -295,6 +304,9 @@ public class GameController : MonoBehaviour
     private bool containObstacle = false;
     public void destoryLog()
     {
+        music.clip = breakLog;
+        music.Play();
+
         if (containObstacle)
         {
             GameObject.FindGameObjectWithTag("ObstacleGroup").SetActive(false);
@@ -542,6 +554,10 @@ public class GameController : MonoBehaviour
         }
 
         // 音效
+        // ok!
+        music.clip = vanish;
+        music.Play();
+
         // 用来存放knife的list
         List<GameObject> children = new List<GameObject>();
         // 首先找到Log gameObject
@@ -610,25 +626,31 @@ public class GameController : MonoBehaviour
     private bool knifeAdded = false;
     public void addKnifes()
     {
+
         if(PlayerPrefs.GetInt("total") < 5 && !isExampleLevel)
         {
             return;
         }
 
         if (!knifeAdded)
+
         {
             knifeAmount += 3;
             knifeCount += 3;
             GameUI.panelAddKnifes();
             knifeAdded = true;
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 3);
             if (isExampleLevel)
             {
                 TipTwo.SetActive(true);
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") + 3);
             }
+
             else
             {
                 PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
             }
+
         }
     }
     public void PauseGame()

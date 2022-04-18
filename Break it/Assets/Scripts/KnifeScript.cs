@@ -75,8 +75,7 @@ public class KnifeScript : MonoBehaviour
         }
         
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         hitLog = Resources.Load<AudioClip>("sound/hitLog");
         hitKnife = Resources.Load<AudioClip>("sound/hitKnife");
         throwSound = Resources.Load<AudioClip>("sound/throw");
@@ -273,7 +272,7 @@ public class KnifeScript : MonoBehaviour
                 music.Play();
             }
         }
-        else if (col.collider.CompareTag("MovingObstacle"))
+        else if (col.collider.CompareTag("MovingObstacle") || (col.collider.CompareTag("WhiteWall") && isBlack) || (col.collider.CompareTag("BlackWall") && !isBlack))
         {
             //bounce off obstacles
             GameController.Instance.knifeObstacleHappens++;
@@ -285,7 +284,7 @@ public class KnifeScript : MonoBehaviour
             GameController.Instance.failitInc();
             GameController.Instance.OnFailKnifeHit();
 
-            music.clip = rebound;
+            music.clip = hitKnife;
             music.Play();
         }
         else if (col.collider.CompareTag("Wall") || (col.collider.CompareTag("WhiteWall") && !isBlack) || (col.collider.CompareTag("BlackWall") && isBlack))
