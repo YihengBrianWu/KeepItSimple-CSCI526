@@ -34,11 +34,6 @@ public class GameUI : MonoBehaviour
 
     [Header("KnifeIconObj")] [SerializeField] 
     private GameObject KnifeIconObj;
-
-    [Header("Obstacle")] [SerializeField] 
-    private GameObject ObstacleObj;
-    [SerializeField] 
-    private bool ExistObstacles = false;
     [SerializeField] 
     private GameObject nextKnife;
     [SerializeField] 
@@ -60,10 +55,6 @@ public class GameUI : MonoBehaviour
         ScoreObj1.SetActive(false);
         ScoreObj2.SetActive(false);
         KnifeIconObj.SetActive(false);
-        if (ExistObstacles)
-        {
-            ObstacleObj.SetActive(false);
-        }
         if (isBnW)
         {
             nextText.SetActive(false);
@@ -83,6 +74,14 @@ public class GameUI : MonoBehaviour
     public void SetInitialDisplayedKnifeCount(int count)
     {
         for (int i = 0; i < count; i++)
+        {
+            Instantiate(iconKnife, panelKnives.transform);
+        }
+    }
+
+    public void panelAddKnifes()
+    {
+        for (int i = 0; i < 3; i++)
         {
             Instantiate(iconKnife, panelKnives.transform);
         }

@@ -17,6 +17,7 @@ TagManager:
   - BrokenLog
   - nextKnifeB
   - TipTwo
+  - ObstacleGroup
   layers:
   - Default
   - TransparentFX

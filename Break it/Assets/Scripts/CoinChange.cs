@@ -11,11 +11,11 @@ public class CoinChange : MonoBehaviour
 
     void Start()
     {
-        CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
+        CoinsTXT.text = " " + PlayerPrefs.GetInt("total", 0);
     }
 
     void Update()
     {
-        CoinsTXT.text = "Coins: " + PlayerPrefs.GetInt("total", 0);
+        CoinsTXT.text = " " + PlayerPrefs.GetInt("total", 0);
     }
 }

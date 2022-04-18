@@ -1456,8 +1456,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Click anywhere to shoot!
 
-    You can only shoot at one direction in this
-    mode.'
+    You can''t move knife in this mode.'
 --- !u!222 &1293395827
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1690,6 +1689,8 @@ MonoBehaviour:
   isExampleLevel: 1
   TipTwo: {fileID: 1338295773}
   needToShowTipTwo: 1
+  hitOnLog: 0
+  containObstacle: 0
 --- !u!114 &1445251791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1710,8 +1711,6 @@ MonoBehaviour:
   ScoreObj1: {fileID: 1764005267}
   ScoreObj2: {fileID: 739463237}
   KnifeIconObj: {fileID: 617974231}
-  ObstacleObj: {fileID: 1765758908}
-  ExistObstacles: 0
   nextKnife: {fileID: 1334392063}
   nextKnifeB: {fileID: 154907456}
   nextText: {fileID: 1131761081}

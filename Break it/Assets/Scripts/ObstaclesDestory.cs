@@ -16,7 +16,6 @@ public class ObstaclesDestory : MonoBehaviour
     {
         if(startDissolve)
         {
-            print(fade);
             fade -= Time.deltaTime;
             if (fade <= 0f)
             {

@@ -136,7 +136,6 @@ public class GameController : MonoBehaviour
         GameObject[] obstacles;
         // 通过tag来获取 所有obstacles
         obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
-
         if (obstacles.Length == 1)
         {
             obstacles[0].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
@@ -150,7 +149,12 @@ public class GameController : MonoBehaviour
         else
         {
             // 随机选择下标
-            int val = Random.Range(0, obstacles.Length - 1);
+            int val = Random.Range(0, obstacles.Length);
+            if (val == obstacles.Length)
+            {
+                val -= 1;
+            }
+            
             obstacles[val].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
             // 扣分
             if (!isExampleLevel)
@@ -207,7 +211,7 @@ public class GameController : MonoBehaviour
     }
     
     // 统计有多少射到log上
-    private int hitOnLog = 0;
+    public int hitOnLog = 0;
     private int failHit = 0;
 
     public void hitOnLogInc()
@@ -226,9 +230,14 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
         SceneManager.LoadScene(currentScene + 1);
     }
-    
+    [SerializeField]
+    private bool containObstacle = false;
     public void destoryLog()
     {
+        if (containObstacle)
+        {
+            GameObject.FindGameObjectWithTag("ObstacleGroup").SetActive(false);
+        }
         GameObject ogLog = GameObject.FindGameObjectWithTag("Log");
         GameObject logPieces = (GameObject)Instantiate(logBreak);
         logPieces.transform.position = ogLog.transform.position;
@@ -247,7 +256,14 @@ public class GameController : MonoBehaviour
     IEnumerator WaitFail()
     {
         yield return new WaitForSeconds(0.7f);
-        SceneManager.LoadScene(10);
+        if (!isInfinity)
+        {
+            SceneManager.LoadScene(9);
+        }
+        else
+        {
+            SceneManager.LoadScene(10);
+        }
     }
     public void OnSuccessfulKnifeHit()
     {
@@ -297,11 +313,11 @@ public class GameController : MonoBehaviour
             // Debug.Log("knifeObstacleHappens" + knifeObstacleHappens);
             // Debug.Log("knifeHitWrongSection" + knifeHitWrongSection);
             // 埋点 after lose 之后的统计数据
-        if (isInfinity)
-        {
-            StartCoroutine("WaitFail");
-            return;
-        }
+            if (isInfinity)
+            {
+                StartCoroutine("WaitFail");
+                return;
+            }
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"Level", difficulty},
@@ -529,6 +545,20 @@ public class GameController : MonoBehaviour
 
     }
 
+    private bool knifeAdded = false;
+    public void addKnifes()
+    {
+        if (!knifeAdded)
+        {
+            knifeAmount += 3;
+            GameUI.panelAddKnifes();
+            knifeAdded = true;
+            if (isExampleLevel)
+            {
+                TipTwo.SetActive(true);
+            }
+        }
+    }
     public void PauseGame()
     {
         isPaused = true;

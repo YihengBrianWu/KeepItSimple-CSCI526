@@ -21,7 +21,7 @@ public class TextChange : MonoBehaviour
     {
         if (win)
         {
-            text.GetComponent<TMP_Text>().text = "Congratulations! You passed all levels!";
+            text.GetComponent<TMP_Text>().text = "Congratulations! You passed all levels of this Mode!";
         }
         else
         {
