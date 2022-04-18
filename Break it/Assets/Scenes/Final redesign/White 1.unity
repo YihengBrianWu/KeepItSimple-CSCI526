@@ -2452,7 +2452,7 @@ MonoBehaviour:
   logBreak: {fileID: 538234765586887885, guid: 2a108984bb911214ebc2d5fe7fa3f309, type: 3}
   knifeSpawnPosition: {x: 0, y: -4}
   isInfinity: 0
-  normalKnife: {fileID: 6176553822277054568, guid: 3fc6b02fbe8a63c4a9ec5331e47a3966, type: 3}
+  normalKnife: {fileID: 6528531778477615167, guid: 3a453ae7a1050a245ba0fc9cbf707cf5, type: 3}
   smallKnife: {fileID: 3417400902893980792, guid: 47a91bdb3890cd347b65757bd9790425, type: 3}
   shortKnife: {fileID: 3783007621300473671, guid: 4955704c52362b440985dbb71ca487ed, type: 3}
   smallAndShortKnife: {fileID: 2971805233570496639, guid: 7ee746bb0fb806e4db6f307220447777, type: 3}
