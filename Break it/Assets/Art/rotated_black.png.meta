@@ -1,0 +1,2808 @@
+fileFormatVersion: 2
+guid: 54755f14128eb46439c09408d0ce7e6a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2602129005206940622
+    second: rotated_black_0
+  - first:
+      213: 7406756886193393374
+    second: rotated_black_1
+  - first:
+      213: 7343568727383054321
+    second: rotated_black_2
+  - first:
+      213: -8573148175709306459
+    second: rotated_black_3
+  - first:
+      213: -8766856094112898924
+    second: rotated_black_4
+  - first:
+      213: -4422311353064623482
+    second: rotated_black_5
+  - first:
+      213: -8299077069924940959
+    second: rotated_black_6
+  - first:
+      213: -4781691878891011676
+    second: rotated_black_7
+  - first:
+      213: 3304255238683061158
+    second: rotated_black_8
+  - first:
+      213: -1112387660235751218
+    second: rotated_black_9
+  - first:
+      213: -8690689364423917581
+    second: rotated_black_10
+  - first:
+      213: 5210165369591547749
+    second: rotated_black_11
+  - first:
+      213: 1117641360012587198
+    second: rotated_black_12
+  - first:
+      213: -7107739061611622750
+    second: rotated_black_13
+  - first:
+      213: 1227557440767479270
+    second: rotated_black_14
+  - first:
+      213: 7906780029097282639
+    second: rotated_black_15
+  - first:
+      213: -6413903112803897967
+    second: rotated_black_16
+  - first:
+      213: -417958150556971053
+    second: rotated_black_17
+  - first:
+      213: -3469557781882059581
+    second: rotated_black_18
+  - first:
+      213: -5006256470634898265
+    second: rotated_black_19
+  - first:
+      213: -7998689353144458852
+    second: rotated_black_20
+  - first:
+      213: 415500193983802619
+    second: rotated_black_21
+  - first:
+      213: 2790706997919942791
+    second: rotated_black_22
+  - first:
+      213: 7304817608207209276
+    second: rotated_black_23
+  - first:
+      213: -3761124929023670724
+    second: rotated_black_24
+  - first:
+      213: -364199324814095787
+    second: rotated_black_25
+  - first:
+      213: -7270852925870344395
+    second: rotated_black_26
+  - first:
+      213: -6635487316909042430
+    second: rotated_black_27
+  - first:
+      213: 4588091254131145995
+    second: rotated_black_28
+  - first:
+      213: -4041582314175833466
+    second: rotated_black_29
+  - first:
+      213: 4054400483814430172
+    second: rotated_black_30
+  - first:
+      213: 3275691069583436582
+    second: rotated_black_31
+  - first:
+      213: 5154996530775112868
+    second: rotated_black_32
+  - first:
+      213: -8706081813091171821
+    second: rotated_black_33
+  - first:
+      213: -482648831668268856
+    second: rotated_black_34
+  - first:
+      213: 7704413048704666582
+    second: rotated_black_35
+  - first:
+      213: -6646010902813637900
+    second: rotated_black_36
+  - first:
+      213: 6373334356772907439
+    second: rotated_black_37
+  - first:
+      213: 3266648315812772379
+    second: rotated_black_38
+  - first:
+      213: 8426831152617107859
+    second: rotated_black_39
+  - first:
+      213: 8332002652786314461
+    second: rotated_black_40
+  - first:
+      213: 5439684541232273371
+    second: rotated_black_41
+  - first:
+      213: 8132224181067012782
+    second: rotated_black_42
+  - first:
+      213: -9202159250063094205
+    second: rotated_black_43
+  - first:
+      213: -8906179081350824274
+    second: rotated_black_44
+  - first:
+      213: 5589743557435694919
+    second: rotated_black_45
+  - first:
+      213: 4199050552026807814
+    second: rotated_black_46
+  - first:
+      213: -2693493241063009511
+    second: rotated_black_47
+  - first:
+      213: -6846213129483933784
+    second: rotated_black_48
+  - first:
+      213: -6787974145794588842
+    second: rotated_black_49
+  - first:
+      213: 3602301592984702311
+    second: rotated_black_50
+  - first:
+      213: 8511176656014676429
+    second: rotated_black_51
+  - first:
+      213: -4069189734634934263
+    second: rotated_black_52
+  - first:
+      213: 8573931947091931062
+    second: rotated_black_53
+  - first:
+      213: -8378953055667034915
+    second: rotated_black_54
+  - first:
+      213: -1855175326237146987
+    second: rotated_black_55
+  - first:
+      213: 2995916033662829142
+    second: rotated_black_56
+  - first:
+      213: -7592820196220783583
+    second: rotated_black_57
+  - first:
+      213: -3606875796574403131
+    second: rotated_black_58
+  - first:
+      213: -7473768925779794290
+    second: rotated_black_59
+  - first:
+      213: 951723083332471669
+    second: rotated_black_60
+  - first:
+      213: -5548482988236187382
+    second: rotated_black_61
+  - first:
+      213: 2233806056066645041
+    second: rotated_black_62
+  - first:
+      213: -4070994698076776485
+    second: rotated_black_63
+  - first:
+      213: 4456792454254260770
+    second: rotated_black_64
+  - first:
+      213: 700492014345637699
+    second: rotated_black_65
+  - first:
+      213: 5050588945234571929
+    second: rotated_black_66
+  - first:
+      213: 2832963024056142699
+    second: rotated_black_67
+  - first:
+      213: -6177389574443012001
+    second: rotated_black_68
+  - first:
+      213: -2763039938118936706
+    second: rotated_black_69
+  - first:
+      213: -7118306060800635537
+    second: rotated_black_70
+  - first:
+      213: 4878787561038196049
+    second: rotated_black_71
+  - first:
+      213: -8238974000303644585
+    second: rotated_black_72
+  - first:
+      213: 305229368926894621
+    second: rotated_black_73
+  - first:
+      213: 3594636083855182977
+    second: rotated_black_74
+  - first:
+      213: -2325923043706518112
+    second: rotated_black_75
+  - first:
+      213: 8713624266583979702
+    second: rotated_black_76
+  - first:
+      213: 4883817145408790638
+    second: rotated_black_77
+  - first:
+      213: -1825817717373754191
+    second: rotated_black_78
+  - first:
+      213: 565710889825128270
+    second: rotated_black_79
+  - first:
+      213: -1044496627316805612
+    second: rotated_black_80
+  - first:
+      213: 2378965244545023909
+    second: rotated_black_81
+  - first:
+      213: 7708422399067648791
+    second: rotated_black_82
+  - first:
+      213: -2233894082755206045
+    second: rotated_black_83
+  - first:
+      213: 6291432107533542579
+    second: rotated_black_84
+  - first:
+      213: -1508430448811175849
+    second: rotated_black_85
+  - first:
+      213: 6721245817628619548
+    second: rotated_black_86
+  - first:
+      213: -6977886218706085998
+    second: rotated_black_87
+  - first:
+      213: 806439045417668771
+    second: rotated_black_88
+  - first:
+      213: -6713892220458366478
+    second: rotated_black_89
+  - first:
+      213: 5185696144274491585
+    second: rotated_black_90
+  - first:
+      213: -2424219839597821025
+    second: rotated_black_91
+  - first:
+      213: -8820242246378535598
+    second: rotated_black_92
+  - first:
+      213: -7720288496499645310
+    second: rotated_black_93
+  - first:
+      213: -5628065481101102539
+    second: rotated_black_94
+  - first:
+      213: -8154373835891451597
+    second: rotated_black_95
+  - first:
+      213: 3275972796008103968
+    second: rotated_black_96
+  - first:
+      213: -6375379212049445151
+    second: rotated_black_97
+  - first:
+      213: -4973628262977228683
+    second: rotated_black_98
+  - first:
+      213: 2969410977889013056
+    second: rotated_black_99
+  - first:
+      213: 2726775129771965236
+    second: rotated_black_100
+  - first:
+      213: 8146789995447952433
+    second: rotated_black_101
+  - first:
+      213: 5856271728704811767
+    second: rotated_black_102
+  - first:
+      213: -8571402066860819502
+    second: rotated_black_103
+  - first:
+      213: 6162305800191243748
+    second: rotated_black_104
+  - first:
+      213: 6944890351656086401
+    second: rotated_black_105
+  - first:
+      213: 3448096518664543851
+    second: rotated_black_106
+  - first:
+      213: -5863710107058365290
+    second: rotated_black_107
+  - first:
+      213: 641130658179719141
+    second: rotated_black_108
+  - first:
+      213: 1829574970671607446
+    second: rotated_black_109
+  - first:
+      213: 6077532689824708057
+    second: rotated_black_110
+  - first:
+      213: 7777972034370403636
+    second: rotated_black_111
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rotated_black_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 785
+        width: 29
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23456e8d47163ebd0800000000000000
+      internalID: -2602129005206940622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 780
+        width: 32
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede4c3335261ac660800000000000000
+      internalID: 7406756886193393374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 390
+        width: 36
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7955389d899e560800000000000000
+      internalID: 7343568727383054321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_3
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 782
+        width: 31
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a10f0c182f060980800000000000000
+      internalID: -8573148175709306459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 520
+        width: 38
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490ae69c4ded55680800000000000000
+      internalID: -8766856094112898924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 520
+        width: 88
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682f76a314bc0a2c0800000000000000
+      internalID: -4422311353064623482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_6
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 650
+        width: 37
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163c8831061c3dc80800000000000000
+      internalID: -8299077069924940959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_7
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 780
+        width: 36
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1c455129404adb0800000000000000
+      internalID: -4781691878891011676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_8
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 650
+        width: 42
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab6de402a21bdd20800000000000000
+      internalID: 3304255238683061158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_9
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 394
+        width: 40
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0ce1311510090f0800000000000000
+      internalID: -1112387660235751218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_10
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 780
+        width: 28
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff3f3c7118746780800000000000000
+      internalID: -8690689364423917581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_11
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 806
+        width: 31
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567cb8b8cc93e4840800000000000000
+      internalID: 5210165369591547749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_12
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 783
+        width: 42
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0b5d935e8a28f00800000000000000
+      internalID: 1117641360012587198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_13
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 783
+        width: 32
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae887c5bfc3c5d90800000000000000
+      internalID: -7107739061611622750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_14
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 780
+        width: 37
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed455e0df8290110800000000000000
+      internalID: 1227557440767479270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_15
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 782
+        width: 24
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c0f776b868abd60800000000000000
+      internalID: 7906780029097282639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_16
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 648
+        width: 42
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d2d89e91d3df6a0800000000000000
+      internalID: -6413903112803897967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_17
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 782
+        width: 32
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df8219c64d133af0800000000000000
+      internalID: -417958150556971053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_18
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 780
+        width: 33
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c44a337497a9dfc0800000000000000
+      internalID: -3469557781882059581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_19
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 785
+        width: 24
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac5e45a344368ab0800000000000000
+      internalID: -5006256470634898265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_20
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 782
+        width: 32
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9120258962fef090800000000000000
+      internalID: -7998689353144458852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_21
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 780
+        width: 80
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfca28a993724c500800000000000000
+      internalID: 415500193983802619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_22
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 657
+        width: 31
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78807339a359ab620800000000000000
+      internalID: 2790706997919942791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_23
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 520
+        width: 33
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33953e79ecef5560800000000000000
+      internalID: 7304817608207209276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_24
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 260
+        width: 42
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c368da9edcccdcbc0800000000000000
+      internalID: -3761124929023670724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_25
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 520
+        width: 44
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ac409c4aa12faf0800000000000000
+      internalID: -364199324814095787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_26
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 653
+        width: 37
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537736b59cdb81b90800000000000000
+      internalID: -7270852925870344395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 653
+        width: 31
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205d60c01730ae3a0800000000000000
+      internalID: -6635487316909042430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_28
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 654
+        width: 23
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d3097dfac2caf30800000000000000
+      internalID: 4588091254131145995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_29
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 650
+        width: 31
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a5c096c4a69e7c0800000000000000
+      internalID: -4041582314175833466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_30
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 658
+        width: 31
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd55ee642cf144830800000000000000
+      internalID: 4054400483814430172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_31
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 390
+        width: 39
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ba0742ca7957d20800000000000000
+      internalID: 3275691069583436582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_32
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 658
+        width: 32
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acb83b480a3a8740800000000000000
+      internalID: 5154996530775112868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_33
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 654
+        width: 32
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3124631c7b8cd2780800000000000000
+      internalID: -8706081813091171821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_34
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 654
+        width: 31
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0d72dd1794d49f0800000000000000
+      internalID: -482648831668268856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_35
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 648
+        width: 36
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db0dea19d29bea60800000000000000
+      internalID: 7704413048704666582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_36
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 523
+        width: 42
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f28b64cb40a4c3a0800000000000000
+      internalID: -6646010902813637900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_37
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 650
+        width: 24
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9ed3284d1a27850800000000000000
+      internalID: 6373334356772907439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_38
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 524
+        width: 32
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1af526f557755d20800000000000000
+      internalID: 3266648315812772379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_39
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 54
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39130f9394e12f470800000000000000
+      internalID: 8426831152617107859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_40
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 522
+        width: 21
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddcc0f2944831a370800000000000000
+      internalID: 8332002652786314461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_41
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 520
+        width: 40
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd755520544ad7b40800000000000000
+      internalID: 5439684541232273371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_42
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 130
+        width: 42
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa575a6ec67bd070800000000000000
+      internalID: 8132224181067012782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_43
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 395
+        width: 28
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e0a6dcaec5b4080800000000000000
+      internalID: -9202159250063094205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_44
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 520
+        width: 26
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaeb11eff45e66480800000000000000
+      internalID: -8906179081350824274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_45
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 522
+        width: 37
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f9b765622c29d40800000000000000
+      internalID: 5589743557435694919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_46
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 520
+        width: 40
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e3773ca36064a30800000000000000
+      internalID: 4199050552026807814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_47
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 534
+        width: 27
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91316810b2ace9ad0800000000000000
+      internalID: -2693493241063009511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_48
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 530
+        width: 24
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7ae787e6d5df0a0800000000000000
+      internalID: -6846213129483933784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_49
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 523
+        width: 24
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65fb0678a754cc1a0800000000000000
+      internalID: -6787974145794588842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_50
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 523
+        width: 40
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d4da78632fdf130800000000000000
+      internalID: 3602301592984702311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_51
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 520
+        width: 28
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc11a521316cd1670800000000000000
+      internalID: 8511176656014676429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_52
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 520
+        width: 24
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9003b6fee755787c0800000000000000
+      internalID: -4069189734634934263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 393
+        width: 42
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfa9c2eda9bcf670800000000000000
+      internalID: 8573931947091931062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_54
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 390
+        width: 23
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd4ea47e69af7bb80800000000000000
+      internalID: -8378953055667034915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_55
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 390
+        width: 23
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590c093bed71146e0800000000000000
+      internalID: -1855175326237146987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_56
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 390
+        width: 26
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652ce5372c1a39920800000000000000
+      internalID: 2995916033662829142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_57
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 390
+        width: 32
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12439d09242e0a690800000000000000
+      internalID: -7592820196220783583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_58
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 82
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c58a34b29dc1fdc0800000000000000
+      internalID: -3606875796574403131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_59
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 393
+        width: 40
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86ea8d72c6d74890800000000000000
+      internalID: -7473768925779794290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_60
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 397
+        width: 31
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b42921a13353d00800000000000000
+      internalID: 951723083332471669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_61
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 130
+        width: 32
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0952eb8e14dff2b0800000000000000
+      internalID: -5548482988236187382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_62
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 390
+        width: 23
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cf7f4d5c2100f10800000000000000
+      internalID: 2233806056066645041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_63
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 390
+        width: 27
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd792a224ebe087c0800000000000000
+      internalID: -4070994698076776485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_64
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 393
+        width: 28
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2227771cf15b9dd30800000000000000
+      internalID: 4456792454254260770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_65
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 393
+        width: 42
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fc11396c5a8b900800000000000000
+      internalID: 700492014345637699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_66
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 390
+        width: 42
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992b833f2eb471640800000000000000
+      internalID: 5050588945234571929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_67
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 390
+        width: 40
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6bcea65cd4b05720800000000000000
+      internalID: 2832963024056142699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_68
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 390
+        width: 36
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f507f1849e0854aa0800000000000000
+      internalID: -6177389574443012001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_69
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 264
+        width: 32
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e771434c0d5b7a9d0800000000000000
+      internalID: -2763039938118936706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_70
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 262
+        width: 21
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6dc7732a52b63d90800000000000000
+      internalID: -7118306060800635537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_71
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 260
+        width: 33
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15da646107fe4b340800000000000000
+      internalID: 4878787561038196049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_72
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 262
+        width: 23
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750e8367cc849ad80800000000000000
+      internalID: -8238974000303644585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_73
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 260
+        width: 28
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a77ed6e746c3400800000000000000
+      internalID: 305229368926894621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_74
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 262
+        width: 24
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c4dfa1976b2e130800000000000000
+      internalID: 3594636083855182977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_75
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 262
+        width: 35
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a54af4a059a8bfd0800000000000000
+      internalID: -2325923043706518112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_76
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 266
+        width: 24
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b636fb8a130de870800000000000000
+      internalID: 8713624266583979702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_77
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 274
+        width: 22
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60ad0471ddc6c340800000000000000
+      internalID: 4883817145408790638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_78
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 44
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4a25ba57469a6e0800000000000000
+      internalID: -1825817717373754191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_79
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 262
+        width: 27
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fc8999e0fc9d700800000000000000
+      internalID: 565710889825128270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_80
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 269
+        width: 35
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41030b7f9d33181f0800000000000000
+      internalID: -1044496627316805612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_81
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 263
+        width: 24
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af3b1e1948c30120800000000000000
+      internalID: 2378965244545023909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_82
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 0
+        width: 36
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713771bb451d9fa60800000000000000
+      internalID: 7708422399067648791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_83
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 262
+        width: 36
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364678bda2d9ff0e0800000000000000
+      internalID: -2233894082755206045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_84
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 263
+        width: 42
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4260a1b28af4750800000000000000
+      internalID: 6291432107533542579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_85
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 2
+        width: 44
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7501a32bf7af01be0800000000000000
+      internalID: -1508430448811175849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_86
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 278
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1375dfd579a64d50800000000000000
+      internalID: 6721245817628619548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_87
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 36
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2971eea5471992f90800000000000000
+      internalID: -6977886218706085998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_88
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 31
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a010230a0c013b00800000000000000
+      internalID: 806439045417668771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_89
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 25
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f90253e89673d2a0800000000000000
+      internalID: -6713892220458366478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_90
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 132
+        width: 32
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c808901b2b47f740800000000000000
+      internalID: 5185696144274491585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_91
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2
+        width: 47
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93415366e07b5ed0800000000000000
+      internalID: -2424219839597821025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_92
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 2
+        width: 27
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255c6b79864389580800000000000000
+      internalID: -8820242246378535598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_93
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 130
+        width: 31
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284aa9a24860cd490800000000000000
+      internalID: -7720288496499645310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_94
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 0
+        width: 36
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532b452834815e1b0800000000000000
+      internalID: -5628065481101102539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_95
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 0
+        width: 36
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33953f13338d5de80800000000000000
+      internalID: -8154373835891451597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_96
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 2
+        width: 39
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02008efa6e7967d20800000000000000
+      internalID: 3275972796008103968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_97
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 134
+        width: 37
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee0265826a1687a0800000000000000
+      internalID: -6375379212049445151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_98
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 134
+        width: 33
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570366c327f1afab0800000000000000
+      internalID: -4973628262977228683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_99
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 142
+        width: 22
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d48314d87753920800000000000000
+      internalID: 2969410977889013056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_100
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 130
+        width: 32
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b7d60988377d520800000000000000
+      internalID: 2726775129771965236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_101
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 134
+        width: 40
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134a16a56563f0170800000000000000
+      internalID: 8146789995447952433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_102
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 32
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2fc910c18a54150800000000000000
+      internalID: 5856271728704811767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_103
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 2
+        width: 42
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db36b1cb334c0980800000000000000
+      internalID: -8571402066860819502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_104
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 35
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e57ab9d978e48550800000000000000
+      internalID: 6162305800191243748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_105
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 0
+        width: 20
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18baf7eaaf4316060800000000000000
+      internalID: 6944890351656086401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_106
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 3
+        width: 36
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ed242d3891adf20800000000000000
+      internalID: 3448096518664543851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_107
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 3
+        width: 33
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c1be299baef9ea0800000000000000
+      internalID: -5863710107058365290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_108
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 22
+        width: 24
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef1a6fcfe0c5e800800000000000000
+      internalID: 641130658179719141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_109
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 3
+        width: 31
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ea3d80eb4f36910800000000000000
+      internalID: 1829574970671607446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_110
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 0
+        width: 40
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d573dff7cbb75450800000000000000
+      internalID: 6077532689824708057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rotated_black_111
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 0
+        width: 37
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43df1951b58e0fb60800000000000000
+      internalID: 7777972034370403636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -852,7 +852,11 @@ MonoBehaviour:
   ScoreObj1: {fileID: 1234359129}
   ScoreObj2: {fileID: 1845580518}
   KnifeIconObj: {fileID: 1037557882}
-  ObstacleObj: {fileID: 1088515910}
+  nextKnife: {fileID: 0}
+  nextKnifeB: {fileID: 0}
+  nextText: {fileID: 0}
+  isBnW: 0
+  ToHide: {fileID: 0}
 --- !u!114 &644449126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,12 +872,17 @@ MonoBehaviour:
   difficulty: 0
   knifeCount: 13
   knifeHitLogToWin: 8
+  logBreak: {fileID: 0}
   knifeSpawnPosition: {x: 0, y: -4}
   isInfinity: 0
   normalKnife: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
   smallKnife: {fileID: 6961728693766223302, guid: 5b95cc49c11c20c4fb4dc69087f636b0, type: 3}
   shortKnife: {fileID: 7947875779940986355, guid: 8a28163d627ff82409697bdce324b9c5, type: 3}
   smallAndShortKnife: {fileID: 6058388177383931525, guid: e344eb7da8ac88649b4bed18dc912fbc, type: 3}
+  normalKnifeB: {fileID: 0}
+  smallKnifeB: {fileID: 0}
+  shortKnifeB: {fileID: 0}
+  smallAndShortKnifeB: {fileID: 0}
   faceMouse: 1
   win: 0
   currentScene: 0
@@ -885,6 +894,17 @@ MonoBehaviour:
   levelUp: {fileID: 0}
   pauseMenu: {fileID: 851993090}
   newKnife: {fileID: 0}
+  isShort: 0
+  predict: 3
+  isBlack: 0
+  nextKnife: {fileID: 0}
+  nextKnifeB: {fileID: 0}
+  isExampleLevel: 0
+  TipTwo: {fileID: 0}
+  needToShowTipTwo: 0
+  containWall: 0
+  hitOnLog: 0
+  containObstacle: 0
 --- !u!4 &644449127
 Transform:
   m_ObjectHideFlags: 0
