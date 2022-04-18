@@ -78,6 +78,8 @@ public class GameController : MonoBehaviour
     public AudioSource music;
     public AudioClip levelUp;
     public AudioClip breakLog;
+    public AudioClip addKnives;
+    public AudioClip vanish;
 
 
     // pause menu
@@ -121,6 +123,8 @@ public class GameController : MonoBehaviour
         music = gameObject.GetComponent<AudioSource>();
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
         breakLog = Resources.Load<AudioClip>("sound/BreakLog");
+        addKnives = Resources.Load<AudioClip>("sound/addKnives");
+        vanish = Resources.Load<AudioClip>("sound/vanish");
     }
 
     private bool obstacleDestoryUsed = false;
@@ -168,6 +172,8 @@ public class GameController : MonoBehaviour
           TipTwo.SetActive(true);
         }
 
+        music.clip = vanish;
+        music.Play();
     }
 
     private void Start()
@@ -484,6 +490,10 @@ public class GameController : MonoBehaviour
         }
 
         // 音效
+        // ok!
+        music.clip = vanish;
+        music.Play();
+
         // 用来存放knife的list
         List<GameObject> children = new List<GameObject>();
         // 首先找到Log gameObject
@@ -563,6 +573,9 @@ public class GameController : MonoBehaviour
                 TipTwo.SetActive(true);
                 PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") + 3);
             }
+
+            music.clip = addKnives;
+            music.Play();
         }
     }
     public void PauseGame()
