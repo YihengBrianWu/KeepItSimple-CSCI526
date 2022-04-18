@@ -64,10 +64,10 @@ public class GameUI : MonoBehaviour
         // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
         // knifeToShot.SetActive(false);
         ToHide.SetActive(false);
-        GameObject brokenLog = GameObject.FindGameObjectWithTag("BrokenLog");
-        brokenLog.SetActive(false);
+        // GameObject brokenLog = GameObject.FindGameObjectWithTag("BrokenLog");
+        // brokenLog.SetActive(false);
 
-        hitAnim.LevelUpShake();
+        // hitAnim.MissShake();
     }
 
     // 生成图像

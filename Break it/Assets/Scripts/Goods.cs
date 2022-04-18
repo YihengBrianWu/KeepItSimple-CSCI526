@@ -13,7 +13,7 @@ public class Goods : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        priceText.text = ShopManager.GetComponent<ShopManagerScript>().shopItems[2, ItemID].ToString() + " Coins";
+        priceText.text = ShopManager.GetComponent<ShopManagerScript>().shopItems[2, ItemID].ToString() + " Apples";
         quantity.text = ShopManager.GetComponent<ShopManagerScript>().shopItems[3, ItemID].ToString();
     }
 }

@@ -97,7 +97,7 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
-        if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 2000)
+        if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 2300)
         {
             firstTime = false;
             // if (!stopFaceMouse)
@@ -305,12 +305,12 @@ public class KnifeScript : MonoBehaviour
             }
             else
             {
-                newDirValueDeg = -(300 / Mathf.PI) * newDirValue;
+                newDirValueDeg = -(360 / Mathf.PI) * newDirValue;
             }
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
             lockRotation = true;
             
-            StartCoroutine("WaitReflect");
+            //StartCoroutine("WaitReflect");
 
             music.clip = rebound;
             music.Play();

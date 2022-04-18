@@ -42,7 +42,7 @@ public class EndMenu : MonoBehaviour
 
     public void infinity()
     {
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene(13);
     }
 
 }

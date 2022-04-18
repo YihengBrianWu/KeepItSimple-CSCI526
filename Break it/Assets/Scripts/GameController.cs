@@ -100,6 +100,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetInt("total", 50);
         isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
@@ -109,11 +110,11 @@ public class GameController : MonoBehaviour
             knifeObject = normalKnifeB;
         }
         //PlayerPrefs.SetInt("item4", 0);
-        if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
-        {
-            knifeCount += 2;
-            knifeAmount = knifeCount;
-        }
+        // if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
+        // {
+        //     knifeCount += 2;
+        //     knifeAmount = knifeCount;
+        // }
 
         knifeAmount = knifeCount;
 
@@ -123,6 +124,8 @@ public class GameController : MonoBehaviour
     }
 
     private bool obstacleDestoryUsed = false;
+    [SerializeField]
+    private bool containWall = false;
     public void DestroyRandomObstacle()
     {
 
@@ -132,36 +135,94 @@ public class GameController : MonoBehaviour
         }
 
         obstacleDestoryUsed = true;
-        // 用来存放obstacle的list
-        GameObject[] obstacles;
-        // 通过tag来获取 所有obstacles
-        obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
-        if (obstacles.Length == 1)
+
+        bool chooseObstacles = true;
+        if (!containObstacle && !containWall)
         {
-            obstacles[0].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
-            // 扣分
-            if (!isExampleLevel)
+            return;
+        }
+        else if (!containObstacle && containWall)
+        {
+            chooseObstacles= false;
+        }
+        else if (containObstacle && !containWall)
+        {
+            chooseObstacles= true;
+        }
+        else if (containObstacle && containWall)
+        {
+            if(Random.Range(0, 2) == 1)
             {
-                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 10);
+                chooseObstacles= false;
             }
         }
-        // 随机选择
+
+
+        if(chooseObstacles)
+        {
+            GameObject[] obstacles;
+            obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
+            if (obstacles.Length == 1)
+            {
+                obstacles[0].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
+                // 扣分
+                if (!isExampleLevel)
+                {
+                    PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 7);
+                }
+            }
+            // 随机选择
+            else
+            {
+                // 随机选择下标
+                int val = Random.Range(0, obstacles.Length);
+                if (val == obstacles.Length)
+                {
+                    val -= 1;
+                }
+                
+                obstacles[val].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
+                // 扣分
+                if (!isExampleLevel)
+                {
+                    PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 7);
+                }
+            }
+        }
         else
         {
-            // 随机选择下标
-            int val = Random.Range(0, obstacles.Length);
-            if (val == obstacles.Length)
+            ///Wall
+            GameObject[] walls;
+            walls = GameObject.FindGameObjectsWithTag("Wall");
+            if (walls.Length == 1)
             {
-                val -= 1;
+                walls[0].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
+                // 扣分
+                if (!isExampleLevel)
+                {
+                    PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 7);
+                }
             }
-            
-            obstacles[val].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
-            // 扣分
-            if (!isExampleLevel)
+            // 随机选择
+            else
             {
-                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 10);
+                // 随机选择下标
+                int val = Random.Range(0, walls.Length);
+                if (val == walls.Length)
+                {
+                    val -= 1;
+                }
+                
+                walls[val].GetComponent<ObstaclesDestory>().selfDestoryObstacles();
+                // 扣分
+                if (!isExampleLevel)
+                {
+                    PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 7);
+                }
             }
         }
+
+
         if (isExampleLevel)
         {
           TipTwo.SetActive(true);
@@ -224,12 +285,12 @@ public class GameController : MonoBehaviour
         failHit++;
     }
 
-    IEnumerator WaitThreeS()
-    {
-        yield return new WaitForSeconds(1.0f);
-        PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
-        SceneManager.LoadScene(currentScene + 1);
-    }
+    // IEnumerator WaitThreeS()
+    // {
+    //     yield return new WaitForSeconds(1.0f);
+    //     PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
+    //     SceneManager.LoadScene(currentScene + 1);
+    // }
     [SerializeField]
     private bool containObstacle = false;
     public void destoryLog()
@@ -246,23 +307,24 @@ public class GameController : MonoBehaviour
 
     IEnumerator WaitBreak()
     {
-        yield return new WaitForSeconds(1.0f);
         GameUI.showLevelUp();
-        StartCoroutine("WaitThreeS");
-
         music.clip = levelUp;
         music.Play();
+        yield return new WaitForSeconds(1.0f);
+        PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
+        SceneManager.LoadScene(currentScene + 1);
+
     }
     IEnumerator WaitFail()
     {
         yield return new WaitForSeconds(0.7f);
         if (!isInfinity)
         {
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(14);
         }
         else
         {
-            SceneManager.LoadScene(10);
+            SceneManager.LoadScene(15);
         }
     }
     public void OnSuccessfulKnifeHit()
@@ -548,14 +610,24 @@ public class GameController : MonoBehaviour
     private bool knifeAdded = false;
     public void addKnifes()
     {
+        if(PlayerPrefs.GetInt("total") < 5 && !isExampleLevel)
+        {
+            return;
+        }
+
         if (!knifeAdded)
         {
             knifeAmount += 3;
+            knifeCount += 3;
             GameUI.panelAddKnifes();
             knifeAdded = true;
             if (isExampleLevel)
             {
                 TipTwo.SetActive(true);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
             }
         }
     }
@@ -568,8 +640,7 @@ public class GameController : MonoBehaviour
     
     public void GotEnd()
     {
-        const int endScene = 10;
-        SceneManager.LoadScene(endScene);
+        SceneManager.LoadScene(0);
     }
 
     public void Resume()
