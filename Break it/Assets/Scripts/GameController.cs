@@ -77,6 +77,7 @@ public class GameController : MonoBehaviour
     //sound
     public AudioSource music;
     public AudioClip levelUp;
+    public AudioClip breakLog;
 
 
     // pause menu
@@ -120,6 +121,7 @@ public class GameController : MonoBehaviour
         music = gameObject.AddComponent<AudioSource>();
         music.playOnAwake = false;
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
+        breakLog = Resources.Load<AudioClip>("sound/BreakLog");
     }
 
     private bool obstacleDestoryUsed = false;
@@ -234,6 +236,9 @@ public class GameController : MonoBehaviour
     private bool containObstacle = false;
     public void destoryLog()
     {
+        music.clip = breakLog;
+        music.Play();
+
         if (containObstacle)
         {
             GameObject.FindGameObjectWithTag("ObstacleGroup").SetActive(false);
