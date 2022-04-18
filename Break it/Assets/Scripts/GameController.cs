@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour
         //PlayerPrefs.SetInt("item4", 0);
         if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
         {
-            knifeCount += 2;
+            knifeCount += 1;
             knifeAmount = knifeCount;
         }
 
@@ -552,14 +552,16 @@ public class GameController : MonoBehaviour
     private bool knifeAdded = false;
     public void addKnifes()
     {
-        if (!knifeAdded)
+        if (!knifeAdded && PlayerPrefs.GetInt("total") >= 3)
         {
             knifeAmount += 3;
             GameUI.panelAddKnifes();
             knifeAdded = true;
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 3);
             if (isExampleLevel)
             {
                 TipTwo.SetActive(true);
+                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") + 3);
             }
         }
     }
