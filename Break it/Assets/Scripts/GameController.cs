@@ -118,8 +118,7 @@ public class GameController : MonoBehaviour
 
         knifeAmount = knifeCount;
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
         breakLog = Resources.Load<AudioClip>("sound/BreakLog");
     }

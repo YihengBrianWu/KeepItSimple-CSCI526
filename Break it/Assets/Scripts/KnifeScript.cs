@@ -75,8 +75,7 @@ public class KnifeScript : MonoBehaviour
         }
         
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         hitLog = Resources.Load<AudioClip>("sound/hitLog");
         hitKnife = Resources.Load<AudioClip>("sound/hitKnife");
         throwSound = Resources.Load<AudioClip>("sound/throw");
