@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("total", 50);
+        //PlayerPrefs.SetInt("total", 50);
         isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
@@ -136,29 +136,29 @@ public class GameController : MonoBehaviour
 
         obstacleDestoryUsed = true;
 
-        bool chooseObstacles = true;
+        bool chooseReflect = true;
         if (!containObstacle && !containWall)
         {
             return;
         }
         else if (!containObstacle && containWall)
         {
-            chooseObstacles= false;
+            chooseReflect= true;
         }
         else if (containObstacle && !containWall)
         {
-            chooseObstacles= true;
+            chooseReflect= false;
         }
         else if (containObstacle && containWall)
         {
-            if(Random.Range(0, 2) == 1)
+            if(Random.Range(0, 4) == 1)
             {
-                chooseObstacles= false;
+                chooseReflect= false;
             }
         }
 
 
-        if(chooseObstacles)
+        if(!chooseReflect)
         {
             GameObject[] obstacles;
             obstacles = GameObject.FindGameObjectsWithTag("MovingObstacle");
