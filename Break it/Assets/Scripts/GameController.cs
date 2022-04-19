@@ -45,14 +45,6 @@ public class GameController : MonoBehaviour
     [SerializeField] 
     private GameObject smallAndShortKnife;
 
-    [SerializeField] 
-    private GameObject normalKnifeB;
-    [SerializeField] 
-    private GameObject smallKnifeB;
-    [SerializeField] 
-    private GameObject shortKnifeB;
-    [SerializeField] 
-    private GameObject smallAndShortKnifeB;
     
     // 是否需要开启facemouse功能
     [Header("unility")] 
@@ -93,7 +85,6 @@ public class GameController : MonoBehaviour
     public bool isBlack;
 
     public GameObject nextKnife;
-    public GameObject nextKnifeB;
     [SerializeField]
     private bool isExampleLevel = false;
     [SerializeField]
@@ -108,10 +99,6 @@ public class GameController : MonoBehaviour
         Instance = this;
         GameUI = GetComponent<GameUI>();
         knifeObject = normalKnife;
-        if(isExampleLevel && difficulty == 2)
-        {
-            knifeObject = normalKnifeB;
-        }
         //PlayerPrefs.SetInt("item4", 0);
         // if (PlayerPrefs.GetInt("extraKnife", 0) == 4)
         // {
@@ -241,28 +228,16 @@ public class GameController : MonoBehaviour
         if(PlayerPrefs.GetInt("itemSelected",0) == 1)
         {
             knifeObject = smallKnife;
-            if(isExampleLevel && difficulty == 2)
-            {
-                knifeObject = smallKnifeB;
-            }
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
         {
             isShort =true;
             knifeObject = shortKnife;
-            if(isExampleLevel && difficulty == 2)
-            {
-                knifeObject = shortKnifeB;
-            }
         }
         else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
         {
             knifeObject = smallAndShortKnife;
             isShort =true;
-            if(isExampleLevel && difficulty == 2)
-            {
-                knifeObject = smallAndShortKnifeB;
-            }
         }
         SpawnKnife();
         //PlayerPrefs.SetInt("item4", 0);
@@ -455,42 +430,42 @@ public class GameController : MonoBehaviour
         // }
     }
 
-    public void ConvertBlack()
-    {
-        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
-        {
-             knifeObject = smallKnifeB;
-        }
-        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
-        {
-            knifeObject = shortKnifeB;
-        }
-        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
-        {
-            knifeObject = smallAndShortKnifeB;
-        }
-        else{
-            knifeObject = normalKnifeB;
-        }
-    }
-        public void ConvertWhite()
-    {
-        if(PlayerPrefs.GetInt("itemSelected",0) == 1)
-        {
-             knifeObject = smallKnife;
-        }
-        else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
-        {
-            knifeObject = shortKnife;
-        }
-        else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
-        {
-            knifeObject = smallAndShortKnife;
-        }
-        else{
-            knifeObject = normalKnife;
-        }
-    }
+    // public void ConvertBlack()
+    // {
+    //     if(PlayerPrefs.GetInt("itemSelected",0) == 1)
+    //     {
+    //          knifeObject = smallKnifeB;
+    //     }
+    //     else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+    //     {
+    //         knifeObject = shortKnifeB;
+    //     }
+    //     else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+    //     {
+    //         knifeObject = smallAndShortKnifeB;
+    //     }
+    //     else{
+    //         knifeObject = normalKnifeB;
+    //     }
+    // }
+    //     public void ConvertWhite()
+    // {
+    //     if(PlayerPrefs.GetInt("itemSelected",0) == 1)
+    //     {
+    //          knifeObject = smallKnife;
+    //     }
+    //     else if(PlayerPrefs.GetInt("itemSelected",0) == 2)
+    //     {
+    //         knifeObject = shortKnife;
+    //     }
+    //     else if(PlayerPrefs.GetInt("itemSelected",0) == 3)
+    //     {
+    //         knifeObject = smallAndShortKnife;
+    //     }
+    //     else{
+    //         knifeObject = normalKnife;
+    //     }
+    // }
     public void SpawnKnife()
     {           
         if (knifeCount > 0) 
@@ -499,25 +474,21 @@ public class GameController : MonoBehaviour
 
             if (difficulty == 2 && predict == 1)
             {
-                ConvertBlack();
                 isBlack = true;
             }
             if (difficulty == 2 && predict == 0)
             {
-                ConvertWhite();
                 isBlack = false;
             }
 
             if (difficulty == 2 && ran == 1)
             {
-                nextKnife.SetActive(false);
-                nextKnifeB.SetActive(true);
+                nextKnife.GetComponent<SpriteRenderer>().color = new Color32(0,0,0,255);
                 predict = 1;
             }
             if (difficulty == 2 && ran == 0)
             {
-                nextKnife.SetActive(true);
-                nextKnifeB.SetActive(false);
+                nextKnife.GetComponent<SpriteRenderer>().color = new Color32(255,255,255,255);
                 predict = 0;
             }
 
@@ -527,8 +498,8 @@ public class GameController : MonoBehaviour
                 predict = 0;
                 isExampleLevel = false;  
             }
-
             knifeCount--;
+            
             newKnife = Instantiate(knifeObject, knifeSpawnPosition, Quaternion.identity);
         }
         else 

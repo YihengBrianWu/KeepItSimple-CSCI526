@@ -65,6 +65,7 @@ public class KnifeScript : MonoBehaviour
         if(gameController.isBlack)
         {
             isBlack = true;
+            this.GetComponent<SpriteRenderer>().color = new Color32(0,0,0,255);
         }
 
         rb = GetComponent<Rigidbody2D>();

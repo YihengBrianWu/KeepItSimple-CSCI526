@@ -35,8 +35,8 @@ public class CircleOnLog : MonoBehaviour
             GameObject tempCir = Instantiate(circlePrefab);
             tempCir.transform.SetParent(transform);
 
-            SetRotation(transform, tempCir.transform, circleA, 0.25f, 0f);
-            tempCir.transform.localScale= new Vector3(0.32f, 0.35f, 1f);
+            SetRotation(transform, tempCir.transform, circleA, 0.2f, 0f);
+            tempCir.transform.localScale= new Vector3(0.5f, 0.5f, 1f);
             tempCount--;
         }
     }
