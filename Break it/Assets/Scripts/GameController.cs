@@ -55,9 +55,12 @@ public class GameController : MonoBehaviour
     private GameObject smallAndShortKnifeB;
     
     // 是否需要开启facemouse功能
-    [Header("Face mouse")] 
+    [Header("unility")] 
     [SerializeField]
     public bool faceMouse = true;
+
+    [SerializeField] 
+    public bool loopMove = false;
 
     private GameObject knifeObject;
 

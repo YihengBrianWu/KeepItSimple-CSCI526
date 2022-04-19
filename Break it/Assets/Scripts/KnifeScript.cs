@@ -37,9 +37,15 @@ public class KnifeScript : MonoBehaviour
     public AudioClip throwSound;
     public AudioClip rebound;
     public AudioClip eliminate;
+    
+    // loop move needs
+    private Vector3 pointA;
+    private Vector3 pointB;
 
     private bool firstTime = true;
     public bool onTheLog = false;
+    private bool towardsA = true;
+    
     private GameObject tempKnife;
     private Material m1;
     private Material m2;
@@ -53,6 +59,9 @@ public class KnifeScript : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
         hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
 
+        pointA = new Vector3(4, -4);
+        pointB = new Vector3(-4, -4);
+        
         if(gameController.isBlack)
         {
             isBlack = true;
@@ -92,6 +101,30 @@ public class KnifeScript : MonoBehaviour
         }
         lastVelocity = rb.velocity;
         isInView = IsInView(transform.position);
+        // 来回移动功能
+        if (GameController.Instance.loopMove && firstTime)
+        {
+            if (transform.position == pointA)
+            {
+                towardsA = false;
+            }
+
+            if (transform.position == pointB)
+            {
+                towardsA = true;
+            }
+
+            if (towardsA)
+            {
+                float step = 2 * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, pointA, step);
+            }
+            else
+            {
+                float step = 2 * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, pointB, step);
+            }
+        }
         // 只有在准备过程中才会facemouse，一旦发射，则禁用功能
         if (isActive && !stopFaceMouse)
         {
