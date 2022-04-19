@@ -5,8 +5,8 @@ using UnityEngine;
 public class CircleOnLog : MonoBehaviour
 {
 
-    [SerializeField]
-    private int TotalCircle;
+    // [SerializeField]
+    // private int TotalCircle;
     [SerializeField]
     private bool NeedKnife;
     [SerializeField] 
@@ -14,11 +14,11 @@ public class CircleOnLog : MonoBehaviour
     [SerializeField] 
     private GameObject knifePrefab;
     public List<RewardLevel>  RewardLevels;
-    private int levelParam;
+    // private int levelParam;
 
     void Start()
     {
-        levelParam = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>().difficulty;
+        //levelParam = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>().difficulty;
         SpawnCircle();
         if (NeedKnife)
         SpawnKnifeOnWheel();
@@ -27,17 +27,17 @@ public class CircleOnLog : MonoBehaviour
     private void SpawnCircle()
     {
 
-        int tempCount = TotalCircle; //- PlayerPrefs.GetInt("level"+levelParam, 0);
+        // int tempCount = TotalCircle; //- PlayerPrefs.GetInt("level"+levelParam, 0);
         foreach (float circleA in RewardLevels[0].circleAngle)
         {
-            if (tempCount == 0)
-                break;
+            // if (tempCount == 0)
+            //     break;
             GameObject tempCir = Instantiate(circlePrefab);
             tempCir.transform.SetParent(transform);
 
             SetRotation(transform, tempCir.transform, circleA, 0.2f, 0f);
             tempCir.transform.localScale= new Vector3(0.5f, 0.5f, 1f);
-            tempCount--;
+            // tempCount--;
         }
     }
     

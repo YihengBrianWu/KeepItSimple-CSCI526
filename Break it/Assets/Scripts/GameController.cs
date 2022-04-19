@@ -123,7 +123,7 @@ public class GameController : MonoBehaviour
         {
             return;
         }
-
+        
         obstacleDestoryUsed = true;
 
         bool chooseReflect = true;
@@ -141,12 +141,11 @@ public class GameController : MonoBehaviour
         }
         else if (containObstacle && containWall)
         {
-            if(Random.Range(0, 4) == 1)
+            if(Random.Range(0, 2) == 1)
             {
                 chooseReflect= false;
             }
         }
-
 
         if(!chooseReflect)
         {
@@ -277,10 +276,10 @@ public class GameController : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("ObstacleGroup").SetActive(false);
         }
-        GameObject ogLog = GameObject.FindGameObjectWithTag("Log");
-        GameObject logPieces = (GameObject)Instantiate(logBreak);
-        logPieces.transform.position = ogLog.transform.position;
-        ogLog.SetActive(false);
+        // GameObject ogLog = GameObject.FindGameObjectWithTag("Log");
+        // GameObject logPieces = (GameObject)Instantiate(logBreak);
+        // logPieces.transform.position = ogLog.transform.position;
+        // ogLog.SetActive(false);
     }
 
     IEnumerator WaitBreak()

@@ -58,7 +58,7 @@ public class GameUI : MonoBehaviour
         if (isBnW)
         {
             nextText.SetActive(false);
-            nextKnifeB.SetActive(false);
+            //nextKnifeB.SetActive(false);
             nextKnife.SetActive(false);
         }
         // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
@@ -67,7 +67,7 @@ public class GameUI : MonoBehaviour
         // GameObject brokenLog = GameObject.FindGameObjectWithTag("BrokenLog");
         // brokenLog.SetActive(false);
 
-        // hitAnim.MissShake();
+        hitAnim.LevelUpShake();
     }
 
     // 生成图像

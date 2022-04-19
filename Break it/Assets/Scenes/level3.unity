@@ -418,7 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a791e2aa6e9854882f9be4be307671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalCircle: 4
   NeedKnife: 0
   circlePrefab: {fileID: 3267387781918987694, guid: fe45b628f65d4be4fbfe87e5a2babfa1, type: 3}
   knifePrefab: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
@@ -1950,7 +1949,11 @@ MonoBehaviour:
   ScoreObj1: {fileID: 743849646}
   ScoreObj2: {fileID: 318816586}
   KnifeIconObj: {fileID: 2034405592}
-  ObstacleObj: {fileID: 1365070894}
+  nextKnife: {fileID: 0}
+  nextKnifeB: {fileID: 0}
+  nextText: {fileID: 0}
+  isBnW: 0
+  ToHide: {fileID: 0}
 --- !u!114 &1702463372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,6 +1969,7 @@ MonoBehaviour:
   difficulty: 3
   knifeCount: 13
   knifeHitLogToWin: 8
+  logBreak: {fileID: 0}
   knifeSpawnPosition: {x: 0, y: -4}
   isInfinity: 0
   normalKnife: {fileID: 8692338297814391747, guid: 8e99cee5731913446a9a3ee932bbb49b, type: 3}
@@ -1973,6 +1977,7 @@ MonoBehaviour:
   shortKnife: {fileID: 7947875779940986355, guid: 8a28163d627ff82409697bdce324b9c5, type: 3}
   smallAndShortKnife: {fileID: 6058388177383931525, guid: e344eb7da8ac88649b4bed18dc912fbc, type: 3}
   faceMouse: 1
+  loopMove: 0
   win: 0
   currentScene: 0
   knifeCollisionHappens: 0
@@ -1983,6 +1988,16 @@ MonoBehaviour:
   levelUp: {fileID: 0}
   pauseMenu: {fileID: 2128333615}
   newKnife: {fileID: 0}
+  isShort: 0
+  predict: 3
+  isBlack: 0
+  nextKnife: {fileID: 0}
+  isExampleLevel: 0
+  TipTwo: {fileID: 0}
+  needToShowTipTwo: 0
+  containWall: 0
+  hitOnLog: 0
+  containObstacle: 0
 --- !u!4 &1702463373
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,20 +2059,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 100
-    Duration: 3
-  - Speed: -150
-    Duration: 3
+  - Speed: 120
+    Duration: 4
   - Speed: 80
     Duration: 3
-  - Speed: -170
+  - Speed: 50
+    Duration: 2
+  - Speed: 10
+    Duration: 1
+  - Speed: -120
+    Duration: 4
+  - Speed: -80
     Duration: 3
-  - Speed: 60
-    Duration: 3
-  - Speed: -100
-    Duration: 3
-  - Speed: 100
-    Duration: 3
+  - Speed: -50
+    Duration: 2
+  - Speed: -10
+    Duration: 1
 --- !u!235 &1719578497
 WheelJoint2D:
   m_ObjectHideFlags: 0

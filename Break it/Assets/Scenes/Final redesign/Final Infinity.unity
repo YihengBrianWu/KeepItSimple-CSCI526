@@ -1692,20 +1692,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationPattern:
-  - Speed: 100
-    Duration: 3
-  - Speed: -130
-    Duration: 3
+  - Speed: 120
+    Duration: 4
   - Speed: 80
     Duration: 3
-  - Speed: -200
+  - Speed: 30
+    Duration: 2
+  - Speed: 10
+    Duration: 1
+  - Speed: -120
+    Duration: 4
+  - Speed: -80
     Duration: 3
-  - Speed: 80
-    Duration: 3
-  - Speed: -150
-    Duration: 3
-  - Speed: 160
-    Duration: 3
+  - Speed: -30
+    Duration: 2
+  - Speed: -10
+    Duration: 1
 --- !u!235 &1512545522
 WheelJoint2D:
   m_ObjectHideFlags: 0
@@ -2341,17 +2343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a791e2aa6e9854882f9be4be307671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalCircle: 0
   NeedKnife: 0
   circlePrefab: {fileID: 3267387781918987694, guid: fe45b628f65d4be4fbfe87e5a2babfa1, type: 3}
   knifePrefab: {fileID: 8702680265610312539, guid: f9caf9ea4d1af3144b8eb53c4f42b336, type: 3}
-  RewardLevels:
-  - circleAngle:
-    - 50
-    - 180
-    kinfeAngle:
-    - 90
-    - 270
+  RewardLevels: []
 --- !u!58 &2029024216
 CircleCollider2D:
   m_ObjectHideFlags: 0
