@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -581140154414156345, guid: 6c588463154dd4785a61910d4b63ec66, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8721485813832279212, guid: 3682b18773a479a4a917e66b0766efc0, type: 2}
     - target: {fileID: 6470567200234172838, guid: 6c588463154dd4785a61910d4b63ec66, type: 3}
       propertyPath: m_Name
       value: Knife Variant
