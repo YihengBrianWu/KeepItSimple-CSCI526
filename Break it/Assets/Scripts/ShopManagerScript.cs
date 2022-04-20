@@ -10,6 +10,11 @@ public class ShopManagerScript : MonoBehaviour
 
     public int[,] shopItems = new int[4,5];
 
+    //sound
+    private AudioSource music;
+    private AudioClip buy;
+    private AudioClip select;
+
 
     void Start()
     {
@@ -31,6 +36,9 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[3, 3] = PlayerPrefs.GetInt("item3",0);
         shopItems[3, 4] = PlayerPrefs.GetInt("item4",0);
 
+        music = gameObject.GetComponent<AudioSource>();
+        buy = Resources.Load<AudioClip>("sound/buy");
+        select = Resources.Load<AudioClip>("sound/select");
     }
 
     public void Buy()
@@ -53,12 +61,18 @@ public class ShopManagerScript : MonoBehaviour
             {
                 PlayerPrefs.SetInt("extraKnife", id);
             }
+
+            music.clip = buy;
+            music.Play();
         }
         else if (shopItems[3, id] != 0)
         {
             if (id <= 3 && id > 0)
             {
                 PlayerPrefs.SetInt("itemSelected", id);
+
+                music.clip = select;
+                music.Play();
             }
             else if (id == 4)
             {

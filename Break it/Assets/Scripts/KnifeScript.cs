@@ -31,12 +31,12 @@ public class KnifeScript : MonoBehaviour
     private bool reflected = false;
 
     //sound
-    public AudioSource music;
-    public AudioClip hitLog;
-    public AudioClip hitKnife;
-    public AudioClip throwSound;
-    public AudioClip rebound;
-    public AudioClip eliminate;
+    private AudioSource music;
+    private AudioClip hitLog;
+    private AudioClip hitKnife;
+    private AudioClip throwSound;
+    private AudioClip rebound;
+    private AudioClip eliminate;
     
     // loop move needs
     private Vector3 pointA;
@@ -85,8 +85,7 @@ public class KnifeScript : MonoBehaviour
         }
         
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         hitLog = Resources.Load<AudioClip>("sound/hitLog");
         hitKnife = Resources.Load<AudioClip>("sound/hitKnife");
         throwSound = Resources.Load<AudioClip>("sound/throw");
@@ -253,7 +252,7 @@ public class KnifeScript : MonoBehaviour
                 this.GetComponent<BoxCollider2D>().enabled = false;
                 GameController.Instance.failitInc();
                 GameController.Instance.OnFailKnifeHit();
-                music.clip = rebound;
+                music.clip = hitKnife;
                 music.Play();
                 
             }
@@ -307,7 +306,7 @@ public class KnifeScript : MonoBehaviour
                 music.Play();
             }
         }
-        else if (col.collider.CompareTag("MovingObstacle"))
+        else if (col.collider.CompareTag("MovingObstacle") || (col.collider.CompareTag("WhiteWall") && isBlack) || (col.collider.CompareTag("BlackWall") && !isBlack))
         {
             //bounce off obstacles
             GameController.Instance.knifeObstacleHappens++;
@@ -319,7 +318,7 @@ public class KnifeScript : MonoBehaviour
             GameController.Instance.failitInc();
             GameController.Instance.OnFailKnifeHit();
 
-            music.clip = rebound;
+            music.clip = hitKnife;
             music.Play();
         }
         else if (col.collider.CompareTag("Wall") || (col.collider.CompareTag("WhiteWall") && !isBlack) || (col.collider.CompareTag("BlackWall") && isBlack))

@@ -70,8 +70,10 @@ public class GameController : MonoBehaviour
     public int blackWhiteCollision = 0;
 
     //sound
-    public AudioSource music;
-    public AudioClip levelUp;
+    private AudioSource music;
+    private AudioClip levelUp;
+    private AudioClip getKnives;
+    private AudioClip vanish;
 
 
     // pause menu
@@ -108,9 +110,10 @@ public class GameController : MonoBehaviour
 
         knifeAmount = knifeCount;
 
-        music = gameObject.AddComponent<AudioSource>();
-        music.playOnAwake = false;
+        music = gameObject.GetComponent<AudioSource>();
         levelUp = Resources.Load<AudioClip>("sound/levelUp");
+        getKnives = Resources.Load<AudioClip>("sound/getKnives");
+        vanish = Resources.Load<AudioClip>("sound/vanish");
     }
 
     private bool obstacleDestoryUsed = false;
@@ -211,6 +214,8 @@ public class GameController : MonoBehaviour
             }
         }
 
+        music.clip = vanish;
+        music.Play();
 
         if (isExampleLevel)
         {
@@ -573,6 +578,9 @@ public class GameController : MonoBehaviour
             }
         }
 
+        music.clip = vanish;
+        music.Play();
+
         if (isExampleLevel)
         {
           TipTwo.SetActive(true);
@@ -602,6 +610,9 @@ public class GameController : MonoBehaviour
             {
                 PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
             }
+
+            music.clip = getKnives;
+            music.Play();
         }
     }
     public void PauseGame()

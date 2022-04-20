@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6470567200234172838, guid: 6c588463154dd4785a61910d4b63ec66, type: 3}
       propertyPath: m_Name
-      value: Knife
+      value: Knife Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6470567200234172841, guid: 6c588463154dd4785a61910d4b63ec66, type: 3}
       propertyPath: m_RootOrder
