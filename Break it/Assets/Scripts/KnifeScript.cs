@@ -54,8 +54,12 @@ public class KnifeScript : MonoBehaviour
     [SerializeField]
     private bool isExample = false;
     private bool breakThree = false; 
+
+    private float timer = 5.0f;
+    private float scrollBar = 1.0f;
     private void Awake()
     {
+        Time.timeScale = scrollBar;
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
         hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
 
@@ -130,20 +134,45 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
-        if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 1600)
-        {
-            firstTime = false;
-            // if (!stopFaceMouse)
-            GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
-            stopFaceMouse = true;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
-            rb.gravityScale = 1;
 
-            music.clip = throwSound;
-            music.Play();
+        //如果计时器不为0的情况，判断是否自动发射
+        if(timer > 0){
+            if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 1600)
+            {
+                firstTime = false;
+                // if (!stopFaceMouse)
+                GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
+                stopFaceMouse = true;
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
+                rb.gravityScale = 1;
 
-            StartCoroutine(WaitForPointFive());
+                music.clip = throwSound;
+                music.Play();
+
+                StartCoroutine(WaitForPointFive());
+                timer = 5.0f;
+                Time.timeScale = scrollBar;
+            }
+            
+            timer -= Time.deltaTime;
+            if (timer <= 0 && isActive && firstTime && Input.mousePosition[0] < 1600)
+                {
+                    firstTime = false;
+                    // if (!stopFaceMouse)
+                    GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
+                    stopFaceMouse = true;
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
+                    rb.gravityScale = 1;
+
+                    music.clip = throwSound;
+                    music.Play();
+
+                    StartCoroutine(WaitForPointFive());
+                    timer = 5.0f;
+                    Time.timeScale = scrollBar;
+                }
         }
     
         // isActive保证这个if只进入一次
