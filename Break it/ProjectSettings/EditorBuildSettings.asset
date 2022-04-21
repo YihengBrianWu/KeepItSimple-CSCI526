@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Final redesign/UI.unity
     guid: 1a1d77c43e2834f49a3e51c6fc6d4005
   - enabled: 1
+    path: Assets/Scenes/Final redesign/LevelMenu.unity
+    guid: 3113cb7879dee6746a2925331f0f04c5
+  - enabled: 1
     path: Assets/Scenes/Final redesign/White 1.unity
     guid: b6579994536ed884093f54fdfa64ac2f
   - enabled: 1
