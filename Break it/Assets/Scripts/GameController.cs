@@ -624,6 +624,7 @@ public class GameController : MonoBehaviour
     
     public void GotEnd()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
@@ -636,6 +637,7 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(currentScene);
     }
     
