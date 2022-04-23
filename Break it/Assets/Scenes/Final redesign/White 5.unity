@@ -1202,7 +1202,7 @@ MonoBehaviour:
     Duration: 4
   - Speed: -80
     Duration: 3
-  - Speed: -40
+  - Speed: -50
     Duration: 2
   - Speed: -10
     Duration: 1

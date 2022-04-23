@@ -1791,7 +1791,7 @@ MonoBehaviour:
     Duration: 4
   - Speed: 80
     Duration: 3
-  - Speed: 30
+  - Speed: 50
     Duration: 2
   - Speed: 10
     Duration: 1
@@ -1799,7 +1799,7 @@ MonoBehaviour:
     Duration: 4
   - Speed: -80
     Duration: 3
-  - Speed: -30
+  - Speed: -50
     Duration: 2
   - Speed: -10
     Duration: 1
@@ -2418,7 +2418,6 @@ GameObject:
   - component: {fileID: 2029024218}
   - component: {fileID: 2029024217}
   - component: {fileID: 2029024216}
-  - component: {fileID: 2029024215}
   m_Layer: 0
   m_Name: Log
   m_TagString: Log
@@ -2426,22 +2425,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2029024215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029024214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46a791e2aa6e9854882f9be4be307671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NeedKnife: 0
-  circlePrefab: {fileID: 3267387781918987694, guid: fe45b628f65d4be4fbfe87e5a2babfa1, type: 3}
-  knifePrefab: {fileID: 8702680265610312539, guid: f9caf9ea4d1af3144b8eb53c4f42b336, type: 3}
-  RewardLevels: []
 --- !u!58 &2029024216
 CircleCollider2D:
   m_ObjectHideFlags: 0

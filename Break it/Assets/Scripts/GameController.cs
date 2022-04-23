@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        //PlayerPrefs.SetInt("total", 50);
+        PlayerPrefs.SetInt("total", 50);
         isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
@@ -289,13 +289,23 @@ public class GameController : MonoBehaviour
 
     IEnumerator WaitBreak()
     {
+        yield return new WaitForSeconds(0.5f);
+        GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
+        knifeToShot2.SetActive(false);
+        destoryLog();
+        StartCoroutine("levelUpRoutine");
+    }
+
+    IEnumerator levelUpRoutine()
+    {
         GameUI.showLevelUp();
+        GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
+        knifeToShot2.SetActive(false);
         music.clip = levelUp;
         music.Play();
         yield return new WaitForSeconds(1.0f);
         PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
         SceneManager.LoadScene(currentScene + 1);
-
     }
     IEnumerator WaitFail()
     {
@@ -341,12 +351,9 @@ public class GameController : MonoBehaviour
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
 
-            GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
-            knifeToShot.SetActive(false);
-            destoryLog();
+            // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
+            // knifeToShot.SetActive(false);
             StartCoroutine("WaitBreak");
-            GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
-            knifeToShot2.SetActive(false);
 
             return;
         }

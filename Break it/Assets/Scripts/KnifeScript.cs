@@ -10,6 +10,8 @@ public class KnifeScript : MonoBehaviour
     private HitAnim hitAnim;
     [SerializeField]
     private float throwForce;
+    [SerializeField]
+    private bool isEasyMode = true;
 
     public bool isActive = true;
 
@@ -63,8 +65,8 @@ public class KnifeScript : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
         hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
 
-        pointA = new Vector3(4, -4);
-        pointB = new Vector3(-4, -4);
+        pointA = new Vector3(2, -4);
+        pointB = new Vector3(-2, -4);
         
         if(gameController.isBlack)
         {
@@ -156,23 +158,27 @@ public class KnifeScript : MonoBehaviour
             }
             
             timer -= Time.deltaTime;
-            if (timer <= 0 && isActive && firstTime && Input.mousePosition[0] < 1600)
-                {
-                    firstTime = false;
-                    // if (!stopFaceMouse)
-                    GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
-                    stopFaceMouse = true;
-                    rb.bodyType = RigidbodyType2D.Dynamic;
-                    rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
-                    rb.gravityScale = 1;
+            if (!isEasyMode && timer <= 0 && isActive && firstTime && Input.mousePosition[0] < 1600)
+            {
+                firstTime = false;
+                // if (!stopFaceMouse)
+                GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
+                stopFaceMouse = true;
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
+                rb.gravityScale = 1;
 
-                    music.clip = throwSound;
-                    music.Play();
+                music.clip = throwSound;
+                music.Play();
 
-                    StartCoroutine(WaitForPointFive());
-                    timer = 5.0f;
-                    Time.timeScale = scrollBar;
-                }
+                StartCoroutine(WaitForPointFive());
+                timer = 5.0f;
+                Time.timeScale = scrollBar;
+            }
+            else if(timer <= 0)
+            {
+                timer = 5.0f;
+            }
         }
     
         // isActive保证这个if只进入一次

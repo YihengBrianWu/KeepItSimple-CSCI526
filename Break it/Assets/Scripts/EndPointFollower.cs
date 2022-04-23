@@ -13,10 +13,11 @@ public class EndPointFollower : MonoBehaviour
     [SerializeField] private float speed = 2f; 
     void Update()
     {
-        
+         
         if (Vector2.Distance(endPoints[currentPointIndex].transform.position, transform.position)  < 0.1f)
         {
             currentPointIndex ++;
+            
             if (currentPointIndex >= endPoints.Length)
             {
                 currentPointIndex = 0;
