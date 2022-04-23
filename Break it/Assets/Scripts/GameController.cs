@@ -50,9 +50,18 @@ public class GameController : MonoBehaviour
     [Header("unility")] 
     [SerializeField]
     public bool faceMouse = true;
-
+    
+    // 开启knife移动功能
     [SerializeField] 
     public bool loopMove = false;
+    
+    // 开启计时功能
+    [SerializeField] 
+    public bool timeCount = false;
+    
+    // 限时多久
+    [SerializeField] 
+    public float timeDuration = 0;
 
     private GameObject knifeObject;
 

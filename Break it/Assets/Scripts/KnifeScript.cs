@@ -10,8 +10,6 @@ public class KnifeScript : MonoBehaviour
     private HitAnim hitAnim;
     [SerializeField]
     private float throwForce;
-    [SerializeField]
-    private bool isEasyMode = true;
 
     public bool isActive = true;
 
@@ -24,6 +22,7 @@ public class KnifeScript : MonoBehaviour
     private bool isInView = true;
     public bool isBlack = false;
     private GameController gameController;
+    private TimeCount timeText;
 
     private Vector2 lastVelocity;
 
@@ -47,6 +46,7 @@ public class KnifeScript : MonoBehaviour
     private bool firstTime = true;
     public bool onTheLog = false;
     private bool towardsA = true;
+    private bool needTime = false;
     
     private GameObject tempKnife;
     private Material m1;
@@ -55,18 +55,22 @@ public class KnifeScript : MonoBehaviour
     float fade = 1.2f;
     [SerializeField]
     private bool isExample = false;
-    private bool breakThree = false; 
+    private bool breakThree = false;
 
-    private float timer = 5.0f;
+    private float timer;
     private float scrollBar = 1.0f;
     private void Awake()
     {
         Time.timeScale = scrollBar;
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
+        timeText = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeCount>();
         hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
 
         pointA = new Vector3(2, -4);
         pointB = new Vector3(-2, -4);
+
+        timer = GameController.Instance.timeDuration;
+        needTime = GameController.Instance.timeCount;
         
         if(gameController.isBlack)
         {
@@ -136,9 +140,57 @@ public class KnifeScript : MonoBehaviour
         {
             FaceMouse();
         }
+        
+        // 如果开启计时
+        if (needTime)
+        {
+            //如果计时器不为0的情况，判断是否自动发射
+            if(timer > 0){
+                if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 1600)
+                {
+                    firstTime = false;
+                    // if (!stopFaceMouse)
+                    GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
+                    stopFaceMouse = true;
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
+                    rb.gravityScale = 1;
 
-        //如果计时器不为0的情况，判断是否自动发射
-        if(timer > 0){
+                    music.clip = throwSound;
+                    music.Play();
+
+                    StartCoroutine(WaitForPointFive());
+                    timer = GameController.Instance.timeDuration;
+                    Time.timeScale = scrollBar;
+                }
+            
+                timer -= Time.deltaTime;
+                if (timer <= 0 && isActive && firstTime && Input.mousePosition[0] < 1600)
+                {
+                    firstTime = false;
+                    // if (!stopFaceMouse)
+                    GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
+                    stopFaceMouse = true;
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
+                    rb.gravityScale = 1;
+
+                    music.clip = throwSound;
+                    music.Play();
+
+                    StartCoroutine(WaitForPointFive());
+                    timer = GameController.Instance.timeDuration;
+                    Time.timeScale = scrollBar;
+                }
+                else if(timer <= 0)
+                {
+                    timer = GameController.Instance.timeDuration;
+                }
+            }
+        }
+
+        else
+        {
             if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 1600)
             {
                 firstTime = false;
@@ -153,33 +205,9 @@ public class KnifeScript : MonoBehaviour
                 music.Play();
 
                 StartCoroutine(WaitForPointFive());
-                timer = 5.0f;
-                Time.timeScale = scrollBar;
-            }
-            
-            timer -= Time.deltaTime;
-            if (!isEasyMode && timer <= 0 && isActive && firstTime && Input.mousePosition[0] < 1600)
-            {
-                firstTime = false;
-                // if (!stopFaceMouse)
-                GameController.Instance.GameUI.DecrementDisplayedKnifeCount();
-                stopFaceMouse = true;
-                rb.bodyType = RigidbodyType2D.Dynamic;
-                rb.AddForce(transform.up * throwForce, ForceMode2D.Impulse);
-                rb.gravityScale = 1;
-
-                music.clip = throwSound;
-                music.Play();
-
-                StartCoroutine(WaitForPointFive());
-                timer = 5.0f;
-                Time.timeScale = scrollBar;
-            }
-            else if(timer <= 0)
-            {
-                timer = 5.0f;
             }
         }
+
     
         // isActive保证这个if只进入一次
         if (!isInView && isActive)
@@ -469,6 +497,7 @@ public class KnifeScript : MonoBehaviour
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSecondsRealtime(0.15f);
         GameController.Instance.SpawnKnife();
+        timeText.Reset();
         //After we have waited 0.15 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }

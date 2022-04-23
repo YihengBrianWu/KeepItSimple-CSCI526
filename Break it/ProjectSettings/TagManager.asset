@@ -18,6 +18,7 @@ TagManager:
   - nextKnifeB
   - TipTwo
   - ObstacleGroup
+  - Time
   layers:
   - Default
   - TransparentFX
