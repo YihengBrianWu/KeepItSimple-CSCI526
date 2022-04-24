@@ -33,12 +33,12 @@ public class LogMove : MonoBehaviour
 
         if (towardsA)
         {
-            float step = 2 * Time.deltaTime;
+            float step = 3 * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, pointA, step);
         }
         else
         {
-            float step = 2 * Time.deltaTime;
+            float step = 3 * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, pointB, step);
         }
         

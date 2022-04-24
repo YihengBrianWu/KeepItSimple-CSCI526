@@ -8,7 +8,12 @@ public class MainMenu : MonoBehaviour
     //start the game
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
+    }
+
+    public void HardMenu()
+    {
+        SceneManager.LoadScene(2);
     }
 
     //quit the game
@@ -20,6 +25,6 @@ public class MainMenu : MonoBehaviour
 
     public void infinity()
     {
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene(31);
     }
 }

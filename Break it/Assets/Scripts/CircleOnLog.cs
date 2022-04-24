@@ -7,21 +7,19 @@ public class CircleOnLog : MonoBehaviour
 
     // [SerializeField]
     // private int TotalCircle;
-    [SerializeField]
-    private bool NeedKnife;
     [SerializeField] 
     private GameObject circlePrefab;
-    [SerializeField] 
-    private GameObject knifePrefab;
     public List<RewardLevel>  RewardLevels;
     // private int levelParam;
 
+    [SerializeField] 
+    public bool needAdjust = false;
     void Start()
     {
         //levelParam = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>().difficulty;
         SpawnCircle();
-        if (NeedKnife)
-        SpawnKnifeOnWheel();
+        //if (NeedKnife)
+        //SpawnKnifeOnWheel();
     }
 
     private void SpawnCircle()
@@ -41,19 +39,18 @@ public class CircleOnLog : MonoBehaviour
         }
     }
     
-    private void SpawnKnifeOnWheel()
-    {
-        foreach (float knifeA in RewardLevels[0].kinfeAngle)
-        {
-            GameObject tempKnife = Instantiate(knifePrefab);
-            tempKnife.transform.SetParent(transform);
-            SetRotation(transform, tempKnife.transform, knifeA, 0.25f, 180f);
-        }
-    }
 
     public void SetRotation(Transform log, Transform objectOnLog, float angle, float spaceFromLog, float objectRotation)
     {
-        Vector2 OffSet = new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), Mathf.Cos(angle * Mathf.Deg2Rad)) * (log.GetComponent<CircleCollider2D>().radius + spaceFromLog);
+        float r;
+        if(needAdjust)
+        {
+            r = 0.4f;
+        }
+        else{
+            r = log.GetComponent<CircleCollider2D>().radius;
+        }
+        Vector2 OffSet = new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), Mathf.Cos(angle * Mathf.Deg2Rad)) * (r + spaceFromLog);
         objectOnLog.localPosition = (Vector2) log.localPosition + OffSet;
         objectOnLog.localRotation = Quaternion.Euler(0, 0, -angle + objectRotation);
     }
@@ -67,5 +64,4 @@ public class RewardLevel
     // [Range(0,1)] [SerializeField] private float rewardChance;
 
     public List<float> circleAngle = new List<float>();
-    public List<float> kinfeAngle = new List<float>();
 }

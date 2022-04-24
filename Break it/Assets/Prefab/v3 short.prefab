@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: v3 short
       objectReference: {fileID: 0}
+    - target: {fileID: 3143876709204292407, guid: 5168ef7de2112674e9a4497ce590aa69, type: 3}
+      propertyPath: m_Size.x
+      value: 0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 3143876709204292408, guid: 5168ef7de2112674e9a4497ce590aa69, type: 3}
       propertyPath: m_BodyType
       value: 2

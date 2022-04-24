@@ -19,6 +19,8 @@ TagManager:
   - TipTwo
   - ObstacleGroup
   - Time
+  - WhiteSection
+  - BlackSection
   layers:
   - Default
   - TransparentFX

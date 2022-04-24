@@ -6,36 +6,66 @@ using UnityEngine.UI;
 
 public class LevelManagerScript : MonoBehaviour
 {
-    public Button[] levels;
+    public Button[] whites;
+    public Button[] blacks;
 
     private void Start()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 0);
-        for (int i = 0; i < levels.Length; i++)
+        int levelReachedW = PlayerPrefs.GetInt("levelReachedW", 0);
+        for (int i = 1; i < whites.Length; i++)
         {
-            if(i > levelReached)
+            if(i > levelReachedW)
             {
-                levels[i].interactable = false;
+                whites[i].interactable = false;
+            }
+        }
+
+        int levelReachedB = PlayerPrefs.GetInt("levelReachedB", 0);
+        for (int i = 1; i < blacks.Length; i++)
+        {
+            if(i > levelReachedB)
+            {
+                blacks[i].interactable = false;
             }
         }
     }
 
-    private void Update()
+    private void Awake()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 0);
-        for (int i = 0; i < levels.Length; i++)
+        int levelReachedW = PlayerPrefs.GetInt("levelReachedW", 0);
+        for (int i = 0; i < whites.Length; i++)
         {
-            if (i > levelReached)
+            if(i > levelReachedW)
             {
-                levels[i].interactable = false;
+                whites[1].interactable = false;
+            }
+        }
+
+        int levelReachedB = PlayerPrefs.GetInt("levelReachedB", 0);
+        for (int i = 0; i < blacks.Length; i++)
+        {
+            if(i > levelReachedB)
+            {
+                blacks[1].interactable = false;
             }
         }
     }
 
-    public void Select(int levelName)
+    public void SelectW(int levelName)
     {
-        const int numberOfPreScene = 2;
+        const int numberOfPreScene = 3;
         SceneManager.LoadScene(levelName + numberOfPreScene);
+    }
+
+    public void SelectB(int levelName)
+    {
+        const int numberOfPreScene = 12;
+        SceneManager.LoadScene(levelName + numberOfPreScene);
+    }
+
+    public void GotEnd()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

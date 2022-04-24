@@ -45,7 +45,8 @@ public class GameController : MonoBehaviour
     [SerializeField] 
     private GameObject smallAndShortKnife;
 
-    
+    [SerializeField]
+    public bool NeedsAngle = false;
     // 是否需要开启facemouse功能
     [Header("unility")] 
     [SerializeField]
@@ -105,7 +106,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("total", 50);
+        //PlayerPrefs.SetInt("total", 25);
         isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
@@ -313,7 +314,23 @@ public class GameController : MonoBehaviour
         music.clip = levelUp;
         music.Play();
         yield return new WaitForSeconds(1.0f);
-        PlayerPrefs.SetInt("levelReached", Math.Max(currentScene - 1, PlayerPrefs.GetInt("levelReached", 0)));
+        if(currentScene >= 24)
+        {
+            PlayerPrefs.SetInt("levelReachedBH", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedBH", 0)));
+        }
+        else if(currentScene >= 19)
+        {
+            PlayerPrefs.SetInt("levelReachedWH", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedWH", 0)));
+        }
+        else if(currentScene >= 12)
+        {
+            PlayerPrefs.SetInt("levelReachedB", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedB", 0)));
+        }
+        else if(currentScene >= 3)
+        {
+            PlayerPrefs.SetInt("levelReachedB", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedB", 0)));
+        }
+
         SceneManager.LoadScene(currentScene + 1);
     }
     IEnumerator WaitFail()
@@ -321,11 +338,11 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         if (!isInfinity)
         {
-            SceneManager.LoadScene(14);
+            SceneManager.LoadScene(32);
         }
         else
         {
-            SceneManager.LoadScene(15);
+            SceneManager.LoadScene(34);
         }
     }
     public void OnSuccessfulKnifeHit()
@@ -339,6 +356,8 @@ public class GameController : MonoBehaviour
         // Debug.Log("knifeObstacleHappens: " + knifeObstacleHappens);
         // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
         // Debug.Log("failHit: " + failHit);
+        Debug.Log("higOnLog: " + hitOnLog);
+        Debug.Log("knifeHitLogToWin: " + knifeHitLogToWin);
         
         if (hitOnLog >= knifeHitLogToWin)
         {

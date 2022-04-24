@@ -59,18 +59,39 @@ public class KnifeScript : MonoBehaviour
 
     private float timer;
     private float scrollBar = 1.0f;
+    private bool needsChangeAngle = false;
     private void Awake()
     {
         Time.timeScale = scrollBar;
         gameController = GameObject.FindGameObjectWithTag("LevelControl").GetComponent<GameController>();
-        timeText = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeCount>();
+
+        if(!onTheLog)
+        {
+            timer = GameController.Instance.timeDuration;
+            needTime = GameController.Instance.timeCount;
+        }   
+        
+        if(needTime)
+        {
+            timeText = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeCount>();
+        }
         hitAnim = GameObject.FindGameObjectWithTag("TargetHit").GetComponent<HitAnim>();
 
-        pointA = new Vector3(2, -4);
-        pointB = new Vector3(-2, -4);
 
-        timer = GameController.Instance.timeDuration;
-        needTime = GameController.Instance.timeCount;
+
+        needsChangeAngle = gameController.NeedsAngle;
+        //Convert.ToDouble(x);
+
+        if(needsChangeAngle)
+        {
+            pointA = new Vector3(4, -4);
+            pointB = new Vector3(-4, -4);
+        }
+        {
+            pointA = new Vector3(2, -4);
+            pointB = new Vector3(-2, -4);
+        }
+
         
         if(gameController.isBlack)
         {
@@ -84,9 +105,17 @@ public class KnifeScript : MonoBehaviour
         if (isExample)
         {
             stopFaceMouse = true;
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.velocity = new Vector2(0, 0);
-            GameObject logObj = GameObject.FindGameObjectWithTag("Log");
+            GameObject logObj;
+            if(gameController.difficulty == 1)
+            {
+                logObj = GameObject.FindGameObjectWithTag("Log");
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.velocity = new Vector2(0, 0);
+            }
+            else
+            {
+                logObj = GameObject.FindGameObjectWithTag("WhiteSection");
+            }
             this.transform.SetParent(logObj.transform);
         }
         else
@@ -126,12 +155,12 @@ public class KnifeScript : MonoBehaviour
 
             if (towardsA)
             {
-                float step = 2 * Time.deltaTime;
+                float step = 3 * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, pointA, step);
             }
             else
             {
-                float step = 2 * Time.deltaTime;
+                float step = 3 * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, pointB, step);
             }
         }
@@ -257,7 +286,109 @@ public class KnifeScript : MonoBehaviour
 
         lockRotation = false;    
 
-        if (col.collider.CompareTag("Log"))
+        if (col.collider.CompareTag("WhiteSection"))
+        {   
+            isActive = false;
+
+            //float tempZ = col.collider.transform.rotation.eulerAngles.z; 
+            if (!isBlack)
+            {
+                onTheLog = true;
+                //play visual effects
+                GetComponent<ParticleSystem>().Play();
+                hitAnim.HitShake();
+
+                ScoreCount.HitCount++;
+                rb.velocity = new Vector2(0, 0);
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                this.transform.SetParent(col.collider.transform);
+
+                if (gameController.isShort)
+                {
+                    knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.18f);
+                    knifeCollider.size = new Vector2(knifeCollider.size.x, 0.4f);
+                }
+                else{
+                    knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.15f);
+                    knifeCollider.size = new Vector2(knifeCollider.size.x, 0.45f);
+                }
+
+                
+                GameController.Instance.hitOnLogInc();
+                GameController.Instance.OnSuccessfulKnifeHit();
+                music.clip = hitLog;
+                music.Play();
+            }
+            else
+            {
+                //bounce off log
+                GameController.Instance.knifeHitWrongSection++;
+                hitAnim.MissShake();
+
+                rb.velocity = new Vector2(rb.velocity.x, -2);
+                isActive = false;
+
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                GameController.Instance.failitInc();
+                GameController.Instance.OnFailKnifeHit();
+                music.clip = hitKnife;
+                music.Play();
+                
+            }
+
+        }
+        else if (col.collider.CompareTag("BlackSection"))
+        {   
+            isActive = false;
+
+            //float tempZ = col.collider.transform.rotation.eulerAngles.z; 
+            if (isBlack)
+            {
+                onTheLog = true;
+                //play visual effects
+                GetComponent<ParticleSystem>().Play();
+                hitAnim.HitShake();
+
+                ScoreCount.HitCount++;
+                rb.velocity = new Vector2(0, 0);
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                this.transform.SetParent(col.collider.transform);
+
+                if (gameController.isShort)
+                {
+                    knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.18f);
+                    knifeCollider.size = new Vector2(knifeCollider.size.x, 0.4f);
+                }
+                else{
+                    knifeCollider.offset = new Vector2(knifeCollider.offset.x, -0.15f);
+                    knifeCollider.size = new Vector2(knifeCollider.size.x, 0.45f);
+                }
+
+                
+                GameController.Instance.hitOnLogInc();
+                GameController.Instance.OnSuccessfulKnifeHit();
+                music.clip = hitLog;
+                music.Play();
+            }
+            else
+            {
+                //bounce off log
+                GameController.Instance.knifeHitWrongSection++;
+                hitAnim.MissShake();
+
+                rb.velocity = new Vector2(rb.velocity.x, -2);
+                isActive = false;
+
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                GameController.Instance.failitInc();
+                GameController.Instance.OnFailKnifeHit();
+                music.clip = hitKnife;
+                music.Play();
+                
+            }
+
+        }
+        else if (col.collider.CompareTag("Log"))
         {   
             isActive = false;
 
@@ -272,10 +403,7 @@ public class KnifeScript : MonoBehaviour
             //      || (!isTiltedLeft && reflected&& !isBlack && ((tempZ<135 && tempZ>0) || (tempZ>330 && tempZ<360)))
             //      || (isTiltedLeft && reflected&& !isBlack && ((tempZ>220 && tempZ<360) || (tempZ<40 && tempZ>0)))
             //      )
-            if (gameController.difficulty == 1
-            || (gameController.difficulty == 2 && isBlack && tempZ<270 &&tempZ>90)
-            || (gameController.difficulty == 2 && !isBlack && ((tempZ>=270 && tempZ<=360) || (tempZ>=0 && tempZ<=90)))
-            )
+            if (gameController.difficulty == 1)
             {
                 onTheLog = true;
                 //play visual effects
@@ -393,6 +521,9 @@ public class KnifeScript : MonoBehaviour
             
             Vector2 newDir = new Vector3(transform.position.x, transform.position.y, 0);
             float newDirValue = Mathf.Atan2(newDir.y - direction.y, newDir.x - direction.x);
+
+            print(newDirValue);
+
             if (newDirValue < -0.8)
             {
                 newDirValueDeg = -(350 / Mathf.PI) * newDirValue;
@@ -403,6 +534,8 @@ public class KnifeScript : MonoBehaviour
             {
                 newDirValueDeg = -(360 / Mathf.PI) * newDirValue;
             }
+            
+            
             transform.rotation = Quaternion.Euler(0, 0, newDirValueDeg);
             lockRotation = true;
             
@@ -497,7 +630,10 @@ public class KnifeScript : MonoBehaviour
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSecondsRealtime(0.15f);
         GameController.Instance.SpawnKnife();
-        timeText.Reset();
+        if(needTime)
+        {
+            timeText.Reset();
+        }
         //After we have waited 0.15 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
