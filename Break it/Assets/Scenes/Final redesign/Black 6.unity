@@ -705,6 +705,8 @@ Transform:
   - {fileID: 154782691}
   - {fileID: 2122343709}
   - {fileID: 71801983}
+  - {fileID: 1541346015}
+  - {fileID: 1136721554}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2440,11 +2442,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136721550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.329, y: -0.645, z: 0}
+  m_LocalPosition: {x: 1.2890027, y: 0.12349981, z: 0}
   m_LocalScale: {x: 2.1965, y: 0.37346, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 149970348}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332030915
 GameObject:
@@ -2827,11 +2829,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541346011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.327, y: -0.62, z: 0}
+  m_LocalPosition: {x: -1.3669974, y: 0.14849979, z: 0}
   m_LocalScale: {x: 2.1965, y: 0.37346, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 149970348}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1587529446
 GameObject:
@@ -3196,6 +3198,7 @@ MonoBehaviour:
   isExampleLevel: 0
   TipTwo: {fileID: 0}
   needToShowTipTwo: 0
+  notSingle: 1
   containWall: 0
   hitOnLog: 0
   containObstacle: 1
@@ -3311,7 +3314,7 @@ MonoBehaviour:
   iconKnife: {fileID: 7994527066404916626, guid: 1a9f44f0ae9d54016871d479f402f43b, type: 3}
   usedKnifeIconColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   LevelUpPanel: {fileID: 990233559}
-  LogObj: {fileID: 0}
+  LogObj: {fileID: 259446765}
   ScoreObj1: {fileID: 1824714732}
   ScoreObj2: {fileID: 2035533636}
   KnifeIconObj: {fileID: 45742491}

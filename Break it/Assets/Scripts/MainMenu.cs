@@ -25,6 +25,6 @@ public class MainMenu : MonoBehaviour
 
     public void infinity()
     {
-        SceneManager.LoadScene(31);
+        SceneManager.LoadScene(32);
     }
 }

@@ -1303,7 +1303,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1834,7 +1834,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2868,7 +2868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 1
   knifeCount: 13
-  knifeHitLogToWin: 8
+  knifeHitLogToWin: 10
   logBreak: {fileID: 538234765586887885, guid: 2a108984bb911214ebc2d5fe7fa3f309, type: 3}
   knifeSpawnPosition: {x: 0, y: -4}
   isInfinity: 0
@@ -2896,6 +2896,7 @@ MonoBehaviour:
   isExampleLevel: 0
   TipTwo: {fileID: 0}
   needToShowTipTwo: 0
+  notSingle: 1
   containWall: 1
   hitOnLog: 0
   containObstacle: 1
@@ -3259,7 +3260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: / 8
+  m_Text: / 10
 --- !u!222 &1467127766
 CanvasRenderer:
   m_ObjectHideFlags: 0

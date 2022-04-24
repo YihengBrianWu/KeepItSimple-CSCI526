@@ -41,7 +41,7 @@ public class RewardCircle : MonoBehaviour
             int tempTotal = PlayerPrefs.GetInt("total", 0);
             PlayerPrefs.SetInt("total", tempTotal + 1);
 
-            circleParticle.Play();
+            //circleParticle.Play();
             Destroy(gameObject, 2f);
 
             music.clip = getReward;

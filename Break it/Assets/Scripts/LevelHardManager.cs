@@ -11,7 +11,7 @@ public class LevelHardManager : MonoBehaviour
 
     private void Start()
     {
-        int levelReachedW = PlayerPrefs.GetInt("levelReachedWH", 0);
+        int levelReachedW = PlayerPrefs.GetInt("levelReachedWH", 0) - 19;
         for (int i = 1; i < whites.Length; i++)
         {
             if(i > levelReachedW)
@@ -20,7 +20,7 @@ public class LevelHardManager : MonoBehaviour
             }
         }
 
-        int levelReachedB = PlayerPrefs.GetInt("levelReachedBH", 0);
+        int levelReachedB = PlayerPrefs.GetInt("levelReachedBH", 0) - 25;
         for (int i = 1; i < blacks.Length; i++)
         {
             if(i > levelReachedB)
@@ -30,36 +30,36 @@ public class LevelHardManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Update()
     {
-        int levelReachedW = PlayerPrefs.GetInt("levelReachedWH", 0);
-        for (int i = 0; i < whites.Length; i++)
+        int levelReachedW = PlayerPrefs.GetInt("levelReachedWH", 0) - 19;
+        for (int i = 1; i < whites.Length; i++)
         {
             if(i > levelReachedW)
             {
-                whites[1].interactable = false;
+                whites[i].interactable = false;
             }
         }
 
-        int levelReachedB = PlayerPrefs.GetInt("levelReachedBH", 0);
-        for (int i = 0; i < blacks.Length; i++)
+        int levelReachedB = PlayerPrefs.GetInt("levelReachedBH", 0) - 25;
+        for (int i = 1; i < blacks.Length; i++)
         {
             if(i > levelReachedB)
             {
-                blacks[1].interactable = false;
+                blacks[i].interactable = false;
             }
         }
     }
 
     public void SelectWH(int levelName)
     {
-        const int numberOfPreScene = 19;
+        const int numberOfPreScene = 20;
         SceneManager.LoadScene(levelName + numberOfPreScene);
     }
 
     public void SelectBH(int levelName)
     {
-        const int numberOfPreScene = 24;
+        const int numberOfPreScene = 26;
         SceneManager.LoadScene(levelName + numberOfPreScene);
     }
 

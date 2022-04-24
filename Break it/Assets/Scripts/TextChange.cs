@@ -25,7 +25,7 @@ public class TextChange : MonoBehaviour
         }
         else
         {
-            text.GetComponent<TMP_Text>().text = "You Lose";
+            text.GetComponent<TMP_Text>().text = "Too hard? Try playing the infinity mode to get some coins!";
         }
     }
 }

@@ -8,7 +8,7 @@ public class ShopButtonScript : MonoBehaviour
     // Start is called before the first frame update
     public void shop()
     {
-        SceneManager.LoadScene(33);
+        SceneManager.LoadScene(34);
     }
 
 }

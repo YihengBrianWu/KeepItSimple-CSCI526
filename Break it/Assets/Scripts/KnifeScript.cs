@@ -632,7 +632,10 @@ public class KnifeScript : MonoBehaviour
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSecondsRealtime(0.15f);
-        GameController.Instance.SpawnKnife();
+        if(gameController.hitOnLog < gameController.knifeHitLogToWin)
+        {
+            GameController.Instance.SpawnKnife();
+        }
         if(needTime)
         {
             timeText.Reset();

@@ -603,7 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 1
   knifeCount: 13
-  knifeHitLogToWin: 8
+  knifeHitLogToWin: 10
   logBreak: {fileID: 538234765586887885, guid: 2a108984bb911214ebc2d5fe7fa3f309, type: 3}
   knifeSpawnPosition: {x: 0, y: -4}
   isInfinity: 0
@@ -631,6 +631,7 @@ MonoBehaviour:
   isExampleLevel: 1
   TipTwo: {fileID: 548494024}
   needToShowTipTwo: 0
+  notSingle: 0
   containWall: 0
   hitOnLog: 0
   containObstacle: 1
@@ -1949,7 +1950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: / 8
+  m_Text: / 10
 --- !u!222 &990566420
 CanvasRenderer:
   m_ObjectHideFlags: 0

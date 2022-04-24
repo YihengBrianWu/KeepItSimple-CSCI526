@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Final redesign/White 2.unity
     guid: 49d732654569f504bb0f91552761104d
   - enabled: 1
+    path: Assets/Scenes/Final redesign/White 3.unity
+    guid: f03271ca202b66845ae6c3613ea7458e
+  - enabled: 1
     path: Assets/Scenes/Final redesign/White 4.unity
     guid: 06d8350b7167e744c9f2d81f72402149
   - enabled: 1

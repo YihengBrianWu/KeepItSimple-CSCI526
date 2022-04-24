@@ -3992,6 +3992,7 @@ MonoBehaviour:
   isExampleLevel: 0
   TipTwo: {fileID: 0}
   needToShowTipTwo: 0
+  notSingle: 1
   containWall: 0
   hitOnLog: 0
   containObstacle: 1
@@ -4107,7 +4108,7 @@ MonoBehaviour:
   iconKnife: {fileID: 7994527066404916626, guid: 1a9f44f0ae9d54016871d479f402f43b, type: 3}
   usedKnifeIconColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   LevelUpPanel: {fileID: 640106681}
-  LogObj: {fileID: 2033461518}
+  LogObj: {fileID: 846434616}
   ScoreObj1: {fileID: 1177952278}
   ScoreObj2: {fileID: 1084447540}
   KnifeIconObj: {fileID: 865022358}

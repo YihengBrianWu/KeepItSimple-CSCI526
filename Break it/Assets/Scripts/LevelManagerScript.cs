@@ -11,7 +11,8 @@ public class LevelManagerScript : MonoBehaviour
 
     private void Start()
     {
-        int levelReachedW = PlayerPrefs.GetInt("levelReachedW", 0);
+        int levelReachedW = PlayerPrefs.GetInt("levelReachedW", 0)-2;
+        //print(levelReachedW);
         for (int i = 1; i < whites.Length; i++)
         {
             if(i > levelReachedW)
@@ -20,7 +21,7 @@ public class LevelManagerScript : MonoBehaviour
             }
         }
 
-        int levelReachedB = PlayerPrefs.GetInt("levelReachedB", 0);
+        int levelReachedB = PlayerPrefs.GetInt("levelReachedB", 0) - 12;
         for (int i = 1; i < blacks.Length; i++)
         {
             if(i > levelReachedB)
@@ -32,21 +33,21 @@ public class LevelManagerScript : MonoBehaviour
 
     private void Awake()
     {
-        int levelReachedW = PlayerPrefs.GetInt("levelReachedW", 0);
-        for (int i = 0; i < whites.Length; i++)
+        int levelReachedW = PlayerPrefs.GetInt("levelReachedW", 0) - 2;
+        for (int i = 1; i < whites.Length; i++)
         {
             if(i > levelReachedW)
             {
-                whites[1].interactable = false;
+                whites[i].interactable = false;
             }
         }
 
-        int levelReachedB = PlayerPrefs.GetInt("levelReachedB", 0);
-        for (int i = 0; i < blacks.Length; i++)
+        int levelReachedB = PlayerPrefs.GetInt("levelReachedB", 0) - 12;
+        for (int i = 1; i < blacks.Length; i++)
         {
             if(i > levelReachedB)
             {
-                blacks[1].interactable = false;
+                blacks[i].interactable = false;
             }
         }
     }
@@ -54,12 +55,14 @@ public class LevelManagerScript : MonoBehaviour
     public void SelectW(int levelName)
     {
         const int numberOfPreScene = 3;
+        //print(levelName);
+        //print(numberOfPreScene);
         SceneManager.LoadScene(levelName + numberOfPreScene);
     }
 
     public void SelectB(int levelName)
     {
-        const int numberOfPreScene = 12;
+        const int numberOfPreScene = 13;
         SceneManager.LoadScene(levelName + numberOfPreScene);
     }
 

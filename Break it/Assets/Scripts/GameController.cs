@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     private int knifeCount;
     
     [SerializeField] 
-    private int knifeHitLogToWin;
+    public int knifeHitLogToWin;
 
     [SerializeField] 
     private UnityEngine.Object logBreak;
@@ -103,10 +103,12 @@ public class GameController : MonoBehaviour
     private GameObject TipTwo;
     [SerializeField]
     private bool needToShowTipTwo = false;
+    [SerializeField]
+    private bool notSingle = true;
 
     private void Awake()
     {
-        //PlayerPrefs.SetInt("total", 25);
+        PlayerPrefs.SetInt("total", 20);
         isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
@@ -132,7 +134,7 @@ public class GameController : MonoBehaviour
     public void DestroyRandomObstacle()
     {
 
-        if(obstacleDestoryUsed)
+        if(obstacleDestoryUsed || PlayerPrefs.GetInt("total", 0) < 7)
         {
             return;
         }
@@ -287,7 +289,7 @@ public class GameController : MonoBehaviour
     private bool containObstacle = false;
     public void destoryLog()
     {
-        if (containObstacle)
+        if (containObstacle && notSingle)
         {
             GameObject.FindGameObjectWithTag("ObstacleGroup").SetActive(false);
         }
@@ -300,8 +302,6 @@ public class GameController : MonoBehaviour
     IEnumerator WaitBreak()
     {
         yield return new WaitForSeconds(0.5f);
-        GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
-        knifeToShot2.SetActive(false);
         destoryLog();
         StartCoroutine("levelUpRoutine");
     }
@@ -309,12 +309,17 @@ public class GameController : MonoBehaviour
     IEnumerator levelUpRoutine()
     {
         GameUI.showLevelUp();
-        GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
-        knifeToShot2.SetActive(false);
         music.clip = levelUp;
         music.Play();
+
+        GameObject knifeToShot2 = GameObject.FindGameObjectWithTag("Knife");
+        if(knifeToShot2)
+        {
+            knifeToShot2.SetActive(false);
+        }
         yield return new WaitForSeconds(1.0f);
-        if(currentScene >= 24)
+        //print(currentScene);
+        if(currentScene >= 25)
         {
             PlayerPrefs.SetInt("levelReachedBH", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedBH", 0)));
         }
@@ -328,7 +333,7 @@ public class GameController : MonoBehaviour
         }
         else if(currentScene >= 3)
         {
-            PlayerPrefs.SetInt("levelReachedB", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedB", 0)));
+            PlayerPrefs.SetInt("levelReachedW", Math.Max(currentScene, PlayerPrefs.GetInt("levelReachedW", 0)));
         }
 
         SceneManager.LoadScene(currentScene + 1);
@@ -338,11 +343,11 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         if (!isInfinity)
         {
-            SceneManager.LoadScene(34);
+            SceneManager.LoadScene(35);
         }
         else
         {
-            SceneManager.LoadScene(32);
+            SceneManager.LoadScene(33);
         }
     }
     public void OnSuccessfulKnifeHit()
@@ -359,7 +364,7 @@ public class GameController : MonoBehaviour
         Debug.Log("higOnLog: " + hitOnLog);
         Debug.Log("knifeHitLogToWin: " + knifeHitLogToWin);
         
-        if (hitOnLog >= knifeHitLogToWin)
+        if (hitOnLog == knifeHitLogToWin)
         {
             win = true;
             // 埋点 after win 之后的统计数据
@@ -379,8 +384,8 @@ public class GameController : MonoBehaviour
             Debug.Log(parameters.Select(kvp => kvp.ToString()).Aggregate((a, b) => a + ", " + b));
             Debug.Log(result);
 
-            // GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
-            // knifeToShot.SetActive(false);
+            //GameObject knifeToShot = GameObject.FindGameObjectWithTag("Knife");
+            //knifeToShot.SetActive(false);
             StartCoroutine("WaitBreak");
 
             return;
@@ -423,6 +428,7 @@ public class GameController : MonoBehaviour
         
     }
 
+    private bool failedBefore = false;
     public void OnFailKnifeHit()
     {
         // Debug.Log("knifeCollisionHappens: " + knifeCollisionHappens);
@@ -430,13 +436,18 @@ public class GameController : MonoBehaviour
         // Debug.Log("knifeHitWrongSection: " + knifeHitWrongSection);
         // Debug.Log("failHit: " + failHit);
 
-        if (isInfinity)
+        if (isInfinity && !failedBefore)
         {
+            failedBefore = true;
             int rewardGet = ScoreCount.HitCount / 5;
-            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total", 0) + rewardGet);
+            //print("??????");
+            //print(ScoreCount.HitCount);
+            //print(rewardGet);
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total", 0) + rewardGet);;
             StartCoroutine("WaitFail");
             return;
         }
+
         if (failHit > (knifeAmount - knifeHitLogToWin))
         {
             if (isInfinity)
