@@ -138,6 +138,9 @@ public class KnifeScript : MonoBehaviour
         {
             return;
         }
+        int bound = Screen.currentResolution.width - Screen.currentResolution.width / 6;
+        print(bound);
+
         lastVelocity = rb.velocity;
         isInView = IsInView(transform.position);
         // 来回移动功能
@@ -175,7 +178,7 @@ public class KnifeScript : MonoBehaviour
         {
             //如果计时器不为0的情况，判断是否自动发射
             if(timer > 0){
-                if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 1600)
+                if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < bound)
                 {
                     firstTime = false;
                     // if (!stopFaceMouse)
@@ -194,7 +197,7 @@ public class KnifeScript : MonoBehaviour
                 }
             
                 timer -= Time.deltaTime;
-                if (timer <= 0 && isActive && firstTime && Input.mousePosition[0] < 1600)
+                if (timer <= 0 && isActive && firstTime && Input.mousePosition[0] < bound)
                 {
                     firstTime = false;
                     // if (!stopFaceMouse)
@@ -220,7 +223,7 @@ public class KnifeScript : MonoBehaviour
 
         else
         {
-            if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < 1600)
+            if (Input.GetMouseButtonDown(0) && isActive && firstTime && Input.mousePosition[0] < bound)
             {
                 firstTime = false;
                 // if (!stopFaceMouse)

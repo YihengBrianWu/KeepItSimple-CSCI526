@@ -338,11 +338,11 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         if (!isInfinity)
         {
-            SceneManager.LoadScene(32);
+            SceneManager.LoadScene(34);
         }
         else
         {
-            SceneManager.LoadScene(34);
+            SceneManager.LoadScene(32);
         }
     }
     public void OnSuccessfulKnifeHit()
