@@ -138,26 +138,26 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        bool chooseReflect = false; // true
-        if (!containObstacle) // && !containWall
+        bool chooseReflect = true;
+        if (!containObstacle && !containWall)
         {
             return;
         }
-        // else if (!containObstacle && containWall)
-        // {
-        //     chooseReflect= true;
-        // }
-        // else if (containObstacle && !containWall)
-        // {
-        //     chooseReflect= false;
-        // }
-        // else if (containObstacle && containWall)
-        // {
-        //     if(Random.Range(0, 2) == 1)
-        //     {
-        //         chooseReflect= false;
-        //     }
-        // }
+        else if (!containObstacle && containWall)
+        {
+            chooseReflect= true;
+        }
+        else if (containObstacle && !containWall)
+        {
+            chooseReflect= false;
+        }
+        else if (containObstacle && containWall)
+        {
+            if(Random.Range(0, 2) == 1)
+            {
+                chooseReflect= false;
+            }
+        }
         obstacleDestoryUsed = true;
 
         if(!chooseReflect)
