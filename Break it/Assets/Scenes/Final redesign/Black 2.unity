@@ -283,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &135395562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3112,6 +3112,7 @@ MonoBehaviour:
   isExampleLevel: 0
   TipTwo: {fileID: 0}
   needToShowTipTwo: 0
+  notSingle: 1
   containWall: 0
   hitOnLog: 0
   containObstacle: 0

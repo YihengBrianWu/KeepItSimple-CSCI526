@@ -133,13 +133,10 @@ public class GameController : MonoBehaviour
     private bool containWall = false;
     public void DestroyRandomObstacle()
     {
-
-        if(obstacleDestoryUsed || PlayerPrefs.GetInt("total", 0) < 7)
+        if(obstacleDestoryUsed || (PlayerPrefs.GetInt("total", 0) < 7 && !isExampleLevel))
         {
             return;
         }
-        
-        obstacleDestoryUsed = true;
 
         bool chooseReflect = true;
         if (!containObstacle && !containWall)
@@ -161,6 +158,7 @@ public class GameController : MonoBehaviour
                 chooseReflect= false;
             }
         }
+        obstacleDestoryUsed = true;
 
         if(!chooseReflect)
         {
