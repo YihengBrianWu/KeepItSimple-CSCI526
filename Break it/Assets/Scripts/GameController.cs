@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("total", 20);
+        //PlayerPrefs.SetInt("total", 20);
         isPaused = false;
         Instance = this;
         GameUI = GetComponent<GameUI>();
@@ -684,6 +684,8 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
+        obstacleDestoryUsed = false;
+        knifeAdded = false;
         SceneManager.LoadScene(currentScene);
     }
     
