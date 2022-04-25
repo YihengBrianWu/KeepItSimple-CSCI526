@@ -2960,7 +2960,8 @@ MonoBehaviour:
   isExampleLevel: 0
   TipTwo: {fileID: 0}
   needToShowTipTwo: 0
-  containWall: 1
+  notSingle: 1
+  containWall: 0
   hitOnLog: 0
   containObstacle: 1
 --- !u!82 &2011133723
