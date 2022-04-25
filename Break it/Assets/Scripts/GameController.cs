@@ -133,10 +133,13 @@ public class GameController : MonoBehaviour
     private bool containWall = false;
     public void DestroyRandomObstacle()
     {
-        if(obstacleDestoryUsed || (PlayerPrefs.GetInt("total", 0) < 7 && !isExampleLevel))
+
+        if(obstacleDestoryUsed || PlayerPrefs.GetInt("total", 0) < 7)
         {
             return;
         }
+        
+        obstacleDestoryUsed = true;
 
         bool chooseReflect = true;
         if (!containObstacle && !containWall)
@@ -158,7 +161,6 @@ public class GameController : MonoBehaviour
                 chooseReflect= false;
             }
         }
-        obstacleDestoryUsed = true;
 
         if(!chooseReflect)
         {
@@ -389,7 +391,8 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        if (failHit > (knifeAmount - knifeHitLogToWin))
+        if (knifeCount <= 0)
+        //if (failHit > (knifeAmount - knifeHitLogToWin))
         {
             // Debug.Log("knifeCollisionHappens" + knifeCollisionHappens);
             // Debug.Log("knifeObstacleHappens" + knifeObstacleHappens);
@@ -446,7 +449,8 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        if (failHit > (knifeAmount - knifeHitLogToWin))
+        if (knifeCount <= 0)
+        //if (failHit > (knifeAmount - knifeHitLogToWin))
         {
             if (isInfinity)
             {
@@ -632,32 +636,29 @@ public class GameController : MonoBehaviour
 
     }
 
-    private bool knifeAdded = false;
+    //private bool knifeAdded = false;
+    private int knifeAdded = 1;
     public void addKnifes()
     {
-        if(PlayerPrefs.GetInt("total") < 5 && !isExampleLevel)
+        if(PlayerPrefs.GetInt("total") < 5 * knifeAdded && !isExampleLevel)
         {
             return;
         }
 
-        if (!knifeAdded)
+        knifeAmount += 3;
+        knifeCount += 3;
+        GameUI.panelAddKnifes();
+        if (isExampleLevel)
         {
-            knifeAmount += 3;
-            knifeCount += 3;
-            GameUI.panelAddKnifes();
-            knifeAdded = true;
-            if (isExampleLevel)
-            {
-                TipTwo.SetActive(true);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5);
-            }
-
-            music.clip = getKnives;
-            music.Play();
+            TipTwo.SetActive(true);
         }
+        else
+        {
+            PlayerPrefs.SetInt("total", PlayerPrefs.GetInt("total") - 5 * knifeAdded);
+        }
+        knifeAdded += 1;
+        music.clip = getKnives;
+        music.Play();
     }
     public void PauseGame()
     {
@@ -683,7 +684,7 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1;
         obstacleDestoryUsed = false;
-        knifeAdded = false;
+        knifeAdded = 1;
         SceneManager.LoadScene(currentScene);
     }
     
